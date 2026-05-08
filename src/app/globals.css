@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --background: #fdfcf7;
+  --foreground: #002d25;
+  --primary: #004d40;
+  --secondary: #c5a028; /* Liquid Gold */
+  --accent: #e0f2f1;
+  --glass: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --shadow-sm: 0 10px 20px rgba(0, 77, 64, 0.05);
+  --shadow-md: 0 20px 40px rgba(0, 77, 64, 0.08);
+  --shadow-lg: 0 30px 60px rgba(0, 77, 64, 0.12);
+  --radius-xl: 48px;
+  --radius-lg: 24px;
+  
+  /* Fluid Spacing & Sizing */
+  --section-padding: clamp(120px, 20vw, 320px);
+  --h1-size: clamp(5rem, 20vw, 18rem);
+  --p-size: clamp(1.1rem, 1.4vw, 1.4rem);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  cursor: none !important; 
+}
+
+@media (max-width: 1024px) {
+  * { cursor: auto !important; }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Tactile Grain Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Custom Liquid Cursor (Gooey effect via JS/SVG) */
+#custom-cursor {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  background: var(--secondary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.4s;
+  filter: drop-shadow(0 0 10px rgba(197, 160, 40, 0.3));
+}
+
+#custom-cursor.hovered {
+  width: 140px;
+  height: 140px;
+  background: rgba(197, 160, 40, 0.15);
+  border: 1px solid var(--secondary);
+  backdrop-filter: blur(8px);
+}
+
+/* Animated Mesh Background */
+.mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: 
+    radial-gradient(at 0% 0%, rgba(0, 77, 64, 0.07) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(197, 160, 40, 0.07) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(0, 77, 64, 0.03) 0px, transparent 80%);
+  filter: blur(60px);
+  animation: mesh-move 20s infinite alternate ease-in-out;
+  will-change: transform;
+}
+
+@keyframes mesh-move {
+  0% { transform: scale(1) translate(0,0); }
+  100% { transform: scale(1.2) translate(5%, 5%); }
+}
+
+/* Elite Typography */
+.h1-hero {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: var(--h1-size);
+  line-height: 0.72;
+  letter-spacing: -0.07em;
+  margin-bottom: 24px;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px var(--primary);
+  color: transparent;
+}
+
+/* 32-Year Legacy Badge */
+.legacy-badge {
+  position: fixed;
+  top: 80px;
+  right: 80px;
+  width: 160px;
+  height: 160px;
+  z-index: 500;
+}
+
+.legacy-badge svg {
+  width: 100%;
+  height: 100%;
+  animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Layout Stability */
+.section-container {
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 0 clamp(32px, 10vw, 160px);
+}
+
+/* Editorial Reveal Cards */
+.reveal-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 77, 64, 0.02);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.reveal-card .image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.reveal-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.85;
+}
+
+.reveal-card:hover img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.reveal-card .content-overlay {
+  position: relative;
+  z-index: 1;
+  padding: clamp(40px, 6vw, 100px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(253, 252, 247, 0.2), rgba(253, 252, 247, 0.95) 80%);
+}
+
+.reveal-card:hover {
+  transform: translateY(-30px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Awwwards Style Buttons */
+.awwwards-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 72px;
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  border-radius: 100px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--primary);
+  text-decoration: none;
+  transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.awwwards-btn::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+}
+
+.awwwards-btn:hover {
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 77, 64, 0.15);
+}
+
+.awwwards-btn:hover::before {
+  top: 0;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .section-container { padding: 0 32px; }
+  .h1-hero { letter-spacing: -0.04em; }
+  .legacy-badge { 
+    top: 40px;
+    right: 32px;
+    width: 100px;
+    height: 100px;
+  }
+}
