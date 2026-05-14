@@ -8,7 +8,7 @@ import Magnetic from "@/components/Magnetic";
 
 const milestones = [
   { year: '1994', title: 'Founded', te: 'స్థాపించబడింది', desc: 'Started as a small textile shop in One Town, Vijayawada. ఒక చిన్న దుకాణంతో మొదలైంది.' },
-  { year: '2000', title: 'Wholesale Leap', te: 'హెూల్ సేల్ విస్తరణ', desc: 'Transitioned to exclusive wholesale, partnering with 100+ retailers across AP.' },
+  { year: '2000', title: 'Wholesale Leap', te: 'హోల్ సేల్ విస్తరణ', desc: 'Transitioned to exclusive wholesale, partnering with 100+ retailers across AP.' },
   { year: '2010', title: 'Fandy Silk', te: '', desc: 'Launched the signature Fandy Silk line — now our most iconic product range.' },
   { year: '2022', title: 'New Premises', te: '', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
   { year: '2024', title: '32 Years Strong', te: '32 సంవత్సరాలు', desc: '500+ retail partners across Andhra Pradesh & Telangana. విశ్వసనీయత కొనసాగుతుంది.' },
