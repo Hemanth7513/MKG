@@ -182,7 +182,7 @@ export default function HomePage() {
 
       {/* ═══ FOOTER ═══ */}
       <footer style={{ padding: "clamp(80px,12vw,160px) 0", background: "#001a15", color: "#fff", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(197,160,40,0.05) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "100%", height: "100%", maxWidth: 600, maxHeight: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(197,160,40,0.05) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div className="section-container" style={{ position: "relative" }}>
           <motion.h2
             initial={{ y: 60, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}
