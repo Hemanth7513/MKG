@@ -31,43 +31,20 @@ export default function Navbar() {
       initial={{ y: -100, x: "-50%" }}
       animate={{ y: 0, x: "-50%" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      style={{
-        position: 'fixed',
-        top: scrolled ? '20px' : '40px',
-        left: '50%',
-        width: scrolled ? 'calc(100% - 80px)' : 'calc(100% - 40px)',
-        maxWidth: scrolled ? '1200px' : '1600px',
-        padding: scrolled ? '12px 32px' : '24px 60px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        zIndex: 2000,
-        borderRadius: '100px',
-        background: scrolled ? 'rgba(255,255,255,0.85)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        border: scrolled ? '1px solid rgba(0,77,64,0.1)' : '1px solid transparent',
-        transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-        boxShadow: scrolled ? '0 20px 40px rgba(0,77,64,0.05)' : 'none',
-      }}
+      className={`nav-container ${scrolled ? 'scrolled' : ''}`}
     >
       <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
         <Logo size={scrolled ? 32 : 40} />
       </Link>
 
-      <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
+      <div className="nav-links">
         {navLinks.map((link) => (
           <Link
             key={link.path}
             href={link.path}
+            className="nav-link-item"
             style={{
-              textDecoration: 'none',
-              color: 'var(--primary)',
-              fontWeight: 800,
-              fontSize: '0.7rem',
-              letterSpacing: '3px',
-              position: 'relative',
               opacity: pathname === link.path ? 1 : 0.5,
-              transition: 'opacity 0.3s',
             }}
           >
             {link.name}

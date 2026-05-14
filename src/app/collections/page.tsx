@@ -148,7 +148,7 @@ export default function CollectionsPage() {
       {/* ── GRID ── */}
       <section style={{ padding: '80px 0' }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '32px' }}>
+          <div className="grid-editorial">
             {categories.map((cat, i) => {
               const isLarge = i % 3 === 0;
               return (
@@ -159,17 +159,16 @@ export default function CollectionsPage() {
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.9, delay: (i % 3) * 0.12 }}
                   style={{
-                    gridColumn: isLarge ? 'span 7' : 'span 5',
                     height: isLarge ? '640px' : '520px',
                     marginTop: i % 2 === 1 ? '60px' : '0',
                   }}
-                  className="cat-card"
+                  className={`cat-card ${isLarge ? 'col-span-7' : 'col-span-5'}`}
                 >
                   <Image src={cat.img} alt={t(cat.key)} fill style={{ objectFit: 'cover' }} className="cat-card-img" />
                   <div className="cat-card-overlay">
                     <div className="cat-tag">{cat.tag}</div>
                     <div>
-                      <h2 style={{ fontFamily: 'Syne', fontSize: isLarge ? '3.5rem' : '2.5rem', fontWeight: 800, color: 'white', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1 }}>
+                      <h2 style={{ fontFamily: 'Syne', fontSize: isLarge ? 'clamp(2rem, 5vw, 3.5rem)' : 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'white', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1 }}>
                         {t(cat.key)}
                       </h2>
                       <p style={{ color: 'white', opacity: 0.55, fontSize: '0.95rem', lineHeight: 1.7, maxWidth: '340px', marginBottom: '32px' }}>{cat.desc}</p>

@@ -83,12 +83,13 @@ export default function ContactPage() {
       {/* ── MAIN GRID ── */}
       <section style={{ padding: "0 0 80px" }}>
         <div className="section-container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: "clamp(24px, 4vw, 64px)", alignItems: "start" }}>
+          <div className="grid-editorial" style={{ alignItems: "start" }}>
 
             {/* ─ LEFT: Contact actions + Info ─ */}
             <motion.div
               initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9 }}
-              style={{ gridColumn: "span 5", display: "flex", flexDirection: "column", gap: "24px" }}
+              className="col-span-5"
+              style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
               {/* Action buttons */}
               {contactActions.map((a, i) => (
@@ -158,7 +159,8 @@ export default function ContactPage() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.1, delay: 0.2 }}
-              style={{ gridColumn: "span 7", position: "sticky", top: "120px" }}
+              className="col-span-7"
+              style={{ position: "sticky", top: "120px" }}
             >
               <div style={{ borderRadius: "var(--radius-xl)", overflow: "hidden", boxShadow: "var(--shadow-lg)", border: "1px solid rgba(0,77,64,0.08)", height: "clamp(400px, 60vh, 700px)", position: "relative" }}>
                 <iframe

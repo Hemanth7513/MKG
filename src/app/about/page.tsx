@@ -49,13 +49,13 @@ export default function AboutPage() {
       {/* ── INTRO ── */}
       <section style={{ padding: '0 0 80px' }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '64px', alignItems: 'center' }}>
+          <div className="grid-editorial" style={{ alignItems: 'center' }}>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              style={{ gridColumn: 'span 5' }}
+              className="col-span-5"
             >
               <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontFamily: 'Syne', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.1, textTransform: 'uppercase', marginBottom: '36px' }}>
                 Three Decades<br />of Trust
@@ -78,7 +78,8 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2 }}
-              style={{ gridColumn: 'span 7', height: '680px', borderRadius: 'var(--radius-xl)', overflow: 'hidden', position: 'relative', boxShadow: 'var(--shadow-lg)' }}
+              className="col-span-7"
+              style={{ height: 'clamp(400px, 60vh, 680px)', borderRadius: 'var(--radius-xl)', overflow: 'hidden', position: 'relative', boxShadow: 'var(--shadow-lg)' }}
             >
               <Image src="/images/heritage.png" alt="Heritage Weaving" fill style={{ objectFit: 'cover' }} />
               {/* Floating badge overlay */}
@@ -139,11 +140,12 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.9 }}
+                  className="timeline-wrapper"
                   style={{ display: 'flex', justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end', position: 'relative' }}
                 >
                   {/* Center dot */}
                   <div className="timeline-dot" style={{ position: 'absolute', left: '50%', top: '28px', transform: 'translate(-50%, -50%)', zIndex: 2 }} />
-                  <div style={{ width: '44%', padding: '40px 48px', background: 'white', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)', border: '1px solid rgba(0,77,64,0.06)' }}>
+                  <div className="timeline-card">
                     <span style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '3rem', color: 'var(--secondary)', opacity: 0.3, lineHeight: 1 }}>{m.year}</span>
                     <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '1.8rem', color: 'var(--primary)', marginTop: '8px', marginBottom: '6px' }}>{m.title}</h3>
                     <p style={{ color: 'var(--secondary)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '3px', marginBottom: '16px' }}>{m.te}</p>
