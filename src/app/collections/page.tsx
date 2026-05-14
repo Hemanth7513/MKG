@@ -86,7 +86,7 @@ export default function CollectionsPage() {
                 </motion.span>
                 <motion.h1
                   initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                  className="h1-hero" style={{ fontSize: 'clamp(4rem, 12vw, 11rem)', lineHeight: 0.85 }}
+                  className="h1-hero" style={{ fontSize: 'clamp(2.5rem, 10vw, 11rem)', lineHeight: 0.85 }}
                 >
                   DISCOVERY
                 </motion.h1>

@@ -55,7 +55,7 @@ export default function HomePage() {
             <motion.div variants={stagger} initial="hidden" animate="show" style={{ marginTop: 32 }}>
               <motion.h1 variants={fadeUp} className="h1-hero" style={{ marginBottom: 0 }}>MOHAN</motion.h1>
               <motion.h1 variants={fadeUp} className="h1-hero text-outline" style={{ marginBottom: 0 }}>KRISHNA</motion.h1>
-              <motion.div variants={fadeUp} style={{ marginTop: 20, display: "flex", alignItems: "center", gap: 16 }}>
+              <motion.div variants={fadeUp} style={{ marginTop: 20, display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
                 <span style={{ fontSize: "clamp(0.9rem,1.5vw,1.2rem)", color: "var(--secondary)", fontWeight: 700, letterSpacing: "3px" }}>
                   GARMENTS &amp; CLOTH
                 </span>
@@ -187,7 +187,7 @@ export default function HomePage() {
           <motion.h2
             initial={{ y: 60, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}
             transition={{ duration: 1.3 }}
-            style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(3.5rem,16vw,13rem)", letterSpacing: "-0.07em", lineHeight: 0.85, textAlign: "center", marginBottom: 20 }}
+            style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(2.5rem,14vw,13rem)", letterSpacing: "-0.07em", lineHeight: 0.85, textAlign: "center", marginBottom: 20 }}
           >
             MOHAN<br />KRISHNA
           </motion.h2>

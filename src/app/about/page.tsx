@@ -39,7 +39,7 @@ export default function AboutPage() {
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
-            className="h1-hero" style={{ fontSize: 'clamp(4rem, 14vw, 13rem)' }}
+            className="h1-hero" style={{ fontSize: 'clamp(2.5rem, 12vw, 13rem)', lineHeight: 0.85 }}
           >
             OUR<br /><span className="text-outline">LEGACY</span>
           </motion.h1>
