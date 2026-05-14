@@ -6,6 +6,7 @@ import CustomCursor from "@/components/CustomCursor";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 import type { Viewport } from "next";
 
@@ -45,6 +46,11 @@ export default function RootLayout({
             {children}
           </PageTransition>
           <Analytics />
+          {/* ═══ NOUPE AI WIDGET ═══ */}
+          <Script 
+            src="https://www.noupe.com/embed/019e0775ed4c75689ee8193b178882ea9d9f.js" 
+            strategy="afterInteractive" 
+          />
         </LanguageProvider>
       </body>
     </html>
