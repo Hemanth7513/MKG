@@ -1,25 +1,29 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const mouseX = useMotionValue(-100);
-  const mouseY = useMotionValue(-100);
-
-  // High-performance spring configuration for premium zero-latency trailing parallax
-  const springConfig = { damping: 28, stiffness: 300, mass: 0.4 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    // Enable custom cursor exclusively on non-touch desktop screens
+    const checkScreen = () => {
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      setIsDesktop(!isTouch && window.innerWidth > 1024);
+    };
+    
+    checkScreen();
+    window.addEventListener('resize', checkScreen, { passive: true });
+
+    const cursor = document.getElementById('custom-cursor');
+    if (!cursor) return;
+
+    // Use direct native DOM translation for lightning-fast zero-latency hardware tracking
     const moveCursor = (e: MouseEvent) => {
-      if (!isVisible) setIsVisible(true);
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      if (cursor.style.opacity !== '1') {
+        cursor.style.opacity = '1';
+      }
     };
 
     const handleHover = (e: MouseEvent) => {
@@ -32,32 +36,36 @@ export default function CustomCursor() {
         target.tagName === 'SELECT' ||
         target.closest('.magnetic-wrap');
         
-      setIsHovered(!!isInteractive);
+      if (isInteractive) {
+        cursor.classList.add('hovered');
+      } else {
+        cursor.classList.remove('hovered');
+      }
     };
 
     window.addEventListener('mousemove', moveCursor, { passive: true });
     window.addEventListener('mouseover', handleHover, { passive: true });
+    
     return () => {
+      window.removeEventListener('resize', checkScreen);
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleHover);
     };
-  }, [mouseX, mouseY, isVisible]);
+  }, []);
+
+  if (!isDesktop) return null;
 
   return (
-    <motion.div 
+    <div 
       id="custom-cursor" 
-      className={isHovered ? 'hovered' : ''}
       style={{ 
-        x: cursorX, 
-        y: cursorY, 
-        translateX: '-50%', 
-        translateY: '-50%',
         position: 'fixed',
         left: 0,
         top: 0,
-        display: isVisible ? 'block' : 'none',
+        opacity: 0, // starts fully hidden until initial hardware mouse movement
         pointerEvents: 'none',
-        zIndex: 10000
+        zIndex: 10000,
+        willChange: 'transform'
       }}
     />
   );

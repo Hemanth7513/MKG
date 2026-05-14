@@ -65,12 +65,13 @@ body {
   opacity: 1;
 }
 #custom-cursor.hovered {
-  width: 80px; height: 80px;
-  background: linear-gradient(135deg, rgba(0, 77, 64, 0.12) 0%, rgba(197, 160, 40, 0.12) 100%);
-  border: 1.5px solid rgba(197, 160, 40, 0.6);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px rgba(0, 77, 64, 0.15);
-  opacity: 1;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 2px solid var(--secondary);
+  backdrop-filter: none;
+  box-shadow: 0 0 12px rgba(197, 160, 40, 0.4);
+  opacity: 0.95;
 }
 
 /* ─── ANIMATED MESH BG ───────────────────────────────── */
