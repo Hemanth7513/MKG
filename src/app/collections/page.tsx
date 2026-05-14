@@ -198,7 +198,7 @@ export default function CollectionsPage() {
           >
             <div>
               <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 4rem)', color: 'var(--primary)', lineHeight: 1.1, marginBottom: '16px' }}>
-                హోల్ సేల్ కోసం<br />సంప్రదించండి
+                PARTNER FOR<br />WHOLESALE
               </h3>
               <p style={{ opacity: 0.5, fontSize: '1rem', fontWeight: 600 }}>Ready to stock? Get bulk pricing & catalogue.</p>
             </div>

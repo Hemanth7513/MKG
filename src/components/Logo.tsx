@@ -27,25 +27,31 @@ export default function Logo({ size = 50 }: { size?: number }) {
       </svg>
       
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <h1 style={{ 
-          fontSize: '1.2rem', 
-          margin: 0, 
-          color: 'var(--primary)', 
-          fontWeight: 900, 
-          letterSpacing: '1px',
-          fontFamily: "'Playfair Display', serif",
-          lineHeight: 1
-        }}>
+        <h1 
+          spellCheck={false}
+          style={{ 
+            fontSize: '1.2rem', 
+            margin: 0, 
+            color: 'var(--primary)', 
+            fontWeight: 900, 
+            letterSpacing: '1px',
+            fontFamily: "'Playfair Display', serif",
+            lineHeight: 1
+          }}
+        >
           MOHAN KRISHNA
         </h1>
-        <span style={{ 
-          fontSize: '0.6rem', 
-          textTransform: 'uppercase', 
-          letterSpacing: '5px', 
-          fontWeight: 900,
-          color: 'var(--secondary)',
-          marginTop: '2px'
-        }}>
+        <span 
+          spellCheck={false}
+          style={{ 
+            fontSize: '0.6rem', 
+            textTransform: 'uppercase', 
+            letterSpacing: '5px', 
+            fontWeight: 900,
+            color: 'var(--secondary)',
+            marginTop: '2px'
+          }}
+        >
           EST. 1994
         </span>
       </div>

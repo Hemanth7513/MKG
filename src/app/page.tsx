@@ -25,9 +25,9 @@ const fadeUp = {
 };
 
 const marqueeItems = [
-  "Mohan Krishna Garments", "మోహన్ కృష్ణ గర్మెంట్స్", "मोहन कृष्णा गारमेंट्स",
+  "Mohan Krishna Garments", "మోహన్ కృష్ణ గార్మెంట్స్", "मोहन कृष्णा गारमेंट्स",
   "32 Years of Wholesale Trust", "32 సంవత్సరాల నమ్మకం", "32 वर्षों का विश्वास",
-  "Vijayawada's Premier Landmark", "విజయవాడ హెూల్ సేల్ సెంటర్", "विजयवाड़ा थोक केंद्र",
+  "Vijayawada's Premier Landmark", "విజయవాడ హోల్ సేల్ సెంటర్", "विजयवाड़ा थोक केंद्र",
   "Since 1994", "Wholesale Excellence"
 ];
 
@@ -124,7 +124,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 style={{
                   padding: "44px 40px",
                   background: s.bg,
@@ -133,6 +133,9 @@ export default function HomePage() {
                   position: "relative",
                   overflow: "hidden",
                   cursor: "default",
+                  willChange: "transform",
+                  backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden",
                 }}
               >
                 {/* subtle fabric dot pattern */}

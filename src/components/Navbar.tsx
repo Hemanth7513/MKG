@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <nav className={`nav-container ${scrolled ? 'scrolled' : ''}`}>
-      <Link href="/" className="nav-logo-link">
+      <Link href="/" className="nav-logo-link" style={{ textDecoration: 'none' }}>
         <Logo size={scrolled ? 32 : 40} />
       </Link>
 
