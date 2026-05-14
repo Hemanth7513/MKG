@@ -82,7 +82,7 @@ export default function CollectionsPage() {
                   initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                   style={{ display: 'block', color: 'var(--secondary)', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '8px', textTransform: 'uppercase', marginBottom: '16px' }}
                 >
-                  మా కలెక్షన్స్ • The Catalogue
+                  The Catalogue
                 </motion.span>
                 <motion.h1
                   initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
@@ -99,7 +99,51 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <MarqueeStrip items={['3 పీస్ సెట్స్', '3 Piece Sets', 'లెహంగాలు', 'Lehangas', 'నైటీలు', 'Nighties', 'లెగ్గింగ్స్', 'Leggings', 'ఫ్యాన్సీ వేర్', 'Fancy Wear']} />
+      <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nighties', 'Leggings', 'Fancy Wear', 'Fandy Silk', 'Cotton Sets', 'Party Wear']} />
+
+      {/* ── FRESH STOCK NOTICE ── */}
+      <div style={{ padding: '0 0 48px' }}>
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '20px',
+              padding: '20px 32px',
+              background: 'rgba(197,160,40,0.07)',
+              border: '1px dashed rgba(197,160,40,0.35)',
+              borderRadius: 'var(--radius-lg)',
+              flexWrap: 'wrap',
+            }}
+          >
+            {/* Pulsing dot */}
+            <div style={{ position: 'relative', flexShrink: 0 }}>
+              <div style={{ width: 10, height: 10, borderRadius: '50%', background: 'var(--secondary)' }} />
+              <div style={{
+                position: 'absolute', inset: -4,
+                borderRadius: '50%',
+                border: '1.5px solid var(--secondary)',
+                opacity: 0.4,
+                animation: 'ping 1.8s ease-out infinite',
+              }} />
+            </div>
+            <div style={{ flex: 1 }}>
+              <span style={{ fontWeight: 800, fontSize: '0.7rem', letterSpacing: '5px', color: 'var(--secondary)', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
+                Fresh Stock · Every 10 Days
+              </span>
+              <p style={{ opacity: 0.5, fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>
+                New collections arrive at our store every 10 days — visit or contact us to see the latest additions before they reach the shelves.
+              </p>
+            </div>
+            <span className="pill-badge pill-badge-gold" style={{ flexShrink: 0 }}>
+              Updated Regularly
+            </span>
+          </motion.div>
+        </div>
+      </div>
 
       {/* ── GRID ── */}
       <section style={{ padding: '80px 0' }}>
