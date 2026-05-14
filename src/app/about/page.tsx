@@ -7,9 +7,8 @@ import { useRef } from "react";
 import Magnetic from "@/components/Magnetic";
 
 const milestones = [
-  { year: '1994', title: 'Founded', te: 'స్థాపించబడింది', desc: 'Started as a small textile shop in One Town, Vijayawada. ఒక చిన్న దుకాణంతో మొదలైంది.' },
-  { year: '2000', title: 'Wholesale Leap', te: 'హోల్ సేల్ విస్తరణ', desc: 'Transitioned to exclusive wholesale, partnering with 100+ retailers across AP.' },
-  { year: '2010', title: 'Fandy Silk', te: '', desc: 'Launched the signature Fandy Silk line — now our most iconic product range.' },
+  { year: '1994', title: 'Founded', te: 'స్థాపించబడింది', desc: 'Started as a wholesale dealer from our home in Vijayawada.' },
+  { year: '2000', title: 'First Shop', te: '', desc: 'Opened our first dedicated shop in One Town, expanding our wholesale reach across AP.' },
   { year: '2022', title: 'New Premises', te: '', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
   { year: '2024', title: '32 Years Strong', te: '32 సంవత్సరాలు', desc: '500+ retail partners across Andhra Pradesh & Telangana. విశ్వసనీయత కొనసాగుతుంది.' },
 ];
@@ -61,10 +60,10 @@ export default function AboutPage() {
                 Three Decades<br />of Trust
               </h2>
               <p style={{ opacity: 0.65, fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '24px' }}>
-                Founded in 1994, Mohan Krishna Garments has grown from a local textile shop into Vijayawada's landmark wholesale destination.
+                Founded in 1994, Mohan Krishna Garments started as a home-based wholesale dealer and has grown into Vijayawada's landmark wholesale destination.
               </p>
               <p style={{ opacity: 0.5, fontSize: '1rem', lineHeight: 1.9 }}>
-                Founded in 1994, Mohan Krishna Garments has grown from a local shop into Vijayawada's landmark wholesale destination — sourcing directly from master weavers in Ahmedabad, Surat &amp; Hyderabad.
+                From our humble beginnings at home, we have grown to source directly from master weavers in Ahmedabad, Surat &amp; Hyderabad, serving hundreds of retailers.
               </p>
               <div style={{ marginTop: '48px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                 <span className="pill-badge">విజయవాడ</span>

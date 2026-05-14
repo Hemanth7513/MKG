@@ -12,7 +12,7 @@ const categories = [
   {
     id: '3piece', key: 'cat_3piece', te: '3 పీస్ సెట్స్', img: '/images/silk.png',
     tag: 'BESTSELLER', color: '#004d40',
-    desc: 'Premium 3-piece sets, including exclusive Fandy Silk collections. హెరిటేజ్ నేత మరియు ఆధునిక డిజైన్.',
+    desc: 'Premium 3-piece sets with modern design and heritage weave. హెరిటేజ్ నేత మరియు ఆధునిక డిజైన్.',
   },
   {
     id: 'lehangas', key: 'cat_lehangas', te: 'లెహంగాలు', img: '/images/lehanga.png',
@@ -99,7 +99,7 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nighties', 'Leggings', 'Fancy Wear', 'Fandy Silk', 'Cotton Sets', 'Party Wear']} />
+      <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nighties', 'Leggings', 'Fancy Wear', 'Cotton Sets', 'Party Wear']} />
 
       {/* ── FRESH STOCK NOTICE ── */}
       <div style={{ padding: '0 0 48px' }}>
