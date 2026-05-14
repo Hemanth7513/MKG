@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useSpring } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  const mouseX = useSpring(0, { stiffness: 1000, damping: 100, mass: 0.1 });
-  const mouseY = useSpring(0, { stiffness: 1000, damping: 100, mass: 0.1 });
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {

@@ -535,15 +535,15 @@ body {
 .process-number {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 6rem;
+  font-size: 5.5rem;
   line-height: 1;
   color: var(--secondary);
-  opacity: 0.12;
+  opacity: 1;
   position: absolute;
-  top: -8px; right: 24px;
-  transition: opacity 0.4s;
+  top: 16px; right: 24px;
+  transition: transform 0.4s;
 }
-.process-card:hover .process-number { opacity: 0.22; }
+.process-card:hover .process-number { transform: scale(1.05); }
 
 /* ─── FLOATING ANIMATIONS ────────────────────────────── */
 @keyframes float-y {

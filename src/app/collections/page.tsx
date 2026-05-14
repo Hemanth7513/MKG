@@ -10,29 +10,29 @@ import MarqueeStrip from "@/components/MarqueeStrip";
 
 const categories = [
   {
-    id: '3piece', key: 'cat_3piece', te: '3 పీస్ సెట్స్', img: '/images/silk.png',
+    id: '3piece', key: 'cat_3piece', img: '/images/silk.png',
     tag: 'BESTSELLER', color: '#004d40',
-    desc: 'Premium 3-piece sets with modern design and heritage weave. హెరిటేజ్ నేత మరియు ఆధునిక డిజైన్.',
+    desc: 'Premium 3-piece sets with modern design and heritage weave.',
   },
   {
-    id: 'lehangas', key: 'cat_lehangas', te: 'లెహంగాలు', img: '/images/lehanga.png',
+    id: 'lehangas', key: 'cat_lehangas', img: '/images/lehanga.png',
     tag: 'BRIDAL', color: '#8B1A3A',
     desc: 'Designer lehangas and traditional wear for exclusive occasions.',
   },
   {
-    id: 'nighty', key: 'cat_nighty', te: 'నైటీలు', img: '/images/nighty.png',
+    id: 'nighty', key: 'cat_nighty', img: '/images/nighty.png',
     tag: 'COMFORT', color: '#2d4a6b',
-    desc: 'Elite comfort cotton nighties with contemporary prints. మెత్తని కాటన్ నైటీలు.',
+    desc: 'Elite comfort cotton nighties with contemporary prints.',
   },
   {
-    id: 'leggings', key: 'cat_leggings', te: 'లెగ్గింగ్స్', img: '/images/leggings.png',
+    id: 'leggings', key: 'cat_leggings', img: '/images/leggings.png',
     tag: '50+ SHADES', color: '#5a3a7a',
-    desc: 'High-stretch premium leggings in 50+ vibrant shades. 50+ రంగులలో లెగ్గింగ్స్.',
+    desc: 'High-stretch premium leggings in 50+ vibrant shades.',
   },
   {
-    id: 'fancy', key: 'cat_fancy', te: 'ఫ్యాన్సీ వేర్', img: '/images/fancy.png',
+    id: 'fancy', key: 'cat_fancy', img: '/images/fancy.png',
     tag: 'TRENDING', color: '#7a3a1a',
-    desc: 'Trending fancy wear and western fusion. ట్రెండింగ్ ఫ్యాన్సీ వేర్.',
+    desc: 'Trending fancy wear and western fusion.',
   },
 ];
 

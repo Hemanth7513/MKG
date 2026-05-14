@@ -5,14 +5,9 @@ import { useState, useEffect } from "react";
 
 const messages = [
   { text: "32 YEARS OF WHOLESALE TRUST", lang: "en" },
-  { text: "32 ఏళ్ళ హోల్ సేల్ నమ్మకం", lang: "te" },
-  { text: "32 वर्षों का थोक विश्वास", lang: "hi" },
-  { text: "VIJAYAWADA'S FINEST", lang: "en" },
-  { text: "విజయవాడ ఫ్యాషన్ కేంద్రం", lang: "te" },
-  { text: "विजयवाड़ा का श्रेष्ठ थोक केंद्र", lang: "hi" },
+  { text: "VIJAYAWADA'S FINEST WHOLESALE", lang: "en" },
   { text: "QUALITY IN EVERY THREAD", lang: "en" },
-  { text: "ప్రతి దారంలో నాణ్యత", lang: "te" },
-  { text: "हर धागे में गुणवत्ता", lang: "hi" },
+  { text: "CURATED WHOLESALE FASHION", lang: "en" },
 ];
 
 export default function LanguageTicker() {

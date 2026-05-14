@@ -7,16 +7,16 @@ import { useRef } from "react";
 import Magnetic from "@/components/Magnetic";
 
 const milestones = [
-  { year: '1994', title: 'Founded', te: 'స్థాపించబడింది', desc: 'Started as a wholesale dealer from our home in Vijayawada.' },
-  { year: '2000', title: 'First Shop', te: '', desc: 'Opened our first dedicated wholesale shop in Gayatri Towers, near Vijayawada Old Bus Stand.' },
-  { year: '2022', title: 'New Premises', te: '', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
-  { year: '2024', title: '32 Years Strong', te: '32 సంవత్సరాలు', desc: '500+ retail partners across Andhra Pradesh & Telangana. విశ్వసనీయత కొనసాగుతుంది.' },
+  { year: '1994', title: 'Founded', desc: 'Started as a wholesale dealer from our home in Vijayawada.' },
+  { year: '2000', title: 'First Shop', desc: 'Opened our first dedicated wholesale shop in Gayatri Towers, near Vijayawada Old Bus Stand.' },
+  { year: '2022', title: 'New Premises', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
+  { year: '2024', title: '32 Years Strong', desc: '500+ retail partners across Andhra Pradesh & Telangana.' },
 ];
 
 const values = [
-  { title: 'INTEGRITY', te: 'నిజాయితీ', desc: 'Honest dealings and transparent pricing for 32 years.', icon: '⚖️' },
-  { title: 'QUALITY', te: 'నాణ్యత', desc: 'Every stitch inspected, every fabric hand-picked.', icon: '✦' },
-  { title: 'PARTNERSHIP', te: 'భాగస్వామ్యం', desc: 'మేము పెరిగినప్పుడు మీరు పెరుగుతారు. We grow when our retail partners grow.', icon: '◈' },
+  { title: 'INTEGRITY', desc: 'Honest dealings and transparent pricing for 32 years.', icon: '⚖️' },
+  { title: 'QUALITY', desc: 'Every stitch inspected, every fabric hand-picked.', icon: '✦' },
+  { title: 'PARTNERSHIP', desc: 'We grow when our retail partners grow.', icon: '◈' },
 ];
 
 export default function AboutPage() {
@@ -66,9 +66,9 @@ export default function AboutPage() {
                 From our humble beginnings at home, we have grown to source directly from master weavers in Ahmedabad, Surat &amp; Hyderabad, serving hundreds of retailers.
               </p>
               <div style={{ marginTop: '48px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                <span className="pill-badge">విజయవాడ</span>
+                <span className="pill-badge">Vijayawada</span>
                 <span className="pill-badge pill-badge-gold">32 Years</span>
-                <span className="pill-badge">ఆంధ్రప్రదేశ్</span>
+                <span className="pill-badge">Andhra Pradesh</span>
               </div>
             </motion.div>
 
@@ -133,7 +133,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 5rem)', color: 'var(--primary)', marginBottom: '80px', textTransform: 'uppercase', letterSpacing: '-0.04em' }}
           >
-            Our Journey<br /><span style={{ color: 'var(--secondary)', fontSize: '0.5em', letterSpacing: '8px', fontFamily: 'Bricolage Grotesque' }}>మా ప్రయాణం</span>
+            Our Journey
           </motion.h2>
 
           <div style={{ position: 'relative' }}>
@@ -156,7 +156,6 @@ export default function AboutPage() {
                   <div className="timeline-card" style={{ background: softColors[i % softColors.length] }}>
                     <span style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '3rem', color: 'var(--secondary)', opacity: 0.3, lineHeight: 1 }}>{m.year}</span>
                     <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '1.8rem', color: 'var(--primary)', marginTop: '8px', marginBottom: '6px' }}>{m.title}</h3>
-                    {m.te && <p style={{ color: 'var(--secondary)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '3px', marginBottom: '16px' }}>{m.te}</p>}
                     <p style={{ opacity: 0.6, lineHeight: 1.8 }}>{m.desc}</p>
                   </div>
                 </motion.div>
@@ -176,7 +175,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '8px', marginBottom: '64px', opacity: 0.4, textTransform: 'uppercase' }}
           >
-            మా విలువలు • OUR VALUES
+            OUR VALUES
           </motion.h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '32px' }}>
             {values.map((v, i) => (
@@ -190,7 +189,6 @@ export default function AboutPage() {
               >
                 <span style={{ fontSize: '2rem', marginBottom: '24px', display: 'block' }}>{v.icon}</span>
                 <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '1.6rem', color: 'var(--secondary)', marginBottom: '6px' }}>{v.title}</h3>
-                <p style={{ color: 'var(--primary)', opacity: 0.4, fontSize: '0.7rem', fontWeight: 800, letterSpacing: '3px', marginBottom: '20px' }}>{v.te}</p>
                 <p style={{ opacity: 0.6, lineHeight: 1.8 }}>{v.desc}</p>
               </motion.div>
             ))}
