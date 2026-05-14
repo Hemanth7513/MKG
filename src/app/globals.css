@@ -392,14 +392,14 @@ body {
   padding-right: 64px;
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  letter-spacing: 6px;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  letter-spacing: 8px;
   text-transform: uppercase;
   color: var(--primary);
-  opacity: 0.45;
+  opacity: 0.85;
   transition: opacity 0.3s;
 }
-.marquee-track:hover .marquee-item { opacity: 0.7; }
+.marquee-track:hover .marquee-item { opacity: 1; }
 .marquee-dot {
   display: inline-block;
   width: 6px; height: 6px;

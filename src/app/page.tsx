@@ -25,9 +25,10 @@ const fadeUp = {
 };
 
 const marqueeItems = [
-  "Mohan Krishna Garments", "Wholesale Excellence", "Premium Quality",
-  "Vijayawada's Finest", "Fashion & Trend", "Since 1994",
-  "Wholesale Only", "Fandy Silk", "Lehangas & 3 Piece", "Trusted Retailers"
+  "Mohan Krishna Garments", "మోహన్ కృష్ణ గర్మెంట్స్", "मोहन कृष्णा गारमेंट्स",
+  "32 Years of Wholesale Trust", "32 సంవత్సరాల నమ్మకం", "32 वर्षों का विश्वास",
+  "Vijayawada's Premier Landmark", "విజయవాడ హోల్‌సేల్ సెంటర్", "विजयवाड़ा थोक केंद्र",
+  "Since 1994", "Wholesale Excellence"
 ];
 
 const process = [
