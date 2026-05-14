@@ -43,11 +43,55 @@ export default function HomePage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
+  // Deep multi-layer background parallax transforms
+  const bgParallaxFast = useTransform(scrollYProgress, [0, 1], [0, -220]);
+  const bgParallaxSlow = useTransform(scrollYProgress, [0, 1], [0, 160]);
+  const bgParallaxRotate = useTransform(scrollYProgress, [0, 1], [0, 25]);
+
   return (
     <main style={{ minHeight: "100vh" }}>
 
       {/* ═══ HERO ═══ */}
       <section ref={heroRef} style={{ minHeight: "100vh", position: "relative", display: "flex", alignItems: "center", overflow: "hidden", paddingTop: 120 }}>
+        
+        {/* Deep immersive background parallax layers */}
+        <motion.div 
+          style={{ 
+            position: "absolute", 
+            top: "10%", 
+            right: "-5%", 
+            y: bgParallaxFast, 
+            rotate: bgParallaxRotate,
+            zIndex: 1, 
+            pointerEvents: "none",
+            opacity: 0.04,
+            color: "var(--primary)",
+            fontFamily: "Syne", 
+            fontWeight: 800, 
+            fontSize: "clamp(10rem, 30vw, 35rem)",
+            lineHeight: 0.8,
+            userSelect: "none"
+          }}
+        >
+          1994
+        </motion.div>
+
+        <motion.div 
+          style={{ 
+            position: "absolute", 
+            bottom: "-10%", 
+            left: "-2%", 
+            y: bgParallaxSlow, 
+            zIndex: 1, 
+            pointerEvents: "none",
+            width: "clamp(300px, 50vw, 800px)",
+            height: "clamp(300px, 50vw, 800px)",
+            borderRadius: "50%",
+            border: "1px solid rgba(197, 160, 40, 0.15)",
+            background: "radial-gradient(circle, rgba(197, 160, 40, 0.03) 0%, transparent 70%)"
+          }}
+        />
+
         <motion.div style={{ opacity: heroOpacity, y: heroY, position: "relative", zIndex: 2, width: "100%" }}>
           <div className="section-container">
             <LanguageTicker />
