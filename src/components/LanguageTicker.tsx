@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const messages = [
   { text: "32 YEARS OF WHOLESALE TRUST", lang: "en" },
-  { text: "32 ఏళ్ళ హోల్‌సేల్ నమ్మకం", lang: "te" },
+  { text: "32 ఏళ్ళ హోల్ సేల్ నమ్మకం", lang: "te" },
   { text: "32 वर्षों का थोक विश्वास", lang: "hi" },
   { text: "VIJAYAWADA'S FINEST", lang: "en" },
   { text: "విజయవాడ ఫ్యాషన్ కేంద్రం", lang: "te" },
