@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
 import Navbar from "@/components/Navbar";
-import CustomCursor from "@/components/CustomCursor";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
@@ -40,7 +39,6 @@ export default function RootLayout({
       <body>
         <LanguageProvider>
           <div className="mesh-bg" />
-          <CustomCursor />
           <Navbar />
           <PageTransition>
             {children}
