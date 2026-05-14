@@ -21,7 +21,7 @@ const stagger = {
 };
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const } }
 };
 
 const marqueeItems = [
@@ -115,7 +115,7 @@ export default function HomePage() {
             {[
               { end: 32,   suffix: "+", label: "Years of Trust",   bg: "linear-gradient(135deg, #004d40 0%, #00695c 100%)", color: "#fff", accent: "#C5A028" },
               { end: 500,  suffix: "+", label: "Retail Partners",  bg: "linear-gradient(135deg, #b8860b 0%, #C5A028 100%)", color: "#fff", accent: "rgba(255,255,255,0.5)" },
-              { end: 1000, suffix: "+", label: "SKUs in Stock",    bg: "linear-gradient(135deg, #6b2737 0%, #8B1A3A 100%)", color: "#fff", accent: "#f0c060" },
+              { end: 1000, suffix: "+", label: "Ready Varieties",  bg: "linear-gradient(135deg, #6b2737 0%, #8B1A3A 100%)", color: "#fff", accent: "#f0c060" },
             ].map((s, i) => (
               <motion.div
                 key={i}
