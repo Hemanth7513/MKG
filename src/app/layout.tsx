@@ -6,6 +6,12 @@ import CustomCursor from "@/components/CustomCursor";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#004d40",
+};
+
 export const metadata: Metadata = {
   title: "Mohan Krishna Garments & Cloth | Wholesale Ladies Wear",
   description: "Exclusive Wholesale Dealers for Ladies Wear. 32 Years of Trust in Vijayawada. Specializing in 3-Piece Sets, Lehangas, Fancy Wear, and more.",
@@ -19,7 +25,6 @@ export const metadata: Metadata = {
     icon: "/icon-512.png",
     apple: "/icon-512.png",
   },
-  themeColor: "#004d40",
 };
 
 
