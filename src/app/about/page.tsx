@@ -95,23 +95,30 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── PARALLAX BANNER ── */}
-      <section ref={bannerRef} style={{ height: '480px', overflow: 'hidden', position: 'relative', margin: '80px 0' }}>
-        <motion.div style={{ y: bannerY, scale: bannerScale, width: '100%', height: '120%', position: 'absolute', top: '-10%' }}>
-          <Image src="/images/store.png" alt="MK Garments Store" fill style={{ objectFit: 'cover', opacity: 0.7 }} />
-        </motion.div>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,26,21,0.85) 0%, rgba(0,26,21,0.4) 60%, transparent 100%)', display: 'flex', alignItems: 'center' }}>
-          <div className="section-container">
+      {/* ── SHOWROOM BANNER ── */}
+      <section style={{ margin: '80px 0' }}>
+        <div className="section-container">
+          <div style={{ background: 'linear-gradient(145deg, #f0f7f4 0%, #e2f0eb 100%)', borderRadius: 'var(--radius-xl)', padding: '80px', position: 'relative', overflow: 'hidden', border: '1px solid rgba(0,77,64,0.1)' }}>
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 1.1 }}
+              whileInView={{ opacity: 0.05, scale: 1 }}
               viewport={{ once: true }}
+              transition={{ duration: 1.5 }}
+              style={{ position: 'absolute', right: '-10%', top: '-20%', width: '600px', height: '600px', background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)', borderRadius: '50%' }}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              style={{ position: 'relative', zIndex: 2 }}
             >
-              <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 5rem)', color: 'white', lineHeight: 1.1, marginBottom: '24px' }}>
+              <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 5rem)', color: 'var(--primary)', lineHeight: 1.1, marginBottom: '24px' }}>
                 Naganna Trade One Mall<br />
-                <span style={{ color: 'var(--secondary)', fontSize: '0.5em' }}>ONE TOWN, VIJAYAWADA</span>
+                <span style={{ color: 'var(--secondary)', fontSize: '0.45em', letterSpacing: '2px' }}>ONE TOWN, VIJAYAWADA</span>
               </h3>
-              <p style={{ color: 'white', opacity: 0.6, maxWidth: '400px', lineHeight: 1.7 }}>3rd Floor, A Block — 3,000 sq ft of curated wholesale fashion.</p>
+              <p style={{ color: 'var(--primary)', opacity: 0.7, maxWidth: '500px', lineHeight: 1.8, fontSize: '1.1rem' }}>
+                Moved to our new premises in 2022. 3rd Floor, A Block — 3,000 sq ft of curated wholesale fashion.
+              </p>
             </motion.div>
           </div>
         </div>
