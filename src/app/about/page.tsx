@@ -8,9 +8,9 @@ import Magnetic from "@/components/Magnetic";
 
 const milestones = [
   { year: '1994', title: 'Founded', te: 'స్థాపించబడింది', desc: 'Started as a small textile shop in One Town, Vijayawada. ఒక చిన్న దుకాణంతో మొదలైంది.' },
-  { year: '2000', title: 'Wholesale Leap', te: 'హోల్ సేల్ విస్తరణ', desc: 'Transitioned to exclusive wholesale, partnering with 100+ retailers across AP.' },
-  { year: '2010', title: 'Fandy Silk', te: 'ఫ్యాన్సీ సిల్క్', desc: 'Launched the signature Fandy Silk line — now our most iconic product range.' },
-  { year: '2018', title: 'New Premises', te: 'నూతన షోరూమ్', desc: 'Moved to Naaganna Trade Mall — 3,000 sq ft of curated wholesale fashion.' },
+  { year: '2000', title: 'Wholesale Leap', te: 'హెూల్ సేల్ విస్తరణ', desc: 'Transitioned to exclusive wholesale, partnering with 100+ retailers across AP.' },
+  { year: '2010', title: 'Fandy Silk', te: '', desc: 'Launched the signature Fandy Silk line — now our most iconic product range.' },
+  { year: '2022', title: 'New Premises', te: '', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
   { year: '2024', title: '32 Years Strong', te: '32 సంవత్సరాలు', desc: '500+ retail partners across Andhra Pradesh & Telangana. విశ్వసనీయత కొనసాగుతుంది.' },
 ];
 
@@ -109,7 +109,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 5rem)', color: 'white', lineHeight: 1.1, marginBottom: '24px' }}>
-                నాగన్న ట్రేడ్ మాల్<br />
+                Naganna Trade One Mall<br />
                 <span style={{ color: 'var(--secondary)', fontSize: '0.5em' }}>ONE TOWN, VIJAYAWADA</span>
               </h3>
               <p style={{ color: 'white', opacity: 0.6, maxWidth: '400px', lineHeight: 1.7 }}>3rd Floor, A Block — 3,000 sq ft of curated wholesale fashion.</p>
@@ -133,7 +133,9 @@ export default function AboutPage() {
           <div style={{ position: 'relative' }}>
             <div className="timeline-line" />
             <div style={{ display: 'flex', flexDirection: 'column', gap: '64px' }}>
-              {milestones.map((m, i) => (
+              {milestones.map((m, i) => {
+                const softColors = ['#fdfaf0', '#f2fcf5', '#f0f8ff', '#fcf2f2', '#fcfaf2'];
+                return (
                 <motion.div
                   key={m.year}
                   initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
@@ -145,14 +147,15 @@ export default function AboutPage() {
                 >
                   {/* Center dot */}
                   <div className="timeline-dot" style={{ position: 'absolute', left: '50%', top: '28px', transform: 'translate(-50%, -50%)', zIndex: 2 }} />
-                  <div className="timeline-card">
+                  <div className="timeline-card" style={{ background: softColors[i % softColors.length] }}>
                     <span style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '3rem', color: 'var(--secondary)', opacity: 0.3, lineHeight: 1 }}>{m.year}</span>
                     <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '1.8rem', color: 'var(--primary)', marginTop: '8px', marginBottom: '6px' }}>{m.title}</h3>
-                    <p style={{ color: 'var(--secondary)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '3px', marginBottom: '16px' }}>{m.te}</p>
+                    {m.te && <p style={{ color: 'var(--secondary)', fontSize: '0.75rem', fontWeight: 800, letterSpacing: '3px', marginBottom: '16px' }}>{m.te}</p>}
                     <p style={{ opacity: 0.6, lineHeight: 1.8 }}>{m.desc}</p>
                   </div>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -198,7 +201,7 @@ export default function AboutPage() {
           style={{ textAlign: 'center', padding: '80px 0' }}
         >
           <p style={{ opacity: 0.4, fontWeight: 800, letterSpacing: '6px', fontSize: '0.75rem', marginBottom: '32px', textTransform: 'uppercase' }}>
-            మేము మీకు ఎదురుచూస్తున్నాము
+            WE LOOK FORWARD TO SEEING YOU
           </p>
           <Magnetic>
             <Link href="/contact" className="btn-primary" style={{ fontSize: '0.8rem' }}>
