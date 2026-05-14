@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
 import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 
 import type { Viewport } from "next";
 
@@ -43,7 +44,7 @@ export default function RootLayout({
           <PageTransition>
             {children}
           </PageTransition>
-          
+          <Analytics />
         </LanguageProvider>
       </body>
     </html>
