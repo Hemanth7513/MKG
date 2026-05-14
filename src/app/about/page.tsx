@@ -8,7 +8,7 @@ import Magnetic from "@/components/Magnetic";
 
 const milestones = [
   { year: '1994', title: 'Founded', te: 'స్థాపించబడింది', desc: 'Started as a wholesale dealer from our home in Vijayawada.' },
-  { year: '2000', title: 'First Shop', te: '', desc: 'Opened our first dedicated shop in One Town, expanding our wholesale reach across AP.' },
+  { year: '2000', title: 'First Shop', te: '', desc: 'Opened our first dedicated wholesale shop in Gayatri Towers, near Vijayawada Old Bus Stand.' },
   { year: '2022', title: 'New Premises', te: '', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
   { year: '2024', title: '32 Years Strong', te: '32 సంవత్సరాలు', desc: '500+ retail partners across Andhra Pradesh & Telangana. విశ్వసనీయత కొనసాగుతుంది.' },
 ];
