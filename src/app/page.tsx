@@ -55,26 +55,7 @@ export default function HomePage() {
       <section ref={heroRef} style={{ minHeight: "100vh", position: "relative", display: "flex", alignItems: "center", overflow: "hidden", paddingTop: 120 }}>
         
         {/* Deep immersive background parallax layers */}
-        <motion.div 
-          style={{ 
-            position: "absolute", 
-            top: "10%", 
-            right: "-5%", 
-            y: bgParallaxFast, 
-            rotate: bgParallaxRotate,
-            zIndex: 1, 
-            pointerEvents: "none",
-            opacity: 0.04,
-            color: "var(--primary)",
-            fontFamily: "Syne", 
-            fontWeight: 800, 
-            fontSize: "clamp(10rem, 30vw, 35rem)",
-            lineHeight: 0.8,
-            userSelect: "none"
-          }}
-        >
-          1994
-        </motion.div>
+
 
         <motion.div 
           style={{ 
