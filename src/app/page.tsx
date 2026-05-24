@@ -32,7 +32,7 @@ const marqueeItems = [
 ];
 
 const process = [
-  { n: "1", title: "Source", desc: "Direct from weavers in Ahmedabad, Surat & Hyderabad — no middlemen, best prices." },
+  { n: "1", title: "Source", desc: "Sourced directly from manufacturers — no middlemen, no markups. Pure wholesale pricing straight from the production line." },
   { n: "2", title: "Curate", desc: "Hand-picked for quality, trend, and retailer demand. Only the finest reaches our shelves." },
   { n: "3", title: "Deliver", desc: "Wholesale bulk dispatch to retailers across Andhra Pradesh & beyond. Fast and reliable." },
 ];
