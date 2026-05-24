@@ -52,7 +52,7 @@ export default function Logo({ size = 50 }: { size?: number }) {
             marginTop: '2px'
           }}
         >
-          EST. 1994
+          EST. 1999
         </span>
       </div>
     </div>

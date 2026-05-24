@@ -7,7 +7,7 @@ import { useRef } from "react";
 import Magnetic from "@/components/Magnetic";
 
 const milestones = [
-  { year: '1994', title: 'Founded', desc: 'Started as a wholesale dealer from our home in Vijayawada.' },
+  { year: '1999', title: 'Founded', desc: 'Started as a wholesale dealer from our home in Vijayawada.' },
   { year: '2000', title: 'First Shop', desc: 'Opened our first dedicated wholesale shop in Gayatri Towers, near Vijayawada Old Bus Stand.' },
   { year: '2022', title: 'New Premises', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
   { year: '2024', title: '32 Years Strong', desc: '500+ retail partners across Andhra Pradesh & Telangana.' },
@@ -34,7 +34,7 @@ export default function AboutPage() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             style={{ display: 'block', color: 'var(--secondary)', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '10px', textTransform: 'uppercase', marginBottom: '20px' }}
           >
-            Since 1994
+            Since 1999
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 Three Decades<br />of Trust
               </h2>
               <p style={{ opacity: 0.65, fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '24px' }}>
-                Founded in 1994, Mohan Krishna Garments started as a home-based wholesale dealer and has grown into Vijayawada's landmark wholesale destination.
+                Founded in 1999, Mohan Krishna Garments started as a home-based wholesale dealer and has grown into Vijayawada's landmark wholesale destination.
               </p>
               <p style={{ opacity: 0.5, fontSize: '1rem', lineHeight: 1.9 }}>
                 From our humble beginnings at home, we have grown to source directly from master weavers in Ahmedabad, Surat &amp; Hyderabad, serving hundreds of retailers.
@@ -88,7 +88,7 @@ export default function AboutPage() {
                 style={{ position: 'absolute', bottom: '40px', left: '40px', padding: '20px 28px', background: 'rgba(0,26,21,0.85)', backdropFilter: 'blur(16px)', borderRadius: 'var(--radius-md)', border: '1px solid rgba(197,160,40,0.3)' }}
               >
                 <p style={{ color: 'var(--secondary)', fontWeight: 800, fontSize: '0.7rem', letterSpacing: '4px', marginBottom: '6px' }}>ESTABLISHED</p>
-                <p style={{ color: 'white', fontFamily: 'Syne', fontWeight: 800, fontSize: '2.5rem', lineHeight: 1 }}>1994</p>
+                <p style={{ color: 'white', fontFamily: 'Syne', fontWeight: 800, fontSize: '2.5rem', lineHeight: 1 }}>1999</p>
               </motion.div>
             </motion.div>
           </div>

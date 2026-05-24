@@ -28,7 +28,7 @@ const marqueeItems = [
   "Mohan Krishna Garments", "మోహన్ కృష్ణ గార్మెంట్స్", "मोहन कृष्णा गारमेंट्स",
   "32 Years of Wholesale Trust", "32 సంవత్సరాల నమ్మకం", "32 वर्षों का विश्वास",
   "Vijayawada's Premier Landmark", "విజయవాడ హోల్ సేల్ సెంటర్", "विजयवाड़ा थोक केंद्र",
-  "Since 1994", "Wholesale Excellence"
+  "Since 1999", "Wholesale Excellence"
 ];
 
 const process = [
@@ -226,7 +226,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
             style={{ textAlign: "center", opacity: 0.3, fontWeight: 700, letterSpacing: "4px", fontSize: "0.8rem", marginBottom: "clamp(48px,6vw,80px)" }}
           >
-            GARMENTS &amp; CLOTH • VIJAYAWADA • SINCE 1994
+            GARMENTS &amp; CLOTH • VIJAYAWADA • SINCE 1999
           </motion.p>
           <div style={{ display: "flex", justifyContent: "center", gap: "clamp(32px,6vw,80px)", flexWrap: "wrap", marginBottom: "clamp(48px,6vw,80px)", fontWeight: 800, letterSpacing: "5px", fontSize: "0.72rem" }}>
             {[["CATALOGUE", "/collections"], ["OUR LEGACY", "/about"], ["VISIT US", "/contact"]].map(([n, h]) => (
@@ -238,7 +238,7 @@ export default function HomePage() {
           </div>
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 40, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
             <p style={{ opacity: 0.2, fontSize: "0.62rem", fontWeight: 800, letterSpacing: "6px", textTransform: "uppercase" }}>© 2026 • THE WHOLESALE LANDMARK</p>
-            <p style={{ opacity: 0.2, fontSize: "0.62rem", fontWeight: 800, letterSpacing: "6px", textTransform: "uppercase" }}>VIJAYAWADA • SINCE 1994</p>
+            <p style={{ opacity: 0.2, fontSize: "0.62rem", fontWeight: 800, letterSpacing: "6px", textTransform: "uppercase" }}>VIJAYAWADA • SINCE 1999</p>
           </div>
         </div>
       </footer>
