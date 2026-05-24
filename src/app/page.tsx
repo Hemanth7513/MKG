@@ -221,8 +221,7 @@ export default function HomePage() {
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="process-card"
               >
-                <span className="process-number">{s.n}</span>
-                <div style={{ width: 40, height: 3, background: "var(--secondary)", borderRadius: 2, marginBottom: 28 }} />
+                <span style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "5.5rem", lineHeight: 1, color: "var(--secondary)", display: "block", marginBottom: 16 }}>{s.n}</span>
                 <h3 style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "1.8rem", color: "var(--primary)", marginBottom: 16 }}>{s.title}</h3>
                 <p style={{ opacity: 0.55, lineHeight: 1.9, fontSize: "0.95rem" }}>{s.desc}</p>
               </motion.div>
