@@ -97,8 +97,12 @@ export default function HomePage() {
             <LanguageTicker />
 
             <motion.div variants={stagger} initial="hidden" animate="show" style={{ marginTop: 32 }}>
-              <motion.h1 variants={fadeUp} className="h1-hero" style={{ marginBottom: 0 }}>MOHAN</motion.h1>
-              <motion.h1 variants={fadeUp} className="h1-hero text-outline" style={{ marginBottom: 0 }}>KRISHNA</motion.h1>
+              <motion.h1 variants={fadeUp} className="h1-hero" style={{ marginBottom: 0 }}>
+                <span style={{ color: "var(--primary)" }}>MO</span><span style={{ WebkitTextStroke: "1.5px var(--primary)", color: "transparent" }}>HAN</span>
+              </motion.h1>
+              <motion.h1 variants={fadeUp} className="h1-hero" style={{ marginBottom: 0 }}>
+                <span style={{ color: "var(--primary)" }}>KRI</span><span style={{ WebkitTextStroke: "1.5px var(--primary)", color: "transparent" }}>SHNA</span>
+              </motion.h1>
               <motion.div variants={fadeUp} style={{ marginTop: 20, display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
                 <span style={{ fontSize: "clamp(0.9rem,1.5vw,1.2rem)", color: "var(--secondary)", fontWeight: 700, letterSpacing: "3px" }}>
                   GARMENTS &amp; CLOTH
