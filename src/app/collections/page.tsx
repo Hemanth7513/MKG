@@ -175,7 +175,6 @@ export default function CollectionsPage() {
         <div className="section-container">
           <div className="grid-editorial">
             {categories.map((cat, i) => {
-              const isLarge = i % 3 === 0;
               return (
                 <motion.div
                   key={cat.id}
@@ -184,22 +183,21 @@ export default function CollectionsPage() {
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.9, delay: (i % 3) * 0.12 }}
                   style={{
-                    height: isLarge ? '640px' : '520px',
-                    marginTop: i % 2 === 1 ? '60px' : '0',
+                    height: '580px',
                   }}
-                  className={`cat-card ${isLarge ? 'col-span-7' : 'col-span-5'}`}
+                  className="cat-card col-span-4"
                 >
                   <Image src={cat.img} alt={t(cat.key)} fill style={{ objectFit: 'cover' }} className="cat-card-img" />
                   <div className="cat-card-overlay">
                     <div className="cat-tag">{cat.tag}</div>
                     <div>
-                      <h2 style={{ fontFamily: 'Syne', fontSize: isLarge ? 'clamp(2rem, 5vw, 3.5rem)' : 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'white', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1 }}>
+                      <h2 style={{ fontFamily: 'Syne', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'white', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1 }}>
                         {t(cat.key)}
                       </h2>
                       <p style={{ color: 'white', opacity: 0.55, fontSize: '0.95rem', lineHeight: 1.7, maxWidth: '340px', marginBottom: '20px' }}>{cat.desc}</p>
                       {(cat.id === '3piece' || cat.id === 'coord') && (
                         <p style={{ color: 'var(--secondary)', opacity: 0.85, fontSize: '0.78rem', lineHeight: 1.4, maxWidth: '340px', marginBottom: '24px', fontStyle: 'italic', borderLeft: '2px solid var(--secondary)', paddingLeft: '10px' }}>
-                          * Image is for representation purpose only. Patterns and designs may vary from brand to brand and catalogue to catalogue.
+                          * Image is for representation purpose only. It may change from brand to brand and catalogue also.
                         </p>
                       )}
                       <Magnetic>
