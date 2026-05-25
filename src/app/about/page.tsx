@@ -14,9 +14,33 @@ const milestones = [
 ];
 
 const values = [
-  { title: 'INTEGRITY', desc: 'Honest dealings and transparent pricing for 32 years.', icon: '⚖️' },
-  { title: 'QUALITY', desc: 'Every stitch inspected, every fabric hand-picked.', icon: '✦' },
-  { title: 'PARTNERSHIP', desc: 'We grow when our retail partners grow.', icon: '◈' },
+  {
+    title: 'INTEGRITY',
+    desc: 'Honest dealings and transparent pricing for 32 years.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 28, height: 28 }}>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'QUALITY',
+    desc: 'Every stitch inspected, every fabric hand-picked.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 28, height: 28 }}>
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    ),
+  },
+  {
+    title: 'PARTNERSHIP',
+    desc: 'We grow when our retail partners grow.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 28, height: 28 }}>
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" />
+      </svg>
+    ),
+  },
 ];
 
 export default function AboutPage() {

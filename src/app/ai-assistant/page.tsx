@@ -6,19 +6,31 @@ import Link from "next/link";
 const steps = [
   {
     number: "1",
-    icon: "💬",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 22, height: 22 }}>
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+      </svg>
+    ),
     title: "Find the Chat Button",
     desc: "Look for the chat icon at the bottom-right corner of any page on our website. It's always visible.",
   },
   {
     number: "2",
-    icon: "✍️",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 22, height: 22 }}>
+        <path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+      </svg>
+    ),
     title: "Type Your Question",
     desc: "Click the icon and type your question in plain language — in English, Telugu, or Hindi. No special format needed.",
   },
   {
     number: "3",
-    icon: "⚡",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 22, height: 22 }}>
+        <circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" />
+      </svg>
+    ),
     title: "Get an Instant Answer",
     desc: "Our AI assistant replies immediately — about products, pricing, location, timings, or anything else.",
   },
@@ -185,7 +197,9 @@ export default function HelpPage() {
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
               style={{ marginTop: 32, display: "flex", alignItems: "center", gap: 12, padding: "16px 24px", background: "rgba(197,160,40,0.08)", borderRadius: "var(--radius-md)", border: "1px dashed rgba(197,160,40,0.4)", width: "fit-content" }}
             >
-              <span style={{ fontSize: "1.3rem" }}>👇</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 20, height: 20, flexShrink: 0 }}>
+                <line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" />
+              </svg>
               <p style={{ fontWeight: 700, fontSize: "0.85rem", color: "var(--primary)", opacity: 0.7 }}>
                 The chat button is at the <strong>bottom-right corner</strong> of every page — look for the icon and tap it to start.
               </p>

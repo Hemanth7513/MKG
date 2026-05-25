@@ -35,7 +35,7 @@ const categories = [
     desc: 'Trending fancy wear and western fusion.',
   },
   {
-    id: 'coord', key: 'cat_coord', img: '/images/coord-set.png',
+    id: 'coord', key: 'cat_coord', img: '/images/coord-set.jpg',
     tag: 'NEW ARRIVAL', color: '#2a5a4a',
     desc: 'Matching top & bottom co-ord sets — effortless style for every occasion.',
   },
