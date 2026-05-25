@@ -10,7 +10,7 @@ import MarqueeStrip from "@/components/MarqueeStrip";
 
 const categories = [
   {
-    id: '3piece', key: 'cat_3piece', img: '/images/silk.png',
+    id: '3piece', key: 'cat_3piece', img: '/images/three-piece.jpg',
     tag: 'BESTSELLER', color: '#004d40',
     desc: 'Premium 3-piece sets with modern design and heritage weave.',
   },
@@ -35,7 +35,7 @@ const categories = [
     desc: 'Trending fancy wear and western fusion.',
   },
   {
-    id: 'coord', key: 'cat_coord', img: '/images/coord-set.jpg',
+    id: 'coord', key: 'cat_coord', img: '/images/coord-set.png',
     tag: 'NEW ARRIVAL', color: '#2a5a4a',
     desc: 'Matching top & bottom co-ord sets — effortless style for every occasion.',
   },
@@ -196,7 +196,12 @@ export default function CollectionsPage() {
                       <h2 style={{ fontFamily: 'Syne', fontSize: isLarge ? 'clamp(2rem, 5vw, 3.5rem)' : 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: 'white', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1 }}>
                         {t(cat.key)}
                       </h2>
-                      <p style={{ color: 'white', opacity: 0.55, fontSize: '0.95rem', lineHeight: 1.7, maxWidth: '340px', marginBottom: '32px' }}>{cat.desc}</p>
+                      <p style={{ color: 'white', opacity: 0.55, fontSize: '0.95rem', lineHeight: 1.7, maxWidth: '340px', marginBottom: '20px' }}>{cat.desc}</p>
+                      {(cat.id === '3piece' || cat.id === 'coord') && (
+                        <p style={{ color: 'var(--secondary)', opacity: 0.85, fontSize: '0.78rem', lineHeight: 1.4, maxWidth: '340px', marginBottom: '24px', fontStyle: 'italic', borderLeft: '2px solid var(--secondary)', paddingLeft: '10px' }}>
+                          * Image is for representation purpose only. Patterns and designs may vary from brand to brand and catalogue to catalogue.
+                        </p>
+                      )}
                       <Magnetic>
                         <Link href="/contact" className="btn-primary" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white', fontSize: '0.65rem' }}>
                           INQUIRE WHOLESALE

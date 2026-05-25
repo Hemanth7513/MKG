@@ -24,7 +24,6 @@ export default function Navbar() {
     { name: "COLLECTIONS", path: "/collections" },
     { name: "OUR LEGACY", path: "/about" },
     { name: "CONTACT", path: "/contact" },
-    { name: "HELP", path: "/ai-assistant" },
   ];
 
   return (
