@@ -12,7 +12,7 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
-    hero_title: "25 Years of Wholesale Excellence",
+    hero_title: "Wholesale Excellence",
     hero_subtitle: "Exclusive Wholesale Dealers for Premium Ladies Wear",
     hero_cta: "View Collections",
     cat_title: "Our Collections",
@@ -37,7 +37,7 @@ const translations: Record<Language, Record<string, string>> = {
     weekly_update: "New catalogues are updated every week for all collections!",
   },
   hi: {
-    hero_title: "25 वर्षों की थोक उत्कृष्टता",
+    hero_title: "थोक उत्कृष्टता",
     hero_subtitle: "प्रीमियम लेडीज वियर के लिए विशेष थोक विक्रेता",
     hero_cta: "संग्रह देखें",
     cat_title: "हमारा संग्रह",
@@ -62,7 +62,7 @@ const translations: Record<Language, Record<string, string>> = {
     weekly_update: "सभी संग्रहों के लिए हर हफ्ते नए कैटलॉग अपडेट किए जाते हैं!",
   },
   te: {
-    hero_title: "25 ఏళ్ల హోల్ సేల్ అత్యున్నత ప్రమాణాలు",
+    hero_title: "హోల్ సేల్ అత్యున్నత ప్రమాణాలు",
     hero_subtitle: "ప్రీమియం లేడీస్ వేర్ కోసం ప్రత్యేక హోల్ సేల్ డీలర్లు",
     hero_cta: "కలెక్షన్స్ చూడండి",
     cat_title: "మా కలెక్షన్స్",

@@ -75,7 +75,6 @@ export default function HomePage() {
 
         <motion.div style={{ opacity: heroOpacity, y: heroY, position: "relative", zIndex: 2, width: "100%" }}>
           <div className="section-container">
-            <LanguageTicker />
 
             <motion.div variants={stagger} initial="hidden" animate="show" style={{ marginTop: 32 }}>
               <motion.h1 variants={fadeUp} className="h1-hero" style={{ marginBottom: 0 }}>
@@ -103,14 +102,6 @@ export default function HomePage() {
                   EXPLORE CATALOGUE <ArrowRight />
                 </Link>
               </Magnetic>
-              <Link
-                href="/about"
-                style={{ display: "inline-flex", alignItems: "center", gap: 8, fontWeight: 800, fontSize: "0.7rem", letterSpacing: "4px", color: "var(--primary)", opacity: 0.5, textDecoration: "none", transition: "opacity 0.3s" }}
-                onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-                onMouseLeave={e => (e.currentTarget.style.opacity = "0.5")}
-              >
-                OUR STORY <ArrowRight />
-              </Link>
             </motion.div>
 
             {/* Scroll hint */}

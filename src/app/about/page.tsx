@@ -126,34 +126,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── SHOWROOM BANNER ── */}
-      <section style={{ margin: '80px 0' }}>
-        <div className="section-container">
-          <div style={{ background: 'linear-gradient(145deg, #f0f7f4 0%, #e2f0eb 100%)', borderRadius: 'var(--radius-xl)', padding: '80px', position: 'relative', overflow: 'hidden', border: '1px solid rgba(0,77,64,0.1)' }}>
-            <motion.div
-              initial={{ opacity: 0, scale: 1.1 }}
-              whileInView={{ opacity: 0.05, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5 }}
-              style={{ position: 'absolute', right: '-10%', top: '-20%', width: '600px', height: '600px', background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)', borderRadius: '50%' }}
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              style={{ position: 'relative', zIndex: 2 }}
-            >
-              <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 5rem)', color: 'var(--primary)', lineHeight: 1.1, marginBottom: '24px' }}>
-                Naganna Trade One Mall<br />
-                <span style={{ color: 'var(--secondary)', fontSize: '0.45em', letterSpacing: '2px' }}>ONE TOWN, VIJAYAWADA</span>
-              </h3>
-              <p style={{ color: 'var(--primary)', opacity: 0.7, maxWidth: '500px', lineHeight: 1.8, fontSize: '1.1rem' }}>
-                Moved to our new premises in 2022. 3rd Floor, A Block — 3,000 sq ft of curated wholesale fashion.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── TIMELINE ── */}
       <section style={{ padding: '80px 0 120px' }}>
