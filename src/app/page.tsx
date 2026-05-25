@@ -141,11 +141,9 @@ export default function HomePage() {
           >
             By The Numbers
           </motion.p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24 }}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             {[
               { end: 32,   suffix: "+", label: "Years of Trust",   bg: "linear-gradient(135deg, #004d40 0%, #00695c 100%)", color: "#fff", accent: "#C5A028" },
-              { end: 500,  suffix: "+", label: "Retail Partners",  bg: "linear-gradient(135deg, #b8860b 0%, #C5A028 100%)", color: "#fff", accent: "rgba(255,255,255,0.5)" },
-              { end: 1000, suffix: "+", label: "Ready Varieties",  bg: "linear-gradient(135deg, #6b2737 0%, #8B1A3A 100%)", color: "#fff", accent: "#f0c060" },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -165,6 +163,8 @@ export default function HomePage() {
                   willChange: "transform",
                   backfaceVisibility: "hidden",
                   WebkitBackfaceVisibility: "hidden",
+                  width: "100%",
+                  maxWidth: "440px",
                 }}
               >
                 {/* subtle fabric dot pattern */}
