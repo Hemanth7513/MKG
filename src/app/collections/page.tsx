@@ -183,7 +183,8 @@ export default function CollectionsPage() {
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.9, delay: (i % 3) * 0.12 }}
                   style={{
-                    height: '580px',
+                    aspectRatio: '1 / 1.95',
+                    height: 'auto',
                   }}
                   className="cat-card col-span-4"
                 >
