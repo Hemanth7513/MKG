@@ -107,7 +107,7 @@ export default function CollectionsPage() {
       <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nighties', 'Leggings', 'Co-ord Sets', 'Fancy Wear', 'Cotton Sets', 'Party Wear']} />
 
       {/* ── FRESH STOCK NOTICE ── */}
-      <div style={{ padding: '0 0 56px' }}>
+      <div style={{ padding: '0 0 80px' }}>
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -171,7 +171,7 @@ export default function CollectionsPage() {
       </div>
 
       {/* ── GRID ── */}
-      <section style={{ padding: '80px 0' }}>
+      <section style={{ padding: '0 0 80px' }}>
         <div className="section-container">
           <div className="grid-editorial">
             {categories.map((cat, i) => {
