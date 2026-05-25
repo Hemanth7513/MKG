@@ -32,11 +32,6 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "origin-when-cross-origin",
           },
-          {
-            // Cache static assets securely at Edge for 1 year to ensure absolute zero lag
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
         ],
       },
     ];

@@ -4,7 +4,7 @@ import { useLanguage } from "@/components/LanguageContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Magnetic from "@/components/Magnetic";
 import MarqueeStrip from "@/components/MarqueeStrip";
 
@@ -41,33 +41,6 @@ const categories = [
   },
 ];
 
-// Search bar component (uiverse-style)
-function SearchBar() {
-  const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState('');
-
-  return (
-    <div className={`search-container ${open ? 'open' : ''}`} style={{ marginLeft: 'auto' }}>
-      <input
-        className="search-input"
-        placeholder="Search collections..."
-        value={query}
-        onChange={e => setQuery(e.target.value)}
-        aria-label="Search collections"
-        id="collections-search"
-      />
-      <button className="search-btn" onClick={() => setOpen(o => !o)} aria-label="Toggle search" id="search-toggle-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
-          {open
-            ? <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
-            : <><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></>
-          }
-        </svg>
-      </button>
-    </div>
-  );
-}
-
 export default function CollectionsPage() {
   const { t } = useLanguage();
   const headerRef = useRef(null);
@@ -96,9 +69,6 @@ export default function CollectionsPage() {
                   DISCOVERY
                 </motion.h1>
               </div>
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} style={{ display: 'flex', alignItems: 'center', gap: '16px', paddingBottom: '8px' }}>
-                <SearchBar />
-              </motion.div>
             </div>
           </motion.div>
         </div>
