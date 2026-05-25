@@ -37,7 +37,7 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "What products do you sell?", a: "We specialise in wholesale ladies wear — 3-piece sets, lehangas, nighties, leggings, and fancy wear." },
+  { q: "What products do you sell?", a: "We specialise in wholesale ladies wear — 3-piece sets, lehangas, nightwear, leggings, and fancy wear." },
   { q: "Do you sell to individuals?", a: "No — we are an exclusive wholesale dealer catering only to retail businesses. Minimum order requirements apply." },
   { q: "Where are you located?", a: "3rd Floor, A Block, Naaganna Trade One Mall, One Town, Vijayawada — 520001, Andhra Pradesh." },
   { q: "What are your store hours?", a: "Monday to Saturday: 10 AM – 8 PM. Closed on Sundays." },

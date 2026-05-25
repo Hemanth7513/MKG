@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import Magnetic from "@/components/Magnetic";
+import { useLanguage } from "@/components/LanguageContext";
 
 const milestones = [
   { year: '1999', title: 'Founded', desc: 'Started as a wholesale dealer from our home in Vijayawada.' },
@@ -44,6 +45,7 @@ const values = [
 ];
 
 export default function AboutPage() {
+  const { t } = useLanguage();
   const bannerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: bannerRef, offset: ["start end", "end start"] });
   const bannerY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
@@ -68,7 +70,7 @@ export default function AboutPage() {
           </motion.h1>
         </div>
       </section>
-
+ 
       {/* ── INTRO ── */}
       <section style={{ padding: '0 0 80px' }}>
         <div className="section-container">
@@ -81,13 +83,13 @@ export default function AboutPage() {
               className="col-span-5"
             >
               <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontFamily: 'Syne', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.1, textTransform: 'uppercase', marginBottom: '36px' }}>
-                Three Decades<br />of Trust
+                {t('about_intro_title')}
               </h2>
               <p style={{ opacity: 0.65, fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '24px' }}>
-                Founded in 1999, Mohan Krishna Garments started as a home-based wholesale dealer and has grown into Vijayawada's landmark wholesale destination.
+                {t('about_text')}
               </p>
               <p style={{ opacity: 0.5, fontSize: '1rem', lineHeight: 1.9 }}>
-                From our humble beginnings at home, we have grown to source directly from master weavers in Ahmedabad, Surat &amp; Hyderabad, serving hundreds of retailers.
+                {t('manufacturer_text')}
               </p>
               <div style={{ marginTop: '48px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                 <span className="pill-badge">Vijayawada</span>

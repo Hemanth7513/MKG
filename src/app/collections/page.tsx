@@ -20,9 +20,9 @@ const categories = [
     desc: 'Designer lehangas and traditional wear for exclusive occasions.',
   },
   {
-    id: 'nighty', key: 'cat_nighty', img: '/images/nighty.png',
+    id: 'nightwear', key: 'cat_nightwear', img: '/images/nightwear.png',
     tag: 'COMFORT', color: '#2d4a6b',
-    desc: 'Elite comfort cotton nighties with contemporary prints.',
+    desc: 'Elite comfort cotton nightwear with contemporary prints.',
   },
   {
     id: 'leggings', key: 'cat_leggings', img: '/images/leggings.png',
@@ -104,7 +104,7 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nighties', 'Leggings', 'Co-ord Sets', 'Fancy Wear', 'Cotton Sets', 'Party Wear']} />
+      <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nightwear', 'Leggings', 'Co-ord Sets', 'Fancy Wear', 'Cotton Sets', 'Party Wear']} />
 
       {/* ── FRESH STOCK NOTICE ── */}
       <div style={{ padding: '0 0 80px' }}>
