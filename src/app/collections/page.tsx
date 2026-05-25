@@ -1,6 +1,5 @@
 "use client";
 
-import { useLanguage } from "@/components/LanguageContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,39 +9,38 @@ import MarqueeStrip from "@/components/MarqueeStrip";
 
 const categories = [
   {
-    id: '3piece', key: 'cat_3piece', img: '/images/three-piece.jpg',
+    id: '3piece', title: '3 Piece Sets', img: '/images/three-piece.jpg',
     tag: 'BESTSELLER', color: '#004d40',
     desc: 'Premium 3-piece sets with modern design and heritage weave.',
   },
   {
-    id: 'lehangas', key: 'cat_lehangas', img: '/images/lehanga.png',
+    id: 'lehangas', title: 'Lehangas', img: '/images/lehanga.png',
     tag: 'BRIDAL', color: '#8B1A3A',
     desc: 'Designer lehangas and traditional wear for exclusive occasions.',
   },
   {
-    id: 'nightwear', key: 'cat_nightwear', img: '/images/nightwear.png',
+    id: 'nightwear', title: 'Nightwear', img: '/images/nightwear.png',
     tag: 'COMFORT', color: '#2d4a6b',
     desc: 'Elite comfort cotton nightwear with contemporary prints.',
   },
   {
-    id: 'leggings', key: 'cat_leggings', img: '/images/leggings.png',
+    id: 'leggings', title: 'Leggings', img: '/images/leggings-v2.png',
     tag: '50+ SHADES', color: '#5a3a7a',
     desc: 'High-stretch premium leggings in 50+ vibrant shades.',
   },
   {
-    id: 'fancy', key: 'cat_fancy', img: '/images/fancy.png',
+    id: 'fancy', title: 'Fancy Wear', img: '/images/fancy.png',
     tag: 'TRENDING', color: '#7a3a1a',
     desc: 'Trending fancy wear and western fusion.',
   },
   {
-    id: 'coord', key: 'cat_coord', img: '/images/coord-set.png',
+    id: 'coord', title: 'Co-ord Sets', img: '/images/coord-set.png',
     tag: 'NEW ARRIVAL', color: '#2a5a4a',
     desc: 'Matching top & bottom co-ord sets — effortless style for every occasion.',
   },
 ];
 
 export default function CollectionsPage() {
-  const { t } = useLanguage();
   const headerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: headerRef, offset: ["start start", "end start"] });
   const headerY = useTransform(scrollYProgress, [0, 1], [0, 120]);
@@ -158,10 +156,10 @@ export default function CollectionsPage() {
                   }}
                   className="cat-card col-span-4"
                 >
-                  <Image src={cat.img} alt={t(cat.key)} fill style={{ objectFit: 'cover' }} className="cat-card-img" />
+                  <Image src={cat.img} alt={cat.title} fill style={{ objectFit: 'cover' }} className="cat-card-img" />
                   <div className="cat-card-overlay">
                     <h2 style={{ fontFamily: 'Syne', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'white', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1, margin: 0 }}>
-                      {t(cat.key)}
+                      {cat.title}
                     </h2>
                   </div>
                 </motion.div>

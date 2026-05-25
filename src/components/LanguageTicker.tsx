@@ -4,10 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const messages = [
-  { text: "32 YEARS OF WHOLESALE TRUST", lang: "en" },
-  { text: "VIJAYAWADA'S FINEST WHOLESALE", lang: "en" },
+  { text: "WHOLESALE LADIES WEAR", lang: "en" },
+  { text: "హోల్ సేల్ లేడీస్ వేర్", lang: "te" },
+  { text: "थोक महिला वस्त्र", lang: "hi" },
   { text: "QUALITY IN EVERY THREAD", lang: "en" },
-  { text: "CURATED WHOLESALE FASHION", lang: "en" },
+  { text: "విజయవాడ హోల్ సేల్ సెంటర్", lang: "te" },
+  { text: "हर धागे में गुणवत्ता", lang: "hi" },
 ];
 
 export default function LanguageTicker() {

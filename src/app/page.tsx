@@ -26,9 +26,9 @@ const fadeUp = {
 
 const marqueeItems = [
   "Mohan Krishna Garments", "మోహన్ కృష్ణ గార్మెంట్స్", "मोहन कृष्णा गारमेंट्स",
-  "32 Years of Wholesale Trust", "32 సంవత్సరాల నమ్మకం", "32 वर्षों का विश्वास",
+  "Wholesale Only", "హోల్ సేల్ మాత్రమే", "केवल थोक",
   "Vijayawada's Premier Landmark", "విజయవాడ హోల్ సేల్ సెంటర్", "विजयवाड़ा थोक केंद्र",
-  "Since 1999", "Wholesale Excellence"
+  "Premium Ladies Wear", "Ahmedabad • Surat • Hyderabad"
 ];
 
 const process = [
@@ -143,7 +143,7 @@ export default function HomePage() {
           </motion.p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24 }}>
             {[
-              { value: "32",  suffix: "+", label: "Years of Trust",   bg: "linear-gradient(135deg, #004d40 0%, #00695c 100%)", color: "#fff", accent: "#C5A028" },
+              { value: "WHOLESALE ONLY",  suffix: "", label: "Exclusive Ladies Wear",   bg: "linear-gradient(135deg, #004d40 0%, #00695c 100%)", color: "#fff", accent: "#C5A028" },
               { value: "RETAIL PARTNERS", suffix: "", label: "Across AP & TS",  bg: "linear-gradient(135deg, #b8860b 0%, #C5A028 100%)", color: "#fff", accent: "rgba(255,255,255,0.5)" },
               { value: "WIDE RANGE", suffix: "", label: "Of Varieties",  bg: "linear-gradient(135deg, #6b2737 0%, #8B1A3A 100%)", color: "#fff", accent: "#f0c060" },
             ].map((s, i) => (

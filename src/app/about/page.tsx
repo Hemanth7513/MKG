@@ -5,13 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import Magnetic from "@/components/Magnetic";
-import { useLanguage } from "@/components/LanguageContext";
 
 const milestones = [
   { year: '1999', title: 'Founded', desc: 'Started as a wholesale dealer in Vijayawada.' },
   { year: '2000', title: 'First Shop', desc: 'Opened our first dedicated wholesale shop in Gayatri Towers, near Vijayawada Old Bus Stand.' },
   { year: '2022', title: 'New Premises', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
-  { year: '2026', title: '32 Years Strong', desc: 'Retail partners across Andhra Pradesh & Telangana.' },
+  { year: '2026', title: 'Regional Reach', desc: 'Retail partners across Andhra Pradesh & Telangana.' },
 ];
 
 const values = [
@@ -45,7 +44,6 @@ const values = [
 ];
 
 export default function AboutPage() {
-  const { t } = useLanguage();
   const bannerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: bannerRef, offset: ["start end", "end start"] });
   const bannerY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
@@ -58,15 +56,15 @@ export default function AboutPage() {
         <div className="section-container">
           <motion.span
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            style={{ display: 'block', color: 'var(--secondary)', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '10px', textTransform: 'uppercase', marginBottom: '20px' }}
+            style={{ display: 'block', color: 'var(--secondary)', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '8px', textTransform: 'uppercase', marginBottom: '20px' }}
           >
-            Since 1999
+            Mohan Krishna Garments
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
             className="h1-hero" style={{ fontSize: 'clamp(2.5rem, 12vw, 13rem)', lineHeight: 0.85 }}
           >
-            OUR<br /><span className="text-outline">LEGACY</span>
+            ABOUT<br /><span className="text-outline">US</span>
           </motion.h1>
         </div>
       </section>
@@ -83,17 +81,17 @@ export default function AboutPage() {
               className="col-span-5"
             >
               <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontFamily: 'Syne', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.1, textTransform: 'uppercase', marginBottom: '36px' }}>
-                {t('about_intro_title')}
+                Our Story
               </h2>
               <p style={{ opacity: 0.65, fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '24px' }}>
-                {t('about_text')}
+                For over 25 years, Mohan Krishna Garments &amp; Cloth has been a pillar of the wholesale garment industry in Vijayawada. We specialize in providing the highest quality women&apos;s wear to retailers across the region.
               </p>
               <p style={{ opacity: 0.5, fontSize: '1rem', lineHeight: 1.9 }}>
-                {t('manufacturer_text')}
+                From our humble beginnings, we have grown to source directly from manufacturers in Ahmedabad, Surat &amp; Hyderabad, serving hundreds of retailers.
               </p>
               <div style={{ marginTop: '48px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                 <span className="pill-badge">Vijayawada</span>
-                <span className="pill-badge pill-badge-gold">32 Years</span>
+                <span className="pill-badge pill-badge-gold">Wholesale Only</span>
                 <span className="pill-badge">Andhra Pradesh</span>
               </div>
             </motion.div>
@@ -104,18 +102,30 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 1.2 }}
               className="col-span-7"
-              style={{ height: 'clamp(400px, 60vh, 680px)', borderRadius: 'var(--radius-xl)', overflow: 'hidden', position: 'relative', boxShadow: 'var(--shadow-lg)' }}
+              style={{
+                height: 'clamp(400px, 60vh, 680px)',
+                borderRadius: 'var(--radius-xl)',
+                overflow: 'hidden',
+                position: 'relative',
+                boxShadow: 'var(--shadow-lg)',
+                background: 'linear-gradient(135deg, #004d40 0%, #001a15 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '48px',
+              }}
             >
-              <Image src="/images/heritage.png" alt="Heritage Weaving" fill style={{ objectFit: 'cover' }} />
-              {/* Floating badge overlay */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                style={{ position: 'absolute', bottom: '40px', left: '40px', padding: '20px 28px', background: 'rgba(0,26,21,0.85)', backdropFilter: 'blur(16px)', borderRadius: 'var(--radius-md)', border: '1px solid rgba(197,160,40,0.3)' }}
-              >
-                <p style={{ color: 'var(--secondary)', fontWeight: 800, fontSize: '0.7rem', letterSpacing: '4px', marginBottom: '6px' }}>ESTABLISHED</p>
-                <p style={{ color: 'white', fontFamily: 'Syne', fontWeight: 800, fontSize: '2.5rem', lineHeight: 1 }}>1999</p>
-              </motion.div>
+              {/* Decorative grid pattern */}
+              <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none" }} />
+              
+              <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+                <span style={{ fontFamily: 'Syne', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 800, color: 'var(--secondary)', display: 'block', lineHeight: 1, marginBottom: '24px' }}>
+                  MKG
+                </span>
+                <p style={{ color: 'white', opacity: 0.75, fontSize: '1.25rem', fontWeight: 600, lineHeight: 1.8, maxWidth: '440px', margin: '0 auto' }}>
+                  Dedicated to providing premium quality ladies wear to retail partners across Andhra Pradesh and Telangana.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
