@@ -84,16 +84,11 @@ export default function AboutPage() {
                 Our Story
               </h2>
               <p style={{ opacity: 0.65, fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '24px' }}>
-                For over 25 years, Mohan Krishna Garments &amp; Cloth has been a pillar of the wholesale garment industry in Vijayawada. We specialize in providing the highest quality women&apos;s wear to retailers across the region.
+                Mohan Krishna Garments &amp; Cloth has been a pillar of the wholesale garment industry in Vijayawada. We specialize in providing the highest quality women&apos;s wear to retailers across the region.
               </p>
               <p style={{ opacity: 0.5, fontSize: '1rem', lineHeight: 1.9 }}>
                 From our humble beginnings, we have grown to source directly from manufacturers in Ahmedabad, Surat &amp; Hyderabad, serving hundreds of retailers.
               </p>
-              <div style={{ marginTop: '48px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                <span className="pill-badge">Vijayawada</span>
-                <span className="pill-badge pill-badge-gold">Wholesale Only</span>
-                <span className="pill-badge">Andhra Pradesh</span>
-              </div>
             </motion.div>
 
             <motion.div
