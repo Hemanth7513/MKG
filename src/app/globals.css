@@ -462,23 +462,21 @@ body {
   border-radius: var(--radius-lg);
   overflow: hidden;
   position: relative;
-  background: var(--primary);
-  transition: transform 0.7s var(--ease-expo), box-shadow 0.7s;
+  background: transparent;
+  transition: box-shadow 0.4s ease;
 }
-.cat-card:hover { transform: translateY(-16px) scale(1.01); box-shadow: var(--shadow-lg); }
+.cat-card:hover { box-shadow: var(--shadow-md); }
 .cat-card-img {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition: transform 1.8s var(--ease-expo), opacity 0.5s;
-  opacity: 0.75;
+  opacity: 1;
 }
-.cat-card:hover .cat-card-img { transform: scale(1.1); opacity: 0.9; }
 .cat-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,26,21,0.92) 0%, rgba(0,26,21,0.3) 50%, transparent 100%);
-  padding: clamp(24px, 5vw, 56px);
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 25%, transparent 50%);
+  padding: clamp(20px, 4vw, 36px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
