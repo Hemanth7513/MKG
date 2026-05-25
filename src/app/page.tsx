@@ -141,9 +141,11 @@ export default function HomePage() {
           >
             By The Numbers
           </motion.p>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24 }}>
             {[
-              { end: 32,   suffix: "+", label: "Years of Trust",   bg: "linear-gradient(135deg, #004d40 0%, #00695c 100%)", color: "#fff", accent: "#C5A028" },
+              { value: "32",  suffix: "+", label: "Years of Trust",   bg: "linear-gradient(135deg, #004d40 0%, #00695c 100%)", color: "#fff", accent: "#C5A028" },
+              { value: "RETAIL PARTNERS", suffix: "", label: "Across AP & TS",  bg: "linear-gradient(135deg, #b8860b 0%, #C5A028 100%)", color: "#fff", accent: "rgba(255,255,255,0.5)" },
+              { value: "WIDE RANGE", suffix: "", label: "Of Varieties",  bg: "linear-gradient(135deg, #6b2737 0%, #8B1A3A 100%)", color: "#fff", accent: "#f0c060" },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -163,15 +165,13 @@ export default function HomePage() {
                   willChange: "transform",
                   backfaceVisibility: "hidden",
                   WebkitBackfaceVisibility: "hidden",
-                  width: "100%",
-                  maxWidth: "440px",
                 }}
               >
                 {/* subtle fabric dot pattern */}
                 <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "18px 18px", pointerEvents: "none" }} />
                 <div style={{ position: "relative" }}>
-                  <div style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(3.5rem,7vw,5.5rem)", color: s.color, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 12 }}>
-                    <span>{s.end}</span><span style={{ fontSize: "0.55em", color: s.accent }}>{s.suffix}</span>
+                  <div style={{ fontFamily: "Syne", fontWeight: 800, fontSize: s.value.length > 5 ? "clamp(1.6rem, 3.5vw, 2.2rem)" : "clamp(3.5rem, 7vw, 5.5rem)", color: s.color, letterSpacing: "-0.04em", lineHeight: 1.1, marginBottom: 12 }}>
+                    <span>{s.value}</span>{s.suffix && <span style={{ fontSize: "0.55em", color: s.accent }}>{s.suffix}</span>}
                   </div>
                   <div style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "5px", textTransform: "uppercase", color: s.color, opacity: 0.6 }}>{s.label}</div>
                 </div>
