@@ -189,28 +189,22 @@ export default function CollectionsPage() {
                 >
                   <Image src={cat.img} alt={t(cat.key)} fill style={{ objectFit: 'cover' }} className="cat-card-img" />
                   <div className="cat-card-overlay">
-                    <div className="cat-tag">{cat.tag}</div>
-                    <div>
-                      <h2 style={{ fontFamily: 'Syne', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'white', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1 }}>
-                        {t(cat.key)}
-                      </h2>
-                      <p style={{ color: 'white', opacity: 0.55, fontSize: '0.95rem', lineHeight: 1.7, maxWidth: '340px', marginBottom: '20px' }}>{cat.desc}</p>
-                      {(cat.id === '3piece' || cat.id === 'coord') && (
-                        <p style={{ color: 'var(--secondary)', opacity: 0.85, fontSize: '0.78rem', lineHeight: 1.4, maxWidth: '340px', marginBottom: '24px', fontStyle: 'italic', borderLeft: '2px solid var(--secondary)', paddingLeft: '10px' }}>
-                          * Image is for representation purpose only. It may change from brand to brand and catalogue also.
-                        </p>
-                      )}
-                      <Magnetic>
-                        <Link href="/contact" className="btn-primary" style={{ borderColor: 'rgba(255,255,255,0.4)', color: 'white', fontSize: '0.65rem' }}>
-                          INQUIRE WHOLESALE
-                        </Link>
-                      </Magnetic>
-                    </div>
+                    <h2 style={{ fontFamily: 'Syne', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'white', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1, margin: 0 }}>
+                      {t(cat.key)}
+                    </h2>
                   </div>
                 </motion.div>
               );
             })}
           </div>
+
+          {/* ── FOOTNOTE DISCLAIMER ── */}
+          <div style={{ marginTop: '48px', textAlign: 'center' }}>
+            <p style={{ color: 'var(--primary)', opacity: 0.45, fontSize: '0.8rem', fontStyle: 'italic', maxWidth: '640px', margin: '0 auto', padding: '0 20px', lineHeight: 1.6 }}>
+              * Images are for representation purpose only. It may change from brand to brand and catalogue also.
+            </p>
+          </div>
+
         </div>
       </section>
 
