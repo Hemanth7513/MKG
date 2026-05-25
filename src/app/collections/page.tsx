@@ -34,6 +34,11 @@ const categories = [
     tag: 'TRENDING', color: '#7a3a1a',
     desc: 'Trending fancy wear and western fusion.',
   },
+  {
+    id: 'coord', key: 'cat_coord', img: '/images/coord-set.png',
+    tag: 'NEW ARRIVAL', color: '#2a5a4a',
+    desc: 'Matching top & bottom co-ord sets — effortless style for every occasion.',
+  },
 ];
 
 // Search bar component (uiverse-style)
@@ -99,7 +104,7 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nighties', 'Leggings', 'Fancy Wear', 'Cotton Sets', 'Party Wear']} />
+      <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nighties', 'Leggings', 'Co-ord Sets', 'Fancy Wear', 'Cotton Sets', 'Party Wear']} />
 
       {/* ── FRESH STOCK NOTICE ── */}
       <div style={{ padding: '0 0 48px' }}>
