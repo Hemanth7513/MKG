@@ -227,10 +227,8 @@ export default function HomePage() {
               >{n}</Link>
             ))}
           </div>
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 40, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-            <p style={{ opacity: 0.2, fontSize: "0.62rem", fontWeight: 800, letterSpacing: "6px", textTransform: "uppercase" }}>© 2026 • THE WHOLESALE LANDMARK</p>
-            <p style={{ opacity: 0.2, fontSize: "0.62rem", fontWeight: 800, letterSpacing: "6px", textTransform: "uppercase" }}>VIJAYAWADA • SINCE 1999</p>
-          </div>
+
+
         </div>
       </footer>
     </main>
