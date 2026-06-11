@@ -14,56 +14,56 @@ interface Message {
 const faqs: { keywords: string[]; answer: string }[] = [
   {
     keywords: ["product", "products", "fabric", "fabrics", "varieties", "variety", "catalogue", "collection", "what do you sell", "items"],
-    answer: "We carry 3-Piece Sets, Lehangas, Fancy Wear, Embroidered Suits, Kurtis & more. New arrivals every week.",
+    answer: "Thank you for your interest! We offer a beautiful range of 3-Piece Sets, Lehangas, Fancy Wear, Embroidered Suits, Kurtis & more — with fresh arrivals every week. We'd love to show you around!",
   },
   {
     keywords: ["price", "prices", "cost", "rate", "rates", "how much", "pricing"],
-    answer: "We offer competitive wholesale rates sourced directly from weavers — no middlemen. Visit us for pricing on specific items.",
+    answer: "We're proud to offer highly competitive wholesale rates, sourced directly from weavers with no middlemen. For specific pricing, we warmly invite you to visit us or reach out — we'll be happy to assist.",
   },
   {
     keywords: ["wholesale", "bulk", "order", "minimum", "retailer", "reseller", "dealer"],
-    answer: "We cater exclusively to wholesale buyers. MOQ varies by category — visit us or use the Contact page to discuss your order.",
+    answer: "We exclusively serve wholesale buyers and are always glad to welcome new retail partners. MOQ varies by category — please visit us or use our Contact page and we'll take care of the rest.",
   },
   {
     keywords: ["location", "address", "where", "find you", "visit", "shop", "store", "one town"],
-    answer: "We're at Naganna Trade One Mall, 3rd Floor, One Town, Vijayawada.",
+    answer: "We'd be delighted to have you visit us! You can find us at Naganna Trade One Mall, 3rd Floor, One Town, Vijayawada. We look forward to welcoming you.",
   },
   {
     keywords: ["timing", "timings", "hours", "open", "close", "time", "when"],
-    answer: "Open Mon–Sat, 9:00 AM – 7:00 PM. Closed on Sundays & public holidays.",
+    answer: "Our store is open Monday to Saturday, 9:00 AM – 7:00 PM. We're closed on Sundays and public holidays. We look forward to seeing you!",
   },
   {
-    keywords: ["contact", "phone", "call", "whatsapp", "number", "reach"],
-    answer: "You can reach us at +91 93479 82187 (call or WhatsApp). You can also visit us at Naganna Trade One Mall, 3rd Floor, One Town, Vijayawada or use our Contact page for enquiries.",
+    keywords: ["contact", "reach"],
+    answer: "We'd love to hear from you! You can call or WhatsApp us at +91 93479 82187, visit us at Naganna Trade One Mall, 3rd Floor, One Town, Vijayawada, or reach out via our Contact page.",
   },
   {
-    keywords: ["call", "phone", "telephone", "ring"],
-    answer: "Give us a call at +91 93479 82187. We're available Mon–Sat, 9:00 AM – 7:00 PM.",
+    keywords: ["call", "phone", "telephone", "ring", "number"],
+    answer: "Please feel free to give us a call at +91 93479 82187. We're available Monday to Saturday, 9:00 AM – 7:00 PM and will be happy to assist you.",
   },
   {
     keywords: ["whatsapp", "whats app", "chat", "message", "text"],
-    answer: "You can WhatsApp us at +91 93479 82187. Drop us a message anytime and we'll get back to you shortly.",
+    answer: "You're welcome to WhatsApp us at +91 93479 82187 anytime. We'll get back to you as soon as possible — usually very quickly!",
   },
   {
     keywords: ["since", "years", "experience", "history", "established", "old", "legacy", "1994", "1999"],
-    answer: "Mohan Krishna Garments has deep roots in Vijayawada — a trusted wholesale landmark built over generations.",
+    answer: "Mohan Krishna Garments has been a trusted name in Vijayawada's wholesale market for generations. We take great pride in the relationships and trust we have built over the years.",
   },
   {
     keywords: ["delivery", "shipping", "dispatch", "transport", "courier"],
-    answer: "We dispatch bulk orders across Andhra Pradesh & beyond. Contact us to arrange delivery.",
+    answer: "We dispatch bulk orders across Andhra Pradesh and beyond. Please get in touch with us and we'll be happy to arrange delivery for your order.",
   },
   {
     keywords: ["hello", "hi", "hey", "namaste", "good morning", "good afternoon", "good evening"],
-    answer: "Namaste! How can I help you today?",
+    answer: "Namaste! A very warm welcome to Mohan Krishna Garments. How may I assist you today?",
   },
   {
     keywords: ["thank", "thanks", "thank you", "dhanyavad", "shukriya"],
-    answer: "Happy to help. Feel free to ask anything else.",
+    answer: "It's our pleasure! We're always here to help. Please don't hesitate to reach out if you need anything else.",
   },
 ];
 
 const WELCOME =
-  "Namaste! 🙏 I'm the MK Garments assistant. Ask me about products, wholesale orders, location, or timings.";
+  "Namaste! Welcome to Mohan Krishna Garments. I'm here to help you with any questions about our products, wholesale orders, store location, or timings. How may I assist you?";
 
 const QUICK_REPLIES = [
   "What products do you have?",
@@ -79,7 +79,7 @@ function getBotReply(input: string): string {
       return faq.answer;
     }
   }
-  return "Not sure about that — visit us at One Town, Vijayawada or reach out via our Contact page. 😊";
+  return "We'd love to help with that! Please visit us at One Town, Vijayawada or contact us directly so we can assist you better.";
 }
 
 // ── Chat Bubble Icon ───────────────────────────────────────────────────────
@@ -168,7 +168,7 @@ export default function ChatBot() {
               height: "min(540px, calc(100vh - 120px))",
               background: "#fff",
               borderRadius: 20,
-              boxShadow: "0 24px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,77,64,0.08)",
+              boxShadow: "0 24px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(74,14,30,0.08)",
               display: "flex",
               flexDirection: "column",
               overflow: "hidden",
@@ -179,7 +179,7 @@ export default function ChatBot() {
             {/* Header */}
             <div
               style={{
-                background: "linear-gradient(135deg, #004d40 0%, #00695c 100%)",
+                background: "linear-gradient(135deg, #4a0e1e 0%, #6b1a2e 100%)",
                 padding: "18px 20px",
                 display: "flex",
                 alignItems: "center",
@@ -248,13 +248,13 @@ export default function ChatBot() {
                       padding: "10px 14px",
                       borderRadius: msg.from === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
                       background: msg.from === "user"
-                        ? "linear-gradient(135deg, #004d40, #00695c)"
+                        ? "linear-gradient(135deg, #4a0e1e, #6b1a2e)"
                         : "#fff",
                       color: msg.from === "user" ? "#fff" : "#1a1a1a",
                       fontSize: "0.85rem",
                       lineHeight: 1.55,
                       boxShadow: msg.from === "user"
-                        ? "0 2px 12px rgba(0,77,64,0.25)"
+                        ? "0 2px 12px rgba(74,14,30,0.25)"
                         : "0 2px 8px rgba(0,0,0,0.06)",
                       fontWeight: 400,
                     }}
@@ -297,9 +297,9 @@ export default function ChatBot() {
                     style={{
                       padding: "6px 12px",
                       borderRadius: 20,
-                      border: "1.5px solid rgba(0,77,64,0.25)",
+                      border: "1.5px solid rgba(74,14,30,0.25)",
                       background: "transparent",
-                      color: "#004d40",
+                      color: "#4a0e1e",
                       fontSize: "0.73rem",
                       fontWeight: 700,
                       letterSpacing: "0.3px",
@@ -308,12 +308,12 @@ export default function ChatBot() {
                       fontFamily: "inherit",
                     }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.background = "#004d40";
+                      e.currentTarget.style.background = "#4a0e1e";
                       e.currentTarget.style.color = "#fff";
                     }}
                     onMouseLeave={e => {
                       e.currentTarget.style.background = "transparent";
-                      e.currentTarget.style.color = "#004d40";
+                      e.currentTarget.style.color = "#4a0e1e";
                     }}
                   >
                     {qr}
@@ -341,7 +341,7 @@ export default function ChatBot() {
                 placeholder="Ask something…"
                 style={{
                   flex: 1,
-                  border: "1.5px solid rgba(0,77,64,0.2)",
+                  border: "1.5px solid rgba(74,14,30,0.2)",
                   borderRadius: 12,
                   padding: "10px 14px",
                   fontSize: "0.85rem",
@@ -351,8 +351,8 @@ export default function ChatBot() {
                   color: "#1a1a1a",
                   transition: "border-color 0.2s",
                 }}
-                onFocus={e => (e.currentTarget.style.borderColor = "#004d40")}
-                onBlur={e => (e.currentTarget.style.borderColor = "rgba(0,77,64,0.2)")}
+                onFocus={e => (e.currentTarget.style.borderColor = "#4a0e1e")}
+                onBlur={e => (e.currentTarget.style.borderColor = "rgba(74,14,30,0.2)")}
               />
               <button
                 type="submit"
@@ -362,7 +362,7 @@ export default function ChatBot() {
                   height: 42,
                   borderRadius: 12,
                   border: "none",
-                  background: input.trim() ? "linear-gradient(135deg, #004d40, #00695c)" : "rgba(0,0,0,0.08)",
+                  background: input.trim() ? "linear-gradient(135deg, #4a0e1e, #6b1a2e)" : "rgba(0,0,0,0.08)",
                   color: input.trim() ? "#fff" : "rgba(0,0,0,0.3)",
                   cursor: input.trim() ? "pointer" : "default",
                   display: "flex",
@@ -391,14 +391,14 @@ export default function ChatBot() {
           width: 60,
           height: 60,
           borderRadius: "50%",
-          background: "linear-gradient(135deg, #004d40 0%, #00695c 100%)",
+          background: "linear-gradient(135deg, #4a0e1e 0%, #6b1a2e 100%)",
           border: "2.5px solid #C5A028",
           color: "#fff",
           cursor: "pointer",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: "0 8px 32px rgba(0,77,64,0.35), 0 2px 8px rgba(0,0,0,0.15)",
+          boxShadow: "0 8px 32px rgba(74,14,30,0.35), 0 2px 8px rgba(0,0,0,0.15)",
           zIndex: 9999,
           outline: "none",
         }}
