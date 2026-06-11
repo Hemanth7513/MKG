@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -33,7 +34,15 @@ const faqs: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["contact", "phone", "call", "whatsapp", "number", "reach"],
-    answer: "Visit us at One Town, Vijayawada or reach out via our Contact page.",
+    answer: "You can reach us at +91 93479 82187 (call or WhatsApp). You can also visit us at Naganna Trade One Mall, 3rd Floor, One Town, Vijayawada or use our Contact page for enquiries.",
+  },
+  {
+    keywords: ["call", "phone", "telephone", "ring"],
+    answer: "Give us a call at +91 93479 82187. We're available Mon–Sat, 9:00 AM – 7:00 PM.",
+  },
+  {
+    keywords: ["whatsapp", "whats app", "chat", "message", "text"],
+    answer: "You can WhatsApp us at +91 93479 82187. Drop us a message anytime and we'll get back to you shortly.",
   },
   {
     keywords: ["since", "years", "experience", "history", "established", "old", "legacy", "1994", "1999"],
@@ -184,16 +193,12 @@ export default function ChatBot() {
                   width: 42,
                   height: 42,
                   borderRadius: "50%",
-                  background: "rgba(197,160,40,0.2)",
+                  overflow: "hidden",
                   border: "2px solid #C5A028",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   flexShrink: 0,
-                  fontSize: 18,
                 }}
               >
-                🧵
+                <Image src="/mk-avatar.png" alt="MK Assistant" width={42} height={42} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ flex: 1 }}>
                 <div style={{ color: "#fff", fontWeight: 800, fontSize: "0.88rem", letterSpacing: "1px" }}>

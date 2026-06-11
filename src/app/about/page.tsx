@@ -6,12 +6,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import Magnetic from "@/components/Magnetic";
 
-const milestones = [
-  { year: '1999', title: 'Founded', desc: 'Started as a wholesale dealer in Vijayawada.' },
-  { year: '2000', title: 'First Shop', desc: 'Opened our first dedicated wholesale shop in Gayatri Towers, near Vijayawada Old Bus Stand.' },
-  { year: '2022', title: 'New Premises', desc: 'Moved to Naganna Trade One Mall — 3,000 sq ft of curated wholesale fashion.' },
-  { year: '2026', title: 'Regional Reach', desc: 'Retail partners across Andhra Pradesh & Telangana.' },
-];
 
 const values = [
   {
@@ -122,50 +116,6 @@ export default function AboutPage() {
                 </p>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* ── TIMELINE ── */}
-      <section style={{ padding: '80px 0 120px' }}>
-        <div className="section-container">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 5rem)', color: 'var(--primary)', marginBottom: '80px', textTransform: 'uppercase', letterSpacing: '-0.04em' }}
-          >
-            Our Journey
-          </motion.h2>
-
-          <div style={{ position: 'relative' }}>
-            <div className="timeline-line" />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '64px' }}>
-              {milestones.map((m, i) => {
-                const softColors = ['#fdfaf0', '#f2fcf5', '#f0f8ff', '#fcf2f2', '#fcfaf2'];
-                return (
-                <motion.div
-                  key={m.year}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.9 }}
-                  className="timeline-wrapper"
-                  style={{ display: 'flex', justifyContent: i % 2 === 0 ? 'flex-start' : 'flex-end', position: 'relative' }}
-                >
-                  {/* Center dot */}
-                  <div className="timeline-dot" style={{ position: 'absolute', left: '50%', top: '28px', transform: 'translate(-50%, -50%)', zIndex: 2 }} />
-                  <div className="timeline-card" style={{ background: softColors[i % softColors.length] }}>
-                    <span style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '3rem', color: 'var(--secondary)', opacity: 0.3, lineHeight: 1 }}>{m.year}</span>
-                    <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '1.8rem', color: 'var(--primary)', marginTop: '8px', marginBottom: '6px' }}>{m.title}</h3>
-                    <p style={{ opacity: 0.6, lineHeight: 1.8 }}>{m.desc}</p>
-                  </div>
-                </motion.div>
-                );
-              })}
-            </div>
           </div>
         </div>
       </section>
