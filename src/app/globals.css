@@ -363,8 +363,11 @@ body {
 }
 .marquee-track {
   display: inline-flex;
+  width: max-content;
   animation: marquee-scroll 28s linear infinite;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 .marquee-track:hover { animation-play-state: paused; }
 .marquee-item {

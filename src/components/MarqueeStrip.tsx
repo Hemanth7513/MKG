@@ -8,7 +8,8 @@ interface MarqueeStripProps {
 }
 
 export default function MarqueeStrip({ items, direction = "left", speed = 28, dark = false }: MarqueeStripProps) {
-  const doubled = [...items, ...items]; // duplicate for seamless loop
+  // Repeat items 4 times to ensure it fills the screen and loops seamlessly
+  const repeatedItems = [...items, ...items, ...items, ...items];
 
   return (
     <div
@@ -25,7 +26,7 @@ export default function MarqueeStrip({ items, direction = "left", speed = 28, da
           animationDuration: `${speed}s`,
         }}
       >
-        {doubled.map((item, i) => (
+        {repeatedItems.map((item, i) => (
           <span key={i} className="marquee-item" style={{ color: dark ? "rgba(255,255,255,0.6)" : undefined }}>
             <span className="marquee-dot" />
             {item}
