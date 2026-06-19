@@ -16,7 +16,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "Mohan Krishna Garments & Cloth | Wholesale Ladies Wear",
-  description: "Exclusive Wholesale Dealers for Ladies Wear. 32 Years of Trust in Vijayawada. Specializing in 3-Piece Sets, Lehangas, Fancy Wear, and more.",
+  description: "Exclusive Wholesale Dealers for Ladies Wear in Vijayawada. Specializing in 3-Piece Sets, Lehangas, Fancy Wear, and more.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
