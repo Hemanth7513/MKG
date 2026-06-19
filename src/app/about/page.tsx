@@ -74,7 +74,7 @@ export default function AboutPage() {
               transition={{ duration: 1 }}
               className="col-span-5"
             >
-              <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontFamily: 'Syne', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.1, textTransform: 'uppercase', marginBottom: '36px' }}>
+              <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontFamily: 'Unbounded', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.1, textTransform: 'uppercase', marginBottom: '36px' }}>
                 Our Story
               </h2>
               <p style={{ opacity: 0.65, fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '24px' }}>
@@ -108,7 +108,7 @@ export default function AboutPage() {
               <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none" }} />
               
               <div style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-                <span style={{ fontFamily: 'Syne', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 800, color: 'var(--secondary)', display: 'block', lineHeight: 1, marginBottom: '24px' }}>
+                <span style={{ fontFamily: 'Unbounded', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 800, color: 'var(--secondary)', display: 'block', lineHeight: 1, marginBottom: '24px' }}>
                   MKG
                 </span>
                 <p style={{ color: 'white', opacity: 0.75, fontSize: '1.25rem', fontWeight: 600, lineHeight: 1.8, maxWidth: '440px', margin: '0 auto' }}>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                 className="process-card"
               >
                 <span style={{ fontSize: '2rem', marginBottom: '24px', display: 'block' }}>{v.icon}</span>
-                <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: '1.6rem', color: 'var(--secondary)', marginBottom: '6px' }}>{v.title}</h3>
+                <h3 style={{ fontFamily: 'Unbounded', fontWeight: 800, fontSize: '1.6rem', color: 'var(--secondary)', marginBottom: '6px' }}>{v.title}</h3>
                 <p style={{ opacity: 0.6, lineHeight: 1.8 }}>{v.desc}</p>
               </motion.div>
             ))}

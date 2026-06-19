@@ -161,7 +161,7 @@ export default function HomePage() {
                 {/* subtle fabric dot pattern */}
                 <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "18px 18px", pointerEvents: "none" }} />
                 <div style={{ position: "relative" }}>
-                  <div style={{ fontFamily: "Syne", fontWeight: 800, fontSize: s.value.length > 5 ? "clamp(1.6rem, 3.5vw, 2.2rem)" : "clamp(3.5rem, 7vw, 5.5rem)", color: s.color, letterSpacing: "-0.04em", lineHeight: 1.1, marginBottom: 12 }}>
+                  <div style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: s.value.length > 5 ? "clamp(1.6rem, 3.5vw, 2.2rem)" : "clamp(3.5rem, 7vw, 5.5rem)", color: s.color, letterSpacing: "-0.04em", lineHeight: 1.1, marginBottom: 12 }}>
                     <span>{s.value}</span>{s.suffix && <span style={{ fontSize: "0.55em", color: s.accent }}>{s.suffix}</span>}
                   </div>
                   <div style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "5px", textTransform: "uppercase", color: s.color, opacity: 0.6 }}>{s.label}</div>
@@ -180,7 +180,7 @@ export default function HomePage() {
         <div className="section-container">
           <motion.h2
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(2.5rem,6vw,6rem)", color: "var(--primary)", letterSpacing: "-0.05em", lineHeight: 0.9, textTransform: "uppercase", marginBottom: "clamp(48px,6vw,80px)" }}
+            style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "clamp(2.5rem,6vw,6rem)", color: "var(--primary)", letterSpacing: "-0.05em", lineHeight: 0.9, textTransform: "uppercase", marginBottom: "clamp(48px,6vw,80px)" }}
           >
             The MK <span className="text-outline">Process</span>
           </motion.h2>
@@ -193,8 +193,8 @@ export default function HomePage() {
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="process-card"
               >
-                <span style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "5.5rem", lineHeight: 1, color: "var(--secondary)", display: "block", marginBottom: 16 }}>{s.n}</span>
-                <h3 style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "1.8rem", color: "var(--primary)", marginBottom: 16 }}>{s.title}</h3>
+                <span style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "5.5rem", lineHeight: 1, color: "var(--secondary)", display: "block", marginBottom: 16 }}>{s.n}</span>
+                <h3 style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "1.8rem", color: "var(--primary)", marginBottom: 16 }}>{s.title}</h3>
                 <p style={{ opacity: 0.55, lineHeight: 1.9, fontSize: "0.95rem" }}>{s.desc}</p>
               </motion.div>
             ))}
@@ -209,7 +209,7 @@ export default function HomePage() {
           <motion.h2
             initial={{ y: 60, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}
             transition={{ duration: 1.3 }}
-            style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(2.5rem,14vw,13rem)", letterSpacing: "-0.07em", lineHeight: 0.85, textAlign: "center", marginBottom: 20 }}
+            style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "clamp(2.5rem,14vw,13rem)", letterSpacing: "-0.07em", lineHeight: 0.85, textAlign: "center", marginBottom: 20 }}
           >
             MOHAN<br />KRISHNA
           </motion.h2>

@@ -42,10 +42,10 @@ export default function LanguageTicker() {
             letterSpacing: isLatin ? "6px" : "1px",
             textTransform: isLatin ? "uppercase" : "none",
             fontFamily: isLatin
-              ? "Syne, sans-serif"
+              ? "Unbounded, sans-serif"
               : current.lang === "te"
               ? "var(--telugu-font)"
-              : "Bricolage Grotesque, sans-serif",
+              : "Geist, sans-serif",
             lineHeight: 1,
           }}
         >

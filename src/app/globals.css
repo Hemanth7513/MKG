@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Noto+Sans+Telugu:wght@300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Geist:wght@100..900&family=Noto+Sans+Telugu:wght@300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap');
 
 :root {
-  --telugu-font: 'Noto Sans Telugu', 'Bricolage Grotesque', sans-serif;
+  --telugu-font: 'Noto Sans Telugu', 'Geist', sans-serif;
   --background: #fdfcf7;
   --foreground: #002d25;
   --primary: #004d40;
@@ -32,7 +32,7 @@ html { scroll-behavior: smooth; overflow-x: hidden; width: 100vw; max-width: 100
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Geist', sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -79,7 +79,7 @@ body {
 
 /* ─── TYPOGRAPHY ─────────────────────────────────────── */
 .h1-hero {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 800;
   font-size: var(--h1-size);
   line-height: 0.75;
@@ -150,7 +150,7 @@ body {
   background: transparent;
   border: 1.5px solid var(--primary);
   border-radius: 100px;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 800;
   font-size: 0.75rem;
   letter-spacing: 0.15em;
@@ -227,7 +227,7 @@ body {
   background: transparent;
   border: 1.5px solid var(--primary);
   border-radius: 100px;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 800;
   letter-spacing: 0.15em;
   color: var(--primary);
@@ -264,7 +264,7 @@ body {
   border: none;
   border-bottom: 1.5px solid rgba(0,77,64,0.15);
   outline: none;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: var(--foreground);
@@ -322,7 +322,7 @@ body {
   background: rgba(255,255,255,0.9);
   border: 1.5px solid rgba(0,77,64,0.15);
   border-radius: 100px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--foreground);
@@ -372,7 +372,7 @@ body {
   align-items: center;
   gap: 32px;
   padding-right: 64px;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 800;
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   letter-spacing: 8px;
@@ -418,7 +418,7 @@ body {
 .stat-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-md); }
 .stat-card:hover::after { transform: scaleX(1); }
 .stat-number {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 800;
   font-size: clamp(3.5rem, 7vw, 6rem);
   color: var(--primary);
@@ -515,7 +515,7 @@ body {
 }
 .process-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); border-color: rgba(197,160,40,0.25); }
 .process-number {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 800;
   font-size: 5.5rem;
   line-height: 1;
@@ -609,7 +609,7 @@ body {
   border-radius: 100px;
   border: 1.5px solid rgba(0,77,64,0.15);
   background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23004d40' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 16px center;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 2px;

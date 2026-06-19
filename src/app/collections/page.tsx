@@ -105,7 +105,7 @@ export default function CollectionsPage() {
             </div>
             <div style={{ flex: 1 }}>
               <span style={{
-                fontFamily: 'Syne',
+                fontFamily: 'Unbounded',
                 fontWeight: 800,
                 fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
                 color: 'white',
@@ -125,7 +125,7 @@ export default function CollectionsPage() {
               background: 'var(--secondary)',
               color: '#002d25',
               borderRadius: '100px',
-              fontFamily: 'Syne',
+              fontFamily: 'Unbounded',
               fontWeight: 800,
               fontSize: '0.75rem',
               letterSpacing: '3px',
@@ -158,7 +158,7 @@ export default function CollectionsPage() {
                 >
                   <Image src={cat.img} alt={cat.title} fill style={{ objectFit: 'cover' }} className="cat-card-img" />
                   <div className="cat-card-overlay">
-                    <h2 style={{ fontFamily: 'Syne', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'white', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1, margin: 0 }}>
+                    <h2 style={{ fontFamily: 'Unbounded', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'white', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1, margin: 0 }}>
                       {cat.title}
                     </h2>
                   </div>
@@ -188,7 +188,7 @@ export default function CollectionsPage() {
             style={{ padding: 'clamp(48px, 8vw, 100px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '48px', background: 'linear-gradient(135deg, rgba(0,77,64,0.06) 0%, rgba(197,160,40,0.04) 100%)' }}
           >
             <div>
-              <h3 style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 4rem)', color: 'var(--primary)', lineHeight: 1.1, marginBottom: '16px' }}>
+              <h3 style={{ fontFamily: 'Unbounded', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 4rem)', color: 'var(--primary)', lineHeight: 1.1, marginBottom: '16px' }}>
                 PARTNER FOR<br />WHOLESALE
               </h3>
               <p style={{ opacity: 0.5, fontSize: '1rem', fontWeight: 600 }}>Ready to stock? Get bulk pricing & catalogue.</p>

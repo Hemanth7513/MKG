@@ -144,7 +144,7 @@ export default function HelpPage() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "1.4rem", color: "var(--primary)", marginBottom: 4 }}>
+                <p style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "1.4rem", color: "var(--primary)", marginBottom: 4 }}>
                   AI Chat Assistant
                 </p>
                 <p style={{ fontSize: "0.8rem", fontWeight: 700, letterSpacing: "3px", color: "var(--secondary)", textTransform: "uppercase" }}>
@@ -176,7 +176,7 @@ export default function HelpPage() {
                       width: 36, height: 36, borderRadius: "50%",
                       background: "var(--primary)",
                       color: "white",
-                      fontFamily: "Syne",
+                      fontFamily: "Unbounded",
                       fontWeight: 800,
                       fontSize: "0.9rem",
                       display: "flex", alignItems: "center", justifyContent: "center",
@@ -184,7 +184,7 @@ export default function HelpPage() {
                     }}>{s.number}</span>
                     <span style={{ fontSize: "1.6rem" }}>{s.icon}</span>
                   </div>
-                  <h3 style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "1.05rem", color: "var(--primary)", marginBottom: 10 }}>
+                  <h3 style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "1.05rem", color: "var(--primary)", marginBottom: 10 }}>
                     {s.title}
                   </h3>
                   <p style={{ opacity: 0.55, lineHeight: 1.8, fontSize: "0.9rem" }}>{s.desc}</p>
@@ -209,7 +209,7 @@ export default function HelpPage() {
           {/* ── FAQ ── */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(1.6rem, 4vw, 3rem)", color: "var(--primary)", marginBottom: 32, letterSpacing: "-0.03em" }}
+            style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "clamp(1.6rem, 4vw, 3rem)", color: "var(--primary)", marginBottom: 32, letterSpacing: "-0.03em" }}
           >
             Common Questions
           </motion.h2>
@@ -230,7 +230,7 @@ export default function HelpPage() {
                   boxShadow: "var(--shadow-sm)",
                 }}
               >
-                <p style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "1rem", color: "var(--primary)", marginBottom: 10, display: "flex", gap: 12 }}>
+                <p style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "1rem", color: "var(--primary)", marginBottom: 10, display: "flex", gap: 12 }}>
                   <span style={{ color: "var(--secondary)" }}>Q.</span> {faq.q}
                 </p>
                 <p style={{ opacity: 0.6, lineHeight: 1.8, fontSize: "0.95rem", paddingLeft: 24 }}>
@@ -243,7 +243,7 @@ export default function HelpPage() {
           {/* ── STILL NEED HELP ── */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(1.6rem, 4vw, 3rem)", color: "var(--primary)", marginBottom: 8, letterSpacing: "-0.03em" }}
+            style={{ fontFamily: "Unbounded", fontWeight: 800, fontSize: "clamp(1.6rem, 4vw, 3rem)", color: "var(--primary)", marginBottom: 8, letterSpacing: "-0.03em" }}
           >
             Still Need Help?
           </motion.h2>
