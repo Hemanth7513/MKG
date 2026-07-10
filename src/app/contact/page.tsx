@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -59,6 +60,34 @@ const infoItems = [
 ];
 
 export default function ContactPage() {
+  const [copied, setCopied] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const checkStatus = () => {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const ist = new Date(utc + (3600000 * 5.5)); // UTC+5.5
+      const day = ist.getDay();
+      const hours = ist.getHours();
+      
+      if (day === 0) {
+        setIsOpen(false);
+      } else {
+        setIsOpen(hours >= 10 && hours < 20); // 10 AM to 8 PM
+      }
+    };
+    checkStatus();
+    const interval = setInterval(checkStatus, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const copyAddress = () => {
+    navigator.clipboard.writeText("3rd Floor, A Block, Naaganna Trade One Mall, One Town, Vijayawada — 520001, Andhra Pradesh");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <main style={{ minHeight: "100vh", paddingBottom: "160px" }}>
 
@@ -139,19 +168,125 @@ export default function ContactPage() {
               {/* Divider */}
               <div style={{ height: 1, background: "linear-gradient(to right, rgba(0,77,64,0.1), transparent)", margin: "8px 0" }} />
 
-              {/* Info items */}
-              {infoItems.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 + i * 0.08 }}
-                  style={{ padding: "24px 0" }}
-                >
-                  <p style={{ fontSize: "0.62rem", fontWeight: 800, letterSpacing: "5px", color: "var(--secondary)", textTransform: "uppercase", marginBottom: "10px" }}>{item.label}</p>
-                  <p style={{ fontWeight: 600, color: "var(--primary)", lineHeight: 1.9, opacity: 0.65, whiteSpace: "pre-line", fontSize: "0.95rem" }}>{item.content}</p>
-                </motion.div>
-              ))}
+              {/* Address Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ y: -4, background: "#FFFFFF", borderColor: "rgba(197, 160, 40, 0.25)", boxShadow: "var(--shadow-sm)" }}
+                style={{
+                  padding: "24px 28px",
+                  background: "rgba(255, 255, 255, 0.4)",
+                  border: "1.5px solid rgba(0, 77, 64, 0.04)",
+                  borderRadius: "var(--radius-md)",
+                  transition: "all 0.4s var(--ease-expo)",
+                  position: "relative",
+                  textAlign: "left",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                      <circle cx="12" cy="9" r="2.5" />
+                    </svg>
+                    <span style={{ fontSize: "0.62rem", fontWeight: 800, letterSpacing: "5px", color: "var(--secondary)", textTransform: "uppercase" }}>ADDRESS</span>
+                  </div>
+                  <button
+                    onClick={copyAddress}
+                    style={{
+                      background: "transparent",
+                      border: "none",
+                      color: copied ? "var(--primary)" : "var(--secondary)",
+                      fontSize: "0.65rem",
+                      fontWeight: 800,
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 4,
+                      padding: "4px 8px",
+                      borderRadius: "6px",
+                      transition: "all 0.2s",
+                    }}
+                  >
+                    {copied ? "COPIED! ✓" : "COPY ADDRESS 📋"}
+                  </button>
+                </div>
+                <p style={{ fontWeight: 600, color: "var(--primary)", lineHeight: 1.8, opacity: 0.65, fontSize: "0.95rem", margin: 0, whiteSpace: "pre-line" }}>
+                  3rd Floor, A Block{"\n"}Naaganna Trade One Mall{"\n"}One Town, Vijayawada — 520001{"\n"}Andhra Pradesh
+                </p>
+              </motion.div>
+
+              {/* Store Hours Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                whileHover={{ y: -4, background: "#FFFFFF", borderColor: "rgba(197, 160, 40, 0.25)", boxShadow: "var(--shadow-sm)" }}
+                style={{
+                  padding: "24px 28px",
+                  background: "rgba(255, 255, 255, 0.4)",
+                  border: "1.5px solid rgba(0, 77, 64, 0.04)",
+                  borderRadius: "var(--radius-md)",
+                  transition: "all 0.4s var(--ease-expo)",
+                  textAlign: "left",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span style={{ fontSize: "0.62rem", fontWeight: 800, letterSpacing: "5px", color: "var(--secondary)", textTransform: "uppercase" }}>STORE HOURS</span>
+                  </div>
+                  {/* Status Indicator */}
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, background: isOpen ? "rgba(0, 77, 64, 0.08)" : "rgba(197, 160, 40, 0.08)", padding: "4px 10px", borderRadius: "100px" }}>
+                    <span
+                      style={{
+                        width: 8,
+                        height: 8,
+                        borderRadius: "50%",
+                        background: isOpen ? "#4CAF50" : "#FF9800",
+                        display: "inline-block",
+                      }}
+                    />
+                    <span style={{ fontSize: "0.58rem", fontWeight: 800, color: isOpen ? "var(--primary)" : "var(--secondary)" }}>
+                      {isOpen ? "OPEN NOW" : "CLOSED"}
+                    </span>
+                  </div>
+                </div>
+                <p style={{ fontWeight: 600, color: "var(--primary)", lineHeight: 1.8, opacity: 0.65, fontSize: "0.95rem", margin: 0, whiteSpace: "pre-line" }}>
+                  Monday – Saturday: 10 AM – 8 PM{"\n"}Sunday: Closed
+                </p>
+              </motion.div>
+
+              {/* Wholesale Exclusivity Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                whileHover={{ y: -4, background: "#FFFFFF", borderColor: "rgba(197, 160, 40, 0.25)", boxShadow: "var(--shadow-sm)" }}
+                style={{
+                  padding: "24px 28px",
+                  background: "rgba(255, 255, 255, 0.4)",
+                  border: "1.5px solid rgba(0, 77, 64, 0.04)",
+                  borderRadius: "var(--radius-md)",
+                  transition: "all 0.4s var(--ease-expo)",
+                  textAlign: "left",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "12px" }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                  <span style={{ fontSize: "0.62rem", fontWeight: 800, letterSpacing: "5px", color: "var(--secondary)", textTransform: "uppercase" }}>WHOLESALE ONLY</span>
+                </div>
+                <p style={{ fontWeight: 600, color: "var(--primary)", lineHeight: 1.8, opacity: 0.65, fontSize: "0.95rem", margin: 0 }}>
+                  We cater exclusively to retail businesses.
+                </p>
+              </motion.div>
             </motion.div>
 
             {/* ─ RIGHT: Map ─ */}
