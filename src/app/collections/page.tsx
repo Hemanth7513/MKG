@@ -80,6 +80,19 @@ export default function CollectionsPage() {
   const nextSlide = () => setActive((prev) => (prev + 1) % categories.length);
   const prevSlide = () => setActive((prev) => (prev - 1 + categories.length) % categories.length);
 
+  // Keyboard navigation for carousel
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        prevSlide();
+      } else if (e.key === "ArrowRight") {
+        nextSlide();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [nextSlide, prevSlide]);
+
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: "120px", paddingTop: "130px" }}>
 
