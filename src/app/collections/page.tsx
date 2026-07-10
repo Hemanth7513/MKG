@@ -205,35 +205,35 @@ export default function CollectionsPage() {
                   }}
                 >
                   {/* Card Container styled as a premium cut-out panel */}
+                  {/* Transparent Cutout Container */}
                   <div
                     style={{
                       width: "100%",
                       height: "100%",
-                      background: "var(--surface)",
-                      border: isCenter ? "2px solid var(--gold)" : "1px solid var(--border)",
-                      borderRadius: "var(--radius-xl)",
+                      background: "transparent",
+                      border: "none",
                       overflow: "visible",
                       position: "relative",
-                      boxShadow: isCenter ? "var(--shadow-lg)" : "var(--shadow-sm)",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "flex-end",
-                      padding: "24px",
-                      transition: "border-color 0.3s, box-shadow 0.3s",
+                      alignItems: "center",
                     }}
                   >
-                    {/* Shadow base platform for cutout models to stand on */}
+                    {/* Shadow pedestal on the floor under the model */}
                     <div
                       style={{
                         position: "absolute",
-                        bottom: "90px",
+                        bottom: "35px",
                         left: "15%",
                         right: "15%",
                         height: "12px",
-                        background: "rgba(197, 160, 40, 0.15)",
-                        filter: "blur(6px)",
+                        background: "rgba(197, 160, 40, 0.25)",
+                        filter: "blur(5px)",
                         borderRadius: "50%",
                         zIndex: 1,
+                        opacity: isCenter ? 1 : 0.4,
+                        transition: "opacity 0.3s",
                       }}
                     />
 
@@ -241,17 +241,17 @@ export default function CollectionsPage() {
                     <div
                       style={{
                         position: "absolute",
-                        top: "-40px",
-                        left: "10px",
-                        right: "10px",
-                        bottom: "100px",
+                        top: "0px",
+                        left: "0px",
+                        right: "0px",
+                        bottom: "55px",
                         zIndex: 2,
                       }}
                     >
                       <motion.div
                         style={{ width: "100%", height: "100%", position: "relative" }}
                         animate={{
-                          y: isCenter ? [0, -10, 0] : 0,
+                          y: isCenter ? [0, -12, 0] : 0,
                         }}
                         transition={{
                           duration: 4,
@@ -274,17 +274,17 @@ export default function CollectionsPage() {
                       </motion.div>
                     </div>
 
-                    {/* Category Details Text */}
-                    <div style={{ position: "relative", zIndex: 3, textAlign: "center" }}>
+                    {/* Floating clean labels below the pedestal */}
+                    <div style={{ position: "relative", zIndex: 3, textAlign: "center", marginTop: "12px", opacity: isCenter ? 1 : 0.35, transition: "opacity 0.3s" }}>
                       <span
                         style={{
-                          fontSize: "0.58rem",
+                          fontSize: "0.55rem",
                           fontWeight: 800,
                           letterSpacing: "3px",
                           color: "var(--gold)",
                           textTransform: "uppercase",
                           display: "block",
-                          marginBottom: "6px",
+                          marginBottom: "4px",
                         }}
                       >
                         {cat.tag}
@@ -292,7 +292,7 @@ export default function CollectionsPage() {
                       <h3
                         style={{
                           fontFamily: "Syne",
-                          fontSize: "1.35rem",
+                          fontSize: "1.25rem",
                           fontWeight: 800,
                           color: "var(--text)",
                           margin: 0,
