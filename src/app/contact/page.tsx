@@ -54,7 +54,7 @@ const infoItems = [
   },
   {
     label: "Wholesale Only",
-    content: "We cater exclusively to retail businesses.\nMinimum order requirements apply.",
+    content: "We cater exclusively to retail businesses.",
   },
 ];
 
