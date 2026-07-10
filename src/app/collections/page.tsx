@@ -81,63 +81,19 @@ export default function CollectionsPage() {
   const prevSlide = () => setActive((prev) => (prev - 1 + categories.length) % categories.length);
 
   return (
-    <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: "120px" }}>
-      {/* ── HEADER ── */}
-      <section style={{ padding: "160px 0 40px", position: "relative", overflow: "hidden" }}>
-        <div className="section-container" style={{ textAlign: "center" }}>
-          <motion.span
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{
-              display: "block",
-              color: "var(--secondary)",
-              fontWeight: 800,
-              fontSize: "0.75rem",
-              letterSpacing: "8px",
-              textTransform: "uppercase",
-              marginBottom: "16px",
-            }}
-          >
-            The MKG Showcase
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            style={{
-              fontFamily: "Syne",
-              fontWeight: 800,
-              fontSize: "clamp(2.5rem, 8vw, 8rem)",
-              lineHeight: 0.9,
-              letterSpacing: "-0.04em",
-              color: "var(--text)",
-              textTransform: "uppercase",
-            }}
-          >
-            3D <span style={{ WebkitTextStroke: "2px var(--text)", color: "transparent" }}>EXHIBITION</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            style={{
-              maxWidth: "500px",
-              margin: "24px auto 0",
-              color: "var(--text)",
-              opacity: 0.5,
-              fontSize: "1rem",
-              lineHeight: 1.7,
-            }}
-          >
-            Click cards or use the navigation below to rotate and inspect our premium wholesale categories.
-          </motion.p>
-        </div>
-      </section>
-
+    <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: "120px", paddingTop: "130px" }}>
       <MarqueeStrip items={["3 Piece Sets", "Lehangas", "Nightwear", "Leggings", "Co-ord Sets", "Fancy Wear"]} />
 
       {/* ── 3D CAROUSEL STAGE ── */}
-      <section style={{ padding: "60px 0", overflow: "hidden", position: "relative" }}>
+      <section style={{ padding: "40px 0 60px", overflow: "hidden", position: "relative" }}>
+        <div className="section-container" style={{ textAlign: "center", marginBottom: "48px" }}>
+          <span style={{ color: "var(--secondary)", fontWeight: 800, fontSize: "0.75rem", letterSpacing: "8px", textTransform: "uppercase", display: "block", marginBottom: "12px" }}>
+            The Showcase
+          </span>
+          <h2 style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--text)", textTransform: "uppercase", letterSpacing: "-0.5px", margin: 0 }}>
+            Our Collections
+          </h2>
+        </div>
         <div
           ref={containerRef}
           style={{
