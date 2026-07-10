@@ -392,104 +392,17 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      {/* ── ACTIVE CARD SPECIFICATION PANEL ── */}
-      <section style={{ padding: "40px 0" }}>
-        <div className="section-container" style={{ maxWidth: "800px" }}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4 }}
-              style={{
-                background: "var(--surface)",
-                border: "1px solid var(--border)",
-                borderRadius: "var(--radius-xl)",
-                padding: "clamp(32px, 6vw, 48px)",
-                boxShadow: "var(--shadow-md)",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: "0.62rem",
-                  fontWeight: 800,
-                  color: "var(--gold)",
-                  letterSpacing: "4px",
-                  textTransform: "uppercase",
-                  display: "block",
-                  marginBottom: "8px",
-                }}
-              >
-                Collection Focus
-              </span>
-              <h2
-                style={{
-                  fontFamily: "Syne",
-                  fontWeight: 800,
-                  fontSize: "2rem",
-                  color: "var(--text)",
-                  marginBottom: "16px",
-                  textTransform: "uppercase",
-                }}
-              >
-                {categories[active].title}
-              </h2>
-              <p
-                style={{
-                  color: "var(--text)",
-                  opacity: 0.65,
-                  fontSize: "1.05rem",
-                  lineHeight: 1.8,
-                  marginBottom: "32px",
-                }}
-              >
-                {categories[active].desc}
-              </p>
-
-              {/* Decorative line */}
-              <div style={{ height: 1, background: "var(--border)", marginBottom: "32px" }} />
-
-              <h4
-                style={{
-                  fontFamily: "Syne",
-                  fontSize: "0.85rem",
-                  fontWeight: 800,
-                  color: "var(--text)",
-                  textTransform: "uppercase",
-                  letterSpacing: "2px",
-                  marginBottom: "16px",
-                }}
-              >
-                Wholesale Specifications:
-              </h4>
-              <ul style={{ paddingLeft: "20px", margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-                {categories[active].details.map((detail, idx) => (
-                  <li
-                    key={idx}
-                    style={{
-                      color: "var(--text)",
-                      opacity: 0.6,
-                      fontSize: "0.95rem",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Disclaimer */}
+      {/* ── FOOTNOTE DISCLAIMER ── */}
+      <section style={{ padding: "20px 0 40px" }}>
+        <div className="section-container" style={{ textAlign: "center" }}>
           <p
             style={{
               color: "var(--text)",
               opacity: 0.35,
               fontSize: "0.75rem",
               fontStyle: "italic",
-              textAlign: "center",
-              marginTop: "40px",
+              maxWidth: "560px",
+              margin: "0 auto",
               lineHeight: 1.6,
             }}
           >
