@@ -82,7 +82,6 @@ export default function CollectionsPage() {
 
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: "120px", paddingTop: "130px" }}>
-      <MarqueeStrip items={["3 Piece Sets", "Lehangas", "Nightwear", "Leggings", "Co-ord Sets", "Fancy Wear"]} />
 
       {/* ── 3D CAROUSEL STAGE ── */}
       <section style={{ padding: "40px 0 60px", overflow: "hidden", position: "relative" }}>
