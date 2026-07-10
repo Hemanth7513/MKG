@@ -1,203 +1,558 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Magnetic from "@/components/Magnetic";
 import MarqueeStrip from "@/components/MarqueeStrip";
 
 const categories = [
   {
-    id: '3piece', title: '3 Piece Sets', img: '/images/three-piece.jpg',
-    tag: 'BESTSELLER', color: '#004d40',
-    desc: 'Premium 3-piece sets with modern design and heritage weave.',
+    id: '3piece',
+    title: '3 Piece Sets',
+    img: '/images/three-piece.jpg', // we can render it styled nicely
+    tag: 'BESTSELLER',
+    desc: 'Premium three-piece ethnic suit sets featuring intricate designs, dupattas, and classic fits.',
+    details: ['Premium Cotton & Silk fabrics', 'Includes Top, Bottom & Matching Dupatta', 'Ideal for daily elegant wear & semi-formal gatherings'],
   },
   {
-    id: 'lehangas', title: 'Lehangas', img: '/images/lehanga.png',
-    tag: 'BRIDAL', color: '#8B1A3A',
-    desc: 'Designer lehangas and traditional wear for exclusive occasions.',
+    id: 'lehangas',
+    title: 'Lehangas',
+    img: '/images/lehanga.png', // cutout
+    tag: 'BRIDAL & FESTIVE',
+    desc: 'Bespoke designer lehangas featuring rich embroidery and opulent traditional patterns.',
+    details: ['Rich heavy georgette, silk & velvet bases', 'Detailed handwork, zari & sequins', 'Perfect for weddings and festive occasions'],
   },
   {
-    id: 'nightwear', title: 'Nightwear', img: '/images/nightwear.png',
-    tag: 'COMFORT', color: '#2d4a6b',
-    desc: 'Elite comfort cotton nightwear with contemporary prints.',
+    id: 'nightwear',
+    title: 'Nightwear',
+    img: '/images/nightwear.png', // cutout
+    tag: 'COMFORT WEAR',
+    desc: 'Elite comfort cotton nightwear, nightgowns, and loungewear sets in fresh modern prints.',
+    details: ['100% Breathable pure combed cotton', 'Guaranteed color-fast dyes', 'Relaxed fit designed for ultimate comfort'],
   },
   {
-    id: 'leggings', title: 'Leggings', img: '/images/leggings-v2.png',
-    tag: '50+ SHADES', color: '#5a3a7a',
-    desc: 'High-stretch premium leggings in 50+ vibrant shades.',
+    id: 'leggings',
+    title: 'Leggings',
+    img: '/images/leggings-v2.png', // cutout
+    tag: '50+ SHADES',
+    desc: 'Ultra-stretch premium leggings crafted from cotton-lycra blend available in over 50 shades.',
+    details: ['Super-combed 4-way stretch lycra', 'Anti-pilling treatment for longevity', 'Perfect matching for all ethnic kurtis'],
   },
   {
-    id: 'fancy', title: 'Fancy Wear', img: '/images/fancy.png',
-    tag: 'TRENDING', color: '#7a3a1a',
-    desc: 'Trending fancy wear and western fusion.',
+    id: 'fancy',
+    title: 'Fancy Wear',
+    img: '/images/fancy.png', // cutout
+    tag: 'TRENDING FUSION',
+    desc: 'Chic fancy ethnic wear, modern crop-top skirts, and contemporary silhouette wear.',
+    details: ['Fusion Indo-Western styles', 'Vibrant pastels & contemporary floral prints', 'Fashion-forward edits for young retailers'],
   },
   {
-    id: 'coord', title: 'Co-ord Sets', img: '/images/coord-set.png',
-    tag: 'NEW ARRIVAL', color: '#2a5a4a',
-    desc: 'Matching top & bottom co-ord sets — effortless style for every occasion.',
+    id: 'coord',
+    title: 'Co-ord Sets',
+    img: '/images/coord-set.png', // cutout
+    tag: 'NEW ARRIVALS',
+    desc: 'Matching ethnic top and pant sets presenting an effortless, sleek statement look.',
+    details: ['Coordinated fabrics & prints', 'Smart casual ethnic designs', 'Easy-wear comfort style for modern women'],
   },
 ];
 
 export default function CollectionsPage() {
-  const headerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: headerRef, offset: ["start start", "end start"] });
-  const headerY = useTransform(scrollYProgress, [0, 1], [0, 120]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const [active, setActive] = useState(0);
+  const [perspective, setPerspective] = useState(1000);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Auto-adjust perspective based on width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setPerspective(800);
+      } else {
+        setPerspective(1200);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const nextSlide = () => setActive((prev) => (prev + 1) % categories.length);
+  const prevSlide = () => setActive((prev) => (prev - 1 + categories.length) % categories.length);
 
   return (
-    <main style={{ minHeight: '100vh', paddingBottom: '160px' }}>
+    <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: "120px" }}>
       {/* ── HEADER ── */}
-      <section ref={headerRef} style={{ padding: '160px 0 80px', overflow: 'hidden' }}>
-        <div className="section-container">
-          <motion.div style={{ y: headerY, opacity: headerOpacity }}>
-            <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '32px' }}>
-              <div>
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                  style={{ display: 'block', color: 'var(--secondary)', fontWeight: 800, fontSize: '0.75rem', letterSpacing: '8px', textTransform: 'uppercase', marginBottom: '16px' }}
-                >
-                  The Catalogue
-                </motion.span>
-                <motion.h1
-                  initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                  className="h1-hero" style={{ fontSize: 'clamp(2.5rem, 10vw, 11rem)', lineHeight: 0.85 }}
-                >
-                  DISCOVERY
-                </motion.h1>
-              </div>
-            </div>
-          </motion.div>
+      <section style={{ padding: "160px 0 40px", position: "relative", overflow: "hidden" }}>
+        <div className="section-container" style={{ textAlign: "center" }}>
+          <motion.span
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            style={{
+              display: "block",
+              color: "var(--secondary)",
+              fontWeight: 800,
+              fontSize: "0.75rem",
+              letterSpacing: "8px",
+              textTransform: "uppercase",
+              marginBottom: "16px",
+            }}
+          >
+            The MKG Showcase
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            style={{
+              fontFamily: "Syne",
+              fontWeight: 800,
+              fontSize: "clamp(2.5rem, 8vw, 8rem)",
+              lineHeight: 0.9,
+              letterSpacing: "-0.04em",
+              color: "var(--text)",
+              textTransform: "uppercase",
+            }}
+          >
+            3D <span style={{ WebkitTextStroke: "2px var(--text)", color: "transparent" }}>EXHIBITION</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            style={{
+              maxWidth: "500px",
+              margin: "24px auto 0",
+              color: "var(--text)",
+              opacity: 0.5,
+              fontSize: "1rem",
+              lineHeight: 1.7,
+            }}
+          >
+            Click cards or use the navigation below to rotate and inspect our premium wholesale categories.
+          </motion.p>
         </div>
       </section>
 
-      <MarqueeStrip items={['3 Piece Sets', 'Lehangas', 'Nightwear', 'Leggings', 'Co-ord Sets', 'Fancy Wear', 'Cotton Sets', 'Party Wear']} />
+      <MarqueeStrip items={["3 Piece Sets", "Lehangas", "Nightwear", "Leggings", "Co-ord Sets", "Fancy Wear"]} />
 
-      {/* ── FRESH STOCK NOTICE ── */}
-      <div style={{ padding: '0 0 80px' }}>
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+      {/* ── 3D CAROUSEL STAGE ── */}
+      <section style={{ padding: "60px 0", overflow: "hidden", position: "relative" }}>
+        <div
+          ref={containerRef}
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "550px",
+            perspective: `${perspective}px`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '32px',
-              padding: '36px 48px',
-              background: 'var(--primary)',
-              borderRadius: 'var(--radius-lg)',
-              flexWrap: 'wrap',
-              boxShadow: '0 12px 40px rgba(0,77,64,0.2)',
+              position: "relative",
+              width: "280px",
+              height: "440px",
+              transformStyle: "preserve-3d",
             }}
           >
-            {/* Pulsing dot */}
-            <div style={{ position: 'relative', flexShrink: 0 }}>
-              <div style={{ width: 14, height: 14, borderRadius: '50%', background: 'var(--secondary)' }} />
-              <div style={{
-                position: 'absolute', inset: -5,
-                borderRadius: '50%',
-                border: '2px solid var(--secondary)',
-                opacity: 0.5,
-                animation: 'ping 1.8s ease-out infinite',
-              }} />
-            </div>
-            <div style={{ flex: 1 }}>
-              <span style={{
-                fontFamily: 'Unbounded',
-                fontWeight: 800,
-                fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
-                color: 'white',
-                display: 'block',
-                marginBottom: '8px',
-                letterSpacing: '-0.02em',
-              }}>
-                Fresh Stock · Every 10 Days
-              </span>
-              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '1rem', lineHeight: 1.7, margin: 0, fontWeight: 500 }}>
-                New collections arrive at our store every 10 days — visit or contact us to see the latest additions before they reach the shelves.
-              </p>
-            </div>
-            <span style={{
-              flexShrink: 0,
-              padding: '12px 28px',
-              background: 'var(--secondary)',
-              color: '#002d25',
-              borderRadius: '100px',
-              fontFamily: 'Unbounded',
-              fontWeight: 800,
-              fontSize: '0.75rem',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              whiteSpace: 'nowrap',
-            }}>
-              Updated Regularly
-            </span>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* ── GRID ── */}
-      <section style={{ padding: '0 0 80px' }}>
-        <div className="section-container">
-          <div className="grid-editorial">
             {categories.map((cat, i) => {
+              // Calculate offset index in 3D ring
+              let offset = i - active;
+              
+              // Handle wrap around
+              const half = Math.floor(categories.length / 2);
+              if (offset > half) offset -= categories.length;
+              if (offset < -half) offset += categories.length;
+
+              const isCenter = offset === 0;
+              const isVisible = Math.abs(offset) <= 2; // only show center + neighbors
+
+              // 3D positioning values
+              const rotateY = offset * 36; // Angle offset
+              const translateZ = isCenter ? 50 : -120;
+              const translateX = offset * 240; // Lateral slide
+              const scale = isCenter ? 1 : 0.82;
+              const opacity = isCenter ? 1 : isVisible ? 0.65 : 0;
+              const pointerEvents = isCenter ? "auto" : isVisible ? "auto" : "none";
+
               return (
                 <motion.div
                   key={cat.id}
-                  initial={{ opacity: 0, y: 80 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.9, delay: (i % 3) * 0.12 }}
+                  onClick={() => i !== active && setActive(i)}
                   style={{
-                    aspectRatio: '1 / 1.95',
-                    height: 'auto',
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                    top: 0,
+                    left: 0,
+                    cursor: isCenter ? "default" : "pointer",
+                    pointerEvents,
                   }}
-                  className="cat-card col-span-4"
+                  animate={{
+                    x: translateX,
+                    z: translateZ,
+                    rotateY: rotateY,
+                    scale: scale,
+                    opacity: opacity,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 140,
+                    damping: 18,
+                  }}
                 >
-                  <Image src={cat.img} alt={cat.title} fill style={{ objectFit: 'cover' }} className="cat-card-img" />
-                  <div className="cat-card-overlay">
-                    <h2 style={{ fontFamily: 'Unbounded', fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)', fontWeight: 800, color: 'white', textTransform: 'uppercase', letterSpacing: '-1px', lineHeight: 1, margin: 0 }}>
-                      {cat.title}
-                    </h2>
+                  {/* Card Container styled as a premium cut-out panel */}
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      background: "var(--surface)",
+                      border: isCenter ? "2px solid var(--gold)" : "1px solid var(--border)",
+                      borderRadius: "var(--radius-xl)",
+                      overflow: "visible",
+                      position: "relative",
+                      boxShadow: isCenter ? "var(--shadow-lg)" : "var(--shadow-sm)",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "flex-end",
+                      padding: "24px",
+                      transition: "border-color 0.3s, box-shadow 0.3s",
+                    }}
+                  >
+                    {/* Shadow base platform for cutout models to stand on */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: "90px",
+                        left: "15%",
+                        right: "15%",
+                        height: "12px",
+                        background: "rgba(197, 160, 40, 0.15)",
+                        filter: "blur(6px)",
+                        borderRadius: "50%",
+                        zIndex: 1,
+                      }}
+                    />
+
+                    {/* Image Cutout Wrapper */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "-40px",
+                        left: "10px",
+                        right: "10px",
+                        bottom: "100px",
+                        zIndex: 2,
+                      }}
+                    >
+                      <motion.div
+                        style={{ width: "100%", height: "100%", position: "relative" }}
+                        animate={{
+                          y: isCenter ? [0, -10, 0] : 0,
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <Image
+                          src={cat.img}
+                          alt={cat.title}
+                          fill
+                          style={{
+                            objectFit: "contain",
+                            filter: isCenter 
+                              ? "drop-shadow(0 20px 25px rgba(0,0,0,0.18))" 
+                              : "drop-shadow(0 8px 10px rgba(0,0,0,0.12))",
+                            transition: "filter 0.3s",
+                          }}
+                        />
+                      </motion.div>
+                    </div>
+
+                    {/* Category Details Text */}
+                    <div style={{ position: "relative", zIndex: 3, textAlign: "center" }}>
+                      <span
+                        style={{
+                          fontSize: "0.58rem",
+                          fontWeight: 800,
+                          letterSpacing: "3px",
+                          color: "var(--gold)",
+                          textTransform: "uppercase",
+                          display: "block",
+                          marginBottom: "6px",
+                        }}
+                      >
+                        {cat.tag}
+                      </span>
+                      <h3
+                        style={{
+                          fontFamily: "Syne",
+                          fontSize: "1.35rem",
+                          fontWeight: 800,
+                          color: "var(--text)",
+                          margin: 0,
+                          textTransform: "uppercase",
+                          letterSpacing: "-0.5px",
+                        }}
+                      >
+                        {cat.title}
+                      </h3>
+                    </div>
                   </div>
                 </motion.div>
               );
             })}
           </div>
+        </div>
 
-          {/* ── FOOTNOTE DISCLAIMER ── */}
-          <div style={{ marginTop: '48px', textAlign: 'center' }}>
-            <p style={{ color: 'var(--primary)', opacity: 0.45, fontSize: '0.8rem', fontStyle: 'italic', maxWidth: '640px', margin: '0 auto', padding: '0 20px', lineHeight: 1.6 }}>
-              * Images are for representation purpose only. It may change from brand to brand and catalogue also.
-            </p>
+        {/* ── CONTROLS ── */}
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 32, marginTop: "20px" }}>
+          <button
+            onClick={prevSlide}
+            style={{
+              width: 52,
+              height: 52,
+              borderRadius: "50%",
+              border: "1px solid var(--border)",
+              background: "var(--surface)",
+              color: "var(--text)",
+              fontSize: "1.2rem",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "var(--shadow-sm)",
+              transition: "transform 0.2s, background-color 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.08)";
+              e.currentTarget.style.backgroundColor = "var(--blush)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.backgroundColor = "var(--surface)";
+            }}
+          >
+            ←
+          </button>
+
+          {/* Dots Indicator */}
+          <div style={{ display: "flex", gap: 10 }}>
+            {categories.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                style={{
+                  width: i === active ? 28 : 8,
+                  height: 8,
+                  borderRadius: "4px",
+                  background: i === active ? "var(--gold)" : "rgba(197, 160, 40, 0.25)",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                  padding: 0,
+                }}
+              />
+            ))}
           </div>
 
+          <button
+            onClick={nextSlide}
+            style={{
+              width: 52,
+              height: 52,
+              borderRadius: "50%",
+              border: "1px solid var(--border)",
+              background: "var(--surface)",
+              color: "var(--text)",
+              fontSize: "1.2rem",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "var(--shadow-sm)",
+              transition: "transform 0.2s, background-color 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.08)";
+              e.currentTarget.style.backgroundColor = "var(--blush)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.backgroundColor = "var(--surface)";
+            }}
+          >
+            →
+          </button>
+        </div>
+      </section>
+
+      {/* ── ACTIVE CARD SPECIFICATION PANEL ── */}
+      <section style={{ padding: "40px 0" }}>
+        <div className="section-container" style={{ maxWidth: "800px" }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderRadius: "var(--radius-xl)",
+                padding: "clamp(32px, 6vw, 48px)",
+                boxShadow: "var(--shadow-md)",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "0.62rem",
+                  fontWeight: 800,
+                  color: "var(--gold)",
+                  letterSpacing: "4px",
+                  textTransform: "uppercase",
+                  display: "block",
+                  marginBottom: "8px",
+                }}
+              >
+                Collection Focus
+              </span>
+              <h2
+                style={{
+                  fontFamily: "Syne",
+                  fontWeight: 800,
+                  fontSize: "2rem",
+                  color: "var(--text)",
+                  marginBottom: "16px",
+                  textTransform: "uppercase",
+                }}
+              >
+                {categories[active].title}
+              </h2>
+              <p
+                style={{
+                  color: "var(--text)",
+                  opacity: 0.65,
+                  fontSize: "1.05rem",
+                  lineHeight: 1.8,
+                  marginBottom: "32px",
+                }}
+              >
+                {categories[active].desc}
+              </p>
+
+              {/* Decorative line */}
+              <div style={{ height: 1, background: "var(--border)", marginBottom: "32px" }} />
+
+              <h4
+                style={{
+                  fontFamily: "Syne",
+                  fontSize: "0.85rem",
+                  fontWeight: 800,
+                  color: "var(--text)",
+                  textTransform: "uppercase",
+                  letterSpacing: "2px",
+                  marginBottom: "16px",
+                }}
+              >
+                Wholesale Specifications:
+              </h4>
+              <ul style={{ paddingLeft: "20px", margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
+                {categories[active].details.map((detail, idx) => (
+                  <li
+                    key={idx}
+                    style={{
+                      color: "var(--text)",
+                      opacity: 0.6,
+                      fontSize: "0.95rem",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Disclaimer */}
+          <p
+            style={{
+              color: "var(--text)",
+              opacity: 0.35,
+              fontSize: "0.75rem",
+              fontStyle: "italic",
+              textAlign: "center",
+              marginTop: "40px",
+              lineHeight: 1.6,
+            }}
+          >
+            * Images are for representation purposes only. Actual prints, fabrics, and configurations may vary based on weekly catalog arrivals.
+          </p>
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ padding: '80px 0' }}>
+      <section style={{ padding: "80px 0 40px" }}>
         <div className="section-container">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-panel"
-            style={{ padding: 'clamp(48px, 8vw, 100px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '48px', background: 'linear-gradient(135deg, rgba(0,77,64,0.06) 0%, rgba(197,160,40,0.04) 100%)' }}
+            style={{
+              padding: "clamp(48px, 8vw, 80px)",
+              background: "var(--blush)",
+              border: "1px solid var(--border)",
+              borderRadius: "var(--radius-xl)",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "40px",
+              boxShadow: "var(--shadow-sm)",
+            }}
           >
             <div>
-              <h3 style={{ fontFamily: 'Unbounded', fontWeight: 800, fontSize: 'clamp(2rem, 5vw, 4rem)', color: 'var(--primary)', lineHeight: 1.1, marginBottom: '16px' }}>
-                PARTNER FOR<br />WHOLESALE
+              <h3
+                style={{
+                  fontFamily: "Syne",
+                  fontWeight: 800,
+                  fontSize: "clamp(2rem, 5vw, 3.2rem)",
+                  color: "var(--text)",
+                  lineHeight: 1.1,
+                  marginBottom: "12px",
+                }}
+              >
+                REQUEST WHOLESALE<br />CATALOGUE & PRICES
               </h3>
-              <p style={{ opacity: 0.5, fontSize: '1rem', fontWeight: 600 }}>Ready to stock? Get bulk pricing & catalogue.</p>
+              <p style={{ opacity: 0.5, fontSize: "0.95rem", fontWeight: 600, color: "var(--text)" }}>
+                Connect directly on WhatsApp or submit a request to our sales team.
+              </p>
             </div>
-            <Magnetic>
-              <Link href="/contact" className="btn-primary btn-gold" style={{ color: '#002d25', borderColor: 'transparent' }}>
-                GET WHOLESALE PRICING
-              </Link>
-            </Magnetic>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+              <Magnetic>
+                <Link href="/contact" className="btn-primary">
+                  SALES ENQUIRY
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href="https://wa.me/919347982187"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                  style={{ display: "inline-flex", alignItems: "center" }}
+                >
+                  WHATSAPP US →
+                </a>
+              </Magnetic>
+            </div>
           </motion.div>
         </div>
       </section>
