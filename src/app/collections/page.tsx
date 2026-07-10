@@ -375,15 +375,15 @@ export default function CollectionsPage() {
             viewport={{ once: true }}
             style={{
               padding: "clamp(48px, 8vw, 80px)",
-              background: "var(--blush)",
-              border: "1px solid var(--border)",
+              background: "var(--primary)",
+              border: "1.5px solid var(--secondary)",
               borderRadius: "var(--radius-xl)",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
               flexWrap: "wrap",
               gap: "40px",
-              boxShadow: "var(--shadow-sm)",
+              boxShadow: "0 12px 40px rgba(0, 77, 64, 0.15)",
             }}
           >
             <div>
@@ -392,33 +392,23 @@ export default function CollectionsPage() {
                   fontFamily: "Syne",
                   fontWeight: 800,
                   fontSize: "clamp(2rem, 5vw, 3.2rem)",
-                  color: "var(--text)",
+                  color: "#FFFFFF",
                   lineHeight: 1.1,
                   marginBottom: "12px",
+                  textTransform: "uppercase",
                 }}
               >
                 REQUEST WHOLESALE<br />CATALOGUE & PRICES
               </h3>
-              <p style={{ opacity: 0.5, fontSize: "0.95rem", fontWeight: 600, color: "var(--text)" }}>
-                Connect directly on WhatsApp or submit a request to our sales team.
+              <p style={{ opacity: 0.7, fontSize: "0.95rem", fontWeight: 600, color: "#FFFFFF" }}>
+                Submit a request to our sales team.
               </p>
             </div>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
               <Magnetic>
-                <Link href="/contact" className="btn-primary">
+                <Link href="/contact" className="btn-primary btn-gold">
                   SALES ENQUIRY
                 </Link>
-              </Magnetic>
-              <Magnetic>
-                <a
-                  href="https://wa.me/919347982187"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-ghost"
-                  style={{ display: "inline-flex", alignItems: "center" }}
-                >
-                  WHATSAPP US →
-                </a>
               </Magnetic>
             </div>
           </motion.div>
