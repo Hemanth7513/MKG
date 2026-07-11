@@ -11,6 +11,12 @@ const values = [
   {
     title: 'INTEGRITY',
     desc: 'Honest dealings and transparent pricing.',
+    bg: 'linear-gradient(135deg, #b8860b 0%, #C5A028 100%)',
+    border: '1.5px solid var(--secondary)',
+    titleColor: '#FFFFFF',
+    descColor: '#FFFFFF',
+    iconColor: '#FFFFFF',
+    shadow: '0 20px 40px rgba(197, 160, 40, 0.15)',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 28, height: 28 }}>
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -20,6 +26,12 @@ const values = [
   {
     title: 'QUALITY',
     desc: 'Every stitch inspected, every fabric hand-picked.',
+    bg: 'linear-gradient(135deg, #004d40 0%, #002d25 100%)',
+    border: '1.5px solid var(--secondary)',
+    titleColor: 'var(--secondary)',
+    descColor: '#FFFFFF',
+    iconColor: 'var(--secondary)',
+    shadow: '0 20px 40px rgba(0, 77, 64, 0.15)',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 28, height: 28 }}>
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -29,6 +41,12 @@ const values = [
   {
     title: 'PARTNERSHIP',
     desc: 'We grow when our retail partners grow.',
+    bg: 'linear-gradient(135deg, #4a0e1e 0%, #6b1a2e 100%)',
+    border: '1.5px solid var(--secondary)',
+    titleColor: 'var(--secondary)',
+    descColor: '#FFFFFF',
+    iconColor: 'var(--secondary)',
+    shadow: '0 20px 40px rgba(74, 14, 30, 0.15)',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 28, height: 28 }}>
         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" />
@@ -139,11 +157,18 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
+                whileHover={{ y: -6, scale: 1.01, boxShadow: v.shadow }}
                 className="process-card"
+                style={{
+                  background: v.bg,
+                  border: v.border,
+                  padding: "48px 36px",
+                  transition: "all 0.4s var(--ease-expo)"
+                }}
               >
-                <span style={{ fontSize: '2rem', marginBottom: '24px', display: 'block' }}>{v.icon}</span>
-                <h3 style={{ fontFamily: 'Unbounded', fontWeight: 800, fontSize: '1.6rem', color: 'var(--secondary)', marginBottom: '6px' }}>{v.title}</h3>
-                <p style={{ opacity: 0.6, lineHeight: 1.8 }}>{v.desc}</p>
+                <span style={{ fontSize: '2rem', marginBottom: '24px', display: 'block', color: v.iconColor }}>{v.icon}</span>
+                <h3 style={{ fontFamily: 'Unbounded', fontWeight: 800, fontSize: '1.6rem', color: v.titleColor, marginBottom: '10px' }}>{v.title}</h3>
+                <p style={{ color: v.descColor, opacity: 0.85, lineHeight: 1.8, fontSize: "0.95rem" }}>{v.desc}</p>
               </motion.div>
             ))}
           </div>
