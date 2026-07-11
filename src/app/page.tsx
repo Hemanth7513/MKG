@@ -99,7 +99,7 @@ export default function HomePage() {
               style={{ marginTop: 52, display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }}
             >
               <Magnetic>
-                <Link href="/collections" className="btn-primary">
+                <Link href="/collections" className="btn-primary btn-gold">
                   EXPLORE CATALOGUE <ArrowRight />
                 </Link>
               </Magnetic>
@@ -122,7 +122,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══ MARQUEE ═══ */}
-      <MarqueeStrip items={marqueeItems} />
+      <MarqueeStrip items={marqueeItems} speed={65} />
 
       {/* ═══ STATS ═══ */}
       <section style={{ padding: "clamp(64px,10vw,120px) 0", background: "linear-gradient(135deg, #fdf8f0 0%, #f9f4eb 100%)" }}>
@@ -135,12 +135,13 @@ export default function HomePage() {
           </motion.p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 24 }}>
             {[
-              { value: "WHOLESALE ONLY",  suffix: "", label: "Exclusive Ladies Wear",   bg: "linear-gradient(135deg, #004d40 0%, #00695c 100%)", color: "#fff", accent: "#C5A028" },
-              { value: "RETAIL PARTNERS", suffix: "", label: "Across AP & TS",  bg: "linear-gradient(135deg, #b8860b 0%, #C5A028 100%)", color: "#fff", accent: "rgba(255,255,255,0.5)" },
-              { value: "WIDE RANGE", suffix: "", label: "Of Varieties",  bg: "linear-gradient(135deg, #6b2737 0%, #8B1A3A 100%)", color: "#fff", accent: "#f0c060" },
+              { value: "WHOLESALE ONLY",  suffix: "", label: "Exclusive Ladies Wear",   bg: "linear-gradient(135deg, #004d40 0%, #00695c 100%)", color: "#fff", accent: "#C5A028", className: "" },
+              { value: "RETAIL PARTNERS", suffix: "", label: "Across AP & TS",  bg: "linear-gradient(135deg, #b8860b 0%, #C5A028 100%)", color: "#fff", accent: "rgba(255,255,255,0.5)", className: "gold-shimmer" },
+              { value: "WIDE RANGE", suffix: "", label: "Of Varieties",  bg: "linear-gradient(135deg, #6b2737 0%, #8B1A3A 100%)", color: "#fff", accent: "#f0c060", className: "" },
             ].map((s, i) => (
               <motion.div
                 key={i}
+                className={s.className}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -205,8 +206,70 @@ export default function HomePage() {
 
       {/* ═══ FOOTER ═══ */}
       <footer style={{ padding: "clamp(80px,12vw,160px) 0", background: "#001a15", color: "#fff", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "100%", height: "100%", maxWidth: 600, maxHeight: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(197,160,40,0.05) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div className="section-container" style={{ position: "relative" }}>
+        
+        {/* Drifting Gold Aura Glow */}
+        <motion.div
+          animate={{
+            x: ["-35%", "-45%", "-38%", "-35%"],
+            y: ["-42%", "-35%", "-48%", "-42%"],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "700px",
+            height: "700px",
+            transform: "translate(-50%, -50%)",
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(197, 160, 40, 0.09) 0%, rgba(0, 77, 64, 0.04) 45%, transparent 70%)",
+            filter: "blur(35px)",
+            pointerEvents: "none",
+            zIndex: 1,
+          }}
+        />
+
+        {/* Floating golden thread particles */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ 
+              x: Math.random() * 800 - 400, 
+              y: 200, 
+              opacity: 0, 
+              scale: Math.random() * 0.4 + 0.4 
+            }}
+            animate={{ 
+              y: -350, 
+              opacity: [0, 0.35, 0.35, 0],
+              x: [0, Math.random() * 80 - 40]
+            }}
+            transition={{
+              duration: Math.random() * 12 + 12,
+              repeat: Infinity,
+              delay: Math.random() * 8,
+              ease: "linear",
+            }}
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: "50%",
+              width: "4px",
+              height: "4px",
+              borderRadius: "50%",
+              background: "var(--secondary)",
+              boxShadow: "0 0 10px var(--secondary)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
+        ))}
+
+        <div className="section-container" style={{ position: "relative", zIndex: 2 }}>
           <motion.h2
             initial={{ y: 60, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }}
             transition={{ duration: 1.3 }}

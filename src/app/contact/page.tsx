@@ -32,7 +32,6 @@ const contactActions = [
   },
   {
     label: "EMAIL",
-    sub: "We reply within 24hrs",
     value: "bza.gupta@gmail.com",
     href: "mailto:bza.gupta@gmail.com",
     icon: (
@@ -158,7 +157,7 @@ export default function ContactPage() {
                   <div style={{ flex: 1 }}>
                     <p style={{ fontSize: "0.62rem", fontWeight: 800, letterSpacing: "5px", opacity: a.isPrimary ? 0.6 : 0.35, textTransform: "uppercase", marginBottom: "4px" }}>{a.label}</p>
                     <p style={{ fontWeight: 800, fontSize: "1rem", color: a.isPrimary ? "white" : "var(--primary)" }}>{a.value}</p>
-                    <p style={{ fontSize: "0.75rem", opacity: 0.5, marginTop: "2px" }}>{a.sub}</p>
+                    {a.sub && <p style={{ fontSize: "0.75rem", opacity: 0.5, marginTop: "2px" }}>{a.sub}</p>}
                   </div>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 18, height: 18, opacity: 0.4 }}>
                     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
