@@ -96,7 +96,7 @@ export default function CollectionsPage() {
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: "120px", paddingTop: "130px" }}>
 
-      {/* ── 3D CAROUSEL STAGE ── */}
+      {/* ── INTERACTIVE LOOKBOOK STACK SLIDER ── */}
       <section style={{ padding: "40px 0 60px", overflow: "hidden", position: "relative" }}>
         <div className="section-container" style={{ textAlign: "center", marginBottom: "48px" }}>
           <span style={{ color: "var(--secondary)", fontWeight: 800, fontSize: "0.75rem", letterSpacing: "8px", textTransform: "uppercase", display: "block", marginBottom: "12px" }}>
@@ -106,257 +106,265 @@ export default function CollectionsPage() {
             Our Collections
           </h2>
         </div>
-        <div
-          ref={containerRef}
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "550px",
-            perspective: `${perspective}px`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              width: "280px",
-              height: "440px",
-              transformStyle: "preserve-3d",
-            }}
-          >
-            {categories.map((cat, i) => {
-              // Calculate offset index in 3D ring
-              let offset = i - active;
-              
-              // Handle wrap around
-              const half = Math.floor(categories.length / 2);
-              if (offset > half) offset -= categories.length;
-              if (offset < -half) offset += categories.length;
 
-              const isCenter = offset === 0;
-              const isVisible = Math.abs(offset) <= 2; // only show center + neighbors
-
-              // 3D positioning values
-              const rotateY = offset * 36; // Angle offset
-              const translateZ = isCenter ? 50 : -120;
-              const translateX = offset * 240; // Lateral slide
-              const scale = isCenter ? 1 : 0.82;
-              const opacity = isCenter ? 1 : isVisible ? 0.65 : 0;
-              const pointerEvents = isCenter ? "auto" : isVisible ? "auto" : "none";
-
-              return (
+        <div className="section-container">
+          <div className="grid-editorial" style={{ alignItems: "center", minHeight: "560px" }}>
+            
+            {/* ─ LEFT COLUMN: Details Reveal ─ */}
+            <div className="col-span-5" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={cat.id}
-                  onClick={() => i !== active && setActive(i)}
+                  key={active}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 30 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  <span style={{ color: "var(--secondary)", fontWeight: 800, fontSize: "0.72rem", letterSpacing: "5px", textTransform: "uppercase", display: "block", marginBottom: "16px" }}>
+                    {categories[active].tag}
+                  </span>
+                  <h3 style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", color: "var(--primary)", textTransform: "uppercase", letterSpacing: "-1px", lineHeight: 1.1, margin: "0 0 24px" }}>
+                    {categories[active].title}
+                  </h3>
+                  <p style={{ fontSize: "1.05rem", lineHeight: 1.8, opacity: 0.65, color: "var(--text)", marginBottom: "32px" }}>
+                    {categories[active].desc}
+                  </p>
+                  
+                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 40px" }}>
+                    {categories[active].details.map((detail, idx) => (
+                      <motion.li
+                        key={idx}
+                        initial={{ opacity: 0, x: -15 }}
+                        animate={{ opacity: 0.8, x: 0 }}
+                        transition={{ delay: idx * 0.12 }}
+                        style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: "12px", fontSize: "0.95rem", fontWeight: 600, color: "var(--text)" }}
+                      >
+                        <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--secondary)", flexShrink: 0 }} />
+                        <span>{detail}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Navigation Controls with micro interactions */}
+              <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+                <button
+                  onClick={prevSlide}
                   style={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100%",
-                    top: 0,
-                    left: 0,
-                    cursor: isCenter ? "default" : "pointer",
-                    pointerEvents,
+                    width: 54,
+                    height: 54,
+                    borderRadius: "50%",
+                    border: "1.5px solid rgba(168, 143, 126, 0.25)",
+                    background: "rgba(235, 224, 217, 0.5)",
+                    color: "#3E3129",
+                    fontSize: "1.2rem",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition: "all 0.3s var(--ease-expo)",
+                    backdropFilter: "blur(10px)",
+                    boxShadow: "0 4px 12px rgba(168, 143, 126, 0.05)",
                   }}
-                  animate={{
-                    x: translateX,
-                    z: translateZ,
-                    rotateY: rotateY,
-                    scale: scale,
-                    opacity: opacity,
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.08)";
+                    e.currentTarget.style.background = "#3E3129";
+                    e.currentTarget.style.color = "white";
+                    e.currentTarget.style.borderColor = "#3E3129";
                   }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 140,
-                    damping: 18,
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.background = "rgba(235, 224, 217, 0.5)";
+                    e.currentTarget.style.color = "#3E3129";
+                    e.currentTarget.style.borderColor = "rgba(168, 143, 126, 0.25)";
                   }}
                 >
-                  {/* Card Container styled as a premium cut-out panel */}
-                  {/* Transparent Cutout Container */}
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      background: "transparent",
-                      border: "none",
-                      overflow: "visible",
-                      position: "relative",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "flex-end",
-                      alignItems: "center",
-                    }}
-                  >
-                    {/* Shadow pedestal on the floor under the model */}
-                    <div
+                  ←
+                </button>
+
+                {/* Dots Indicator */}
+                <div style={{ display: "flex", gap: 8 }}>
+                  {categories.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActive(i)}
                       style={{
-                        position: "absolute",
-                        bottom: "35px",
-                        left: "15%",
-                        right: "15%",
-                        height: "12px",
-                        background: "rgba(197, 160, 40, 0.25)",
-                        filter: "blur(5px)",
-                        borderRadius: "50%",
-                        zIndex: 1,
-                        opacity: isCenter ? 1 : 0.4,
-                        transition: "opacity 0.3s",
+                        width: i === active ? 28 : 8,
+                        height: 8,
+                        borderRadius: "4px",
+                        background: i === active ? "#A0785C" : "rgba(168, 143, 126, 0.25)",
+                        border: "none",
+                        cursor: "pointer",
+                        transition: "all 0.4s var(--ease-expo)",
+                        padding: 0,
                       }}
                     />
+                  ))}
+                </div>
 
-                    {/* Image Cutout Wrapper */}
-                    <div
+                <button
+                  onClick={nextSlide}
+                  style={{
+                    width: 54,
+                    height: 54,
+                    borderRadius: "50%",
+                    border: "1.5px solid rgba(168, 143, 126, 0.25)",
+                    background: "rgba(235, 224, 217, 0.5)",
+                    color: "#3E3129",
+                    fontSize: "1.2rem",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition: "all 0.3s var(--ease-expo)",
+                    backdropFilter: "blur(10px)",
+                    boxShadow: "0 4px 12px rgba(168, 143, 126, 0.05)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.08)";
+                    e.currentTarget.style.background = "#3E3129";
+                    e.currentTarget.style.color = "white";
+                    e.currentTarget.style.borderColor = "#3E3129";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.background = "rgba(235, 224, 217, 0.5)";
+                    e.currentTarget.style.color = "#3E3129";
+                    e.currentTarget.style.borderColor = "rgba(168, 143, 126, 0.25)";
+                  }}
+                >
+                  →
+                </button>
+              </div>
+            </div>
+
+            {/* ─ RIGHT COLUMN: Kinetic Stack Deck ─ */}
+            <div className="col-span-7" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "550px", position: "relative" }}>
+              <div style={{ position: "relative", width: "320px", height: "460px" }}>
+                {categories.map((cat, i) => {
+                  let offset = i - active;
+                  
+                  // Wrap around logic for relative indexing
+                  const half = Math.floor(categories.length / 2);
+                  if (offset > half) offset -= categories.length;
+                  if (offset < -half) offset += categories.length;
+
+                  const isCenter = offset === 0;
+                  const isVisible = offset >= 0 && offset <= 2; // only show current and 2 next stacked cards
+                  
+                  // Calculate stacked variables
+                  const rotate = offset * 6; // rotated slightly to the right
+                  const x = offset * 45; // shifted to the right
+                  const scale = 1 - (offset * 0.08); // scaled down slightly
+                  const opacity = isCenter ? 1 : isVisible ? 0.7 - (offset * 0.25) : 0;
+                  const zIndex = 10 - offset;
+
+                  return (
+                    <motion.div
+                      key={cat.id}
+                      onClick={() => !isCenter && setActive(i)}
                       style={{
                         position: "absolute",
-                        top: "0px",
-                        left: "0px",
-                        right: "0px",
-                        bottom: "55px",
-                        zIndex: 2,
+                        width: "100%",
+                        height: "100%",
+                        top: 0,
+                        left: 0,
+                        cursor: isCenter ? "default" : "pointer",
+                        zIndex,
+                        pointerEvents: isVisible ? "auto" : "none",
+                      }}
+                      animate={{
+                        x,
+                        scale,
+                        rotate,
+                        opacity,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 120,
+                        damping: 16,
                       }}
                     >
-                      <motion.div
-                        style={{ width: "100%", height: "100%", position: "relative" }}
-                        animate={{
-                          y: isCenter ? [0, -12, 0] : 0,
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          ease: "easeInOut",
+                      {/* Premium Card Frame */}
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          background: isCenter ? "rgba(255, 255, 255, 0.75)" : "rgba(255, 255, 255, 0.35)",
+                          border: isCenter ? "2px solid var(--secondary)" : "1.5px solid rgba(197, 160, 40, 0.15)",
+                          borderRadius: "var(--radius-xl)",
+                          boxShadow: isCenter ? "0 20px 48px rgba(0, 77, 64, 0.08)" : "0 10px 24px rgba(0, 0, 0, 0.04)",
+                          padding: "24px",
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                          position: "relative",
+                          transition: "background 0.3s, border-color 0.3s",
+                          overflow: "visible",
                         }}
                       >
-                        <Image
-                          src={cat.img}
-                          alt={cat.title}
-                          fill
+                        {/* Floor shadow pedestal */}
+                        <div
                           style={{
-                            objectFit: "contain",
-                            filter: isCenter 
-                              ? "drop-shadow(0 20px 25px rgba(0,0,0,0.18))" 
-                              : "drop-shadow(0 8px 10px rgba(0,0,0,0.12))",
-                            transition: "filter 0.3s",
+                            position: "absolute",
+                            bottom: "35px",
+                            left: "15%",
+                            right: "15%",
+                            height: "10px",
+                            background: "rgba(197, 160, 40, 0.25)",
+                            filter: "blur(5px)",
+                            borderRadius: "50%",
+                            opacity: isCenter ? 1 : 0.4,
                           }}
                         />
-                      </motion.div>
-                    </div>
 
-                    {/* Floating clean labels below the pedestal */}
-                    <div style={{ position: "relative", zIndex: 3, textAlign: "center", marginTop: "12px", opacity: isCenter ? 1 : 0.35, transition: "opacity 0.3s" }}>
-                      <span
-                        style={{
-                          fontSize: "0.55rem",
-                          fontWeight: 800,
-                          letterSpacing: "3px",
-                          color: "var(--gold)",
-                          textTransform: "uppercase",
-                          display: "block",
-                          marginBottom: "4px",
-                        }}
-                      >
-                        {cat.tag}
-                      </span>
-                      <h3
-                        style={{
-                          fontFamily: "Syne",
-                          fontSize: "1.25rem",
-                          fontWeight: 800,
-                          color: "var(--text)",
-                          margin: 0,
-                          textTransform: "uppercase",
-                          letterSpacing: "-0.5px",
-                        }}
-                      >
-                        {cat.title}
-                      </h3>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                        {/* Cutout model wrapper with floating spring animation */}
+                        <div style={{ position: "absolute", top: "20px", bottom: "75px", left: "20px", right: "20px" }}>
+                          <motion.div
+                            style={{ width: "100%", height: "100%", position: "relative" }}
+                            animate={{
+                              y: isCenter ? [0, -10, 0] : 0,
+                            }}
+                            transition={{
+                              duration: 4,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          >
+                            <Image
+                              src={cat.img}
+                              alt={cat.title}
+                              fill
+                              style={{
+                                objectFit: "contain",
+                                filter: isCenter 
+                                  ? "drop-shadow(0 20px 25px rgba(0,0,0,0.18))" 
+                                  : "drop-shadow(0 8px 10px rgba(0,0,0,0.1))",
+                                transition: "all 0.3s",
+                              }}
+                            />
+                          </motion.div>
+                        </div>
+
+                        {/* Label details */}
+                        <div style={{ position: "relative", zIndex: 5, textAlign: "center", opacity: isCenter ? 1 : 0.4 }}>
+                          <span style={{ fontSize: "0.55rem", fontWeight: 800, letterSpacing: "3px", color: "var(--secondary)", display: "block", marginBottom: "4px", textTransform: "uppercase" }}>
+                            {cat.tag}
+                          </span>
+                          <h4 style={{ fontFamily: "Syne", fontSize: "1.3rem", fontWeight: 800, color: "var(--primary)", margin: 0, textTransform: "uppercase" }}>
+                            {cat.title}
+                          </h4>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
-        </div>
-
-        {/* ── CONTROLS ── */}
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 32, marginTop: "20px" }}>
-          <button
-            onClick={prevSlide}
-            style={{
-              width: 52,
-              height: 52,
-              borderRadius: "50%",
-              border: "1px solid var(--border)",
-              background: "var(--surface)",
-              color: "var(--text)",
-              fontSize: "1.2rem",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "var(--shadow-sm)",
-              transition: "transform 0.2s, background-color 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.08)";
-              e.currentTarget.style.backgroundColor = "var(--blush)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.backgroundColor = "var(--surface)";
-            }}
-          >
-            ←
-          </button>
-
-          {/* Dots Indicator */}
-          <div style={{ display: "flex", gap: 10 }}>
-            {categories.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                style={{
-                  width: i === active ? 28 : 8,
-                  height: 8,
-                  borderRadius: "4px",
-                  background: i === active ? "var(--gold)" : "rgba(197, 160, 40, 0.25)",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  padding: 0,
-                }}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={nextSlide}
-            style={{
-              width: 52,
-              height: 52,
-              borderRadius: "50%",
-              border: "1px solid var(--border)",
-              background: "var(--surface)",
-              color: "var(--text)",
-              fontSize: "1.2rem",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "var(--shadow-sm)",
-              transition: "transform 0.2s, background-color 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.08)";
-              e.currentTarget.style.backgroundColor = "var(--blush)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.backgroundColor = "var(--surface)";
-            }}
-          >
-            →
-          </button>
         </div>
       </section>
 
