@@ -173,31 +173,34 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                whileHover={{ y: -4, scale: 1.01, boxShadow: "0 20px 40px rgba(0, 77, 64, 0.15)" }}
+                whileHover={{ y: -4, scale: 1.01, background: "rgba(224, 242, 241, 0.65)", borderColor: "rgba(0, 77, 64, 0.2)" }}
                 style={{
                   padding: "28px 32px",
-                  background: "linear-gradient(135deg, #004d40 0%, #002d25 100%)",
-                  border: "1.5px solid var(--secondary)",
+                  background: "rgba(224, 242, 241, 0.45)",
+                  border: "1.5px solid rgba(0, 77, 64, 0.12)",
                   borderRadius: "var(--radius-md)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
                   transition: "all 0.4s var(--ease-expo)",
                   position: "relative",
                   textAlign: "left",
+                  boxShadow: "0 10px 30px rgba(0, 77, 64, 0.02)",
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                       <circle cx="12" cy="9" r="2.5" />
                     </svg>
-                    <span style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "5px", color: "var(--secondary)", textTransform: "uppercase" }}>ADDRESS</span>
+                    <span style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "5px", color: "var(--primary)", textTransform: "uppercase" }}>ADDRESS</span>
                   </div>
                   <button
                     onClick={copyAddress}
                     style={{
-                      background: "rgba(255, 255, 255, 0.08)",
-                      border: "1px solid rgba(197, 160, 40, 0.3)",
-                      color: copied ? "#4CAF50" : "var(--secondary)",
+                      background: "rgba(0, 77, 64, 0.05)",
+                      border: "1px solid rgba(0, 77, 64, 0.15)",
+                      color: copied ? "#2e7d32" : "var(--primary)",
                       fontSize: "0.65rem",
                       fontWeight: 800,
                       cursor: "pointer",
@@ -212,7 +215,7 @@ export default function ContactPage() {
                     {copied ? "COPIED! ✓" : "COPY ADDRESS 📋"}
                   </button>
                 </div>
-                <p style={{ fontWeight: 600, color: "#FFFFFF", lineHeight: 1.8, opacity: 0.85, fontSize: "0.95rem", margin: 0, whiteSpace: "pre-line" }}>
+                <p style={{ fontWeight: 600, color: "var(--foreground)", lineHeight: 1.8, opacity: 0.8, fontSize: "0.95rem", margin: 0, whiteSpace: "pre-line" }}>
                   3rd Floor, A Block{"\n"}Naaganna Trade One Mall{"\n"}One Town, Vijayawada — 520001{"\n"}Andhra Pradesh
                 </p>
               </motion.div>
@@ -222,23 +225,26 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                whileHover={{ y: -4, scale: 1.01, boxShadow: "0 20px 40px rgba(197, 160, 40, 0.15)" }}
+                whileHover={{ y: -4, scale: 1.01, background: "rgba(247, 236, 216, 0.7)", borderColor: "rgba(197, 160, 40, 0.3)" }}
                 style={{
                   padding: "28px 32px",
-                  background: "linear-gradient(135deg, #fdf8f0 0%, #f7ecd8 100%)",
-                  border: "1.5px solid rgba(197, 160, 40, 0.25)",
+                  background: "rgba(247, 236, 216, 0.5)",
+                  border: "1.5px solid rgba(197, 160, 40, 0.18)",
                   borderRadius: "var(--radius-md)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
                   transition: "all 0.4s var(--ease-expo)",
                   textAlign: "left",
+                  boxShadow: "0 10px 30px rgba(197, 160, 40, 0.02)",
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
                       <circle cx="12" cy="12" r="10" />
                       <polyline points="12 6 12 12 16 14" />
                     </svg>
-                    <span style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "5px", color: "var(--primary)", textTransform: "uppercase" }}>STORE HOURS</span>
+                    <span style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "5px", color: "var(--secondary)", textTransform: "uppercase" }}>STORE HOURS</span>
                   </div>
                   {/* Status Indicator */}
                   <div style={{ display: "flex", alignItems: "center", gap: 8, background: isOpen ? "rgba(0, 77, 64, 0.08)" : "rgba(197, 160, 40, 0.08)", padding: "6px 12px", borderRadius: "100px", border: "1px solid rgba(0, 77, 64, 0.1)" }}>
@@ -256,7 +262,7 @@ export default function ContactPage() {
                     </span>
                   </div>
                 </div>
-                <p style={{ fontWeight: 600, color: "var(--primary)", lineHeight: 1.8, opacity: 0.85, fontSize: "0.95rem", margin: 0, whiteSpace: "pre-line" }}>
+                <p style={{ fontWeight: 600, color: "var(--foreground)", lineHeight: 1.8, opacity: 0.8, fontSize: "0.95rem", margin: 0, whiteSpace: "pre-line" }}>
                   Monday – Saturday: 10 AM – 8 PM{"\n"}Sunday: Closed
                 </p>
               </motion.div>
@@ -266,24 +272,27 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
-                whileHover={{ y: -4, scale: 1.01, boxShadow: "0 20px 40px rgba(74, 14, 30, 0.15)" }}
+                whileHover={{ y: -4, scale: 1.01, background: "rgba(253, 235, 238, 0.75)", borderColor: "rgba(107, 26, 46, 0.22)" }}
                 style={{
                   padding: "28px 32px",
-                  background: "linear-gradient(135deg, #4a0e1e 0%, #6b1a2e 100%)",
-                  border: "1.5px solid var(--secondary)",
+                  background: "rgba(253, 235, 238, 0.55)",
+                  border: "1.5px solid rgba(107, 26, 46, 0.12)",
                   borderRadius: "var(--radius-md)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
                   transition: "all 0.4s var(--ease-expo)",
                   textAlign: "left",
+                  boxShadow: "0 10px 30px rgba(107, 26, 46, 0.02)",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "16px" }}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#6b1a2e" strokeWidth="2" style={{ width: 18, height: 18 }}>
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                     <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                   </svg>
-                  <span style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "5px", color: "var(--secondary)", textTransform: "uppercase" }}>WHOLESALE ONLY</span>
+                  <span style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "5px", color: "#6b1a2e", textTransform: "uppercase" }}>WHOLESALE ONLY</span>
                 </div>
-                <p style={{ fontWeight: 600, color: "#FFFFFF", lineHeight: 1.8, opacity: 0.85, fontSize: "0.95rem", margin: 0 }}>
+                <p style={{ fontWeight: 600, color: "var(--foreground)", lineHeight: 1.8, opacity: 0.8, fontSize: "0.95rem", margin: 0 }}>
                   We cater exclusively to retail businesses.
                 </p>
               </motion.div>
