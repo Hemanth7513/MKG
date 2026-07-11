@@ -30,7 +30,7 @@ const faqs: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["timing", "timings", "hours", "open", "close", "time", "when"],
-    answer: "Our store is open Monday to Saturday, 9:00 AM – 7:00 PM. We're closed on Sundays and public holidays. We look forward to seeing you!",
+    answer: "Our store is open Monday to Saturday, 10:00 AM – 8:00 PM. We're closed on Sundays and public holidays. We look forward to seeing you!",
   },
   {
     keywords: ["contact", "reach"],
@@ -38,7 +38,7 @@ const faqs: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["call", "phone", "telephone", "ring", "number"],
-    answer: "Please feel free to give us a call at +91 93479 82187. We're available Monday to Saturday, 9:00 AM – 7:00 PM and will be happy to assist you.",
+    answer: "Please feel free to give us a call at +91 93479 82187. We're available Monday to Saturday, 10:00 AM – 8:00 PM and will be happy to assist you.",
   },
   {
     keywords: ["whatsapp", "whats app", "chat", "message", "text"],
