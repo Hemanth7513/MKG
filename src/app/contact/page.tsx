@@ -173,11 +173,11 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                whileHover={{ y: -4, scale: 1.01, background: "rgba(224, 242, 241, 0.65)", borderColor: "rgba(0, 77, 64, 0.2)" }}
+                whileHover={{ y: -4, scale: 1.01, background: "rgba(255, 255, 255, 0.85)", borderColor: "rgba(197, 160, 40, 0.3)" }}
                 style={{
                   padding: "28px 32px",
-                  background: "rgba(224, 242, 241, 0.45)",
-                  border: "1.5px solid rgba(0, 77, 64, 0.12)",
+                  background: "rgba(255, 255, 255, 0.6)",
+                  border: "1.5px solid rgba(197, 160, 40, 0.15)",
                   borderRadius: "var(--radius-md)",
                   backdropFilter: "blur(16px)",
                   WebkitBackdropFilter: "blur(16px)",
@@ -341,7 +341,7 @@ export default function ContactPage() {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.6!2d80.6318!3d16.5149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35eff9b6d1a4b9%3A0xabcdef!2sNaaganna+Trade+One+Mall%2C+One+Town%2C+Vijayawada%2C+Andhra+Pradesh+520001!5e0!3m2!1sen!2sin!4v1234567890"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, filter: "hue-rotate(140deg) saturate(0.4) brightness(0.9)" }}
+                  style={{ border: 0, filter: "grayscale(0.5) contrast(1.1) brightness(0.95)" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
