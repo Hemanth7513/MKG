@@ -233,8 +233,55 @@ export default function ChatBot() {
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const [hasNew, setHasNew] = useState(true);
+  const [isListening, setIsListening] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const recognitionRef = useRef<any>(null);
+
+  // Initialize Speech Recognition
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        
+        recognition.onstart = () => {
+          setIsListening(true);
+        };
+        
+        recognition.onend = () => {
+          setIsListening(false);
+        };
+        
+        recognition.onresult = (event: any) => {
+          const transcript = event.results[0][0].transcript;
+          if (transcript) {
+            setInput(transcript);
+          }
+        };
+        
+        recognitionRef.current = recognition;
+      }
+    }
+  }, []);
+
+  const toggleListening = () => {
+    if (!recognitionRef.current) {
+      alert("Speech recognition is not supported in this browser. Try Chrome, Safari, or Edge.");
+      return;
+    }
+
+    if (isListening) {
+      recognitionRef.current.stop();
+    } else {
+      const localeMap = { en: "en-IN", hi: "hi-IN", te: "te-IN" };
+      recognitionRef.current.lang = localeMap[currentLang] || "en-IN";
+      recognitionRef.current.start();
+    }
+  };
+
 
   // Initialize welcome message based on active language
   useEffect(() => {
@@ -487,6 +534,35 @@ export default function ChatBot() {
                 onFocus={e => (e.currentTarget.style.borderColor = "#3b1a0a")}
                 onBlur={e => (e.currentTarget.style.borderColor = "rgba(59,26,10,0.2)")}
               />
+              <button
+                type="button"
+                onClick={toggleListening}
+                style={{
+                  width: 42,
+                  height: 42,
+                  borderRadius: 12,
+                  border: "none",
+                  background: isListening ? "#f44336" : "rgba(59,26,10,0.06)",
+                  color: isListening ? "#fff" : "#3b1a0a",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                  flexShrink: 0,
+                }}
+              >
+                {isListening ? (
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ repeat: Infinity, duration: 1 }}
+                  >
+                    🎤
+                  </motion.div>
+                ) : (
+                  <span>🎙️</span>
+                )}
+              </button>
               <button
                 type="submit"
                 disabled={!input.trim()}
