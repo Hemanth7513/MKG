@@ -212,12 +212,32 @@ export default function ContactPage() {
                       transition: "all 0.2s",
                     }}
                   >
-                    {copied ? "COPIED! ✓" : "COPY ADDRESS 📋"}
                   </button>
                 </div>
-                <p style={{ fontWeight: 600, color: "var(--foreground)", lineHeight: 1.8, opacity: 0.8, fontSize: "0.95rem", margin: 0, whiteSpace: "pre-line" }}>
+                <p style={{ fontWeight: 600, color: "var(--foreground)", lineHeight: 1.8, opacity: 0.8, fontSize: "0.95rem", marginBottom: "20px", whiteSpace: "pre-line" }}>
                   3rd Floor, A Block{"\n"}Naaganna Trade One Mall{"\n"}One Town, Vijayawada — 520001{"\n"}Andhra Pradesh
                 </p>
+                <a
+                  href="https://maps.google.com/?q=Naaganna+Trade+One+Mall+One+Town+Vijayawada"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary btn-gold"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    padding: "10px 20px",
+                    fontSize: "0.65rem",
+                    borderRadius: "100px",
+                    textDecoration: "none",
+                    fontWeight: 800,
+                    letterSpacing: "1px",
+                    width: "100%",
+                  }}
+                >
+                  GET DIRECTIONS 📍
+                </a>
               </motion.div>
 
               {/* Store Hours Card */}
@@ -248,13 +268,23 @@ export default function ContactPage() {
                   </div>
                   {/* Status Indicator */}
                   <div style={{ display: "flex", alignItems: "center", gap: 8, background: isOpen ? "rgba(0, 77, 64, 0.08)" : "rgba(197, 160, 40, 0.08)", padding: "6px 12px", borderRadius: "100px", border: "1px solid rgba(0, 77, 64, 0.1)" }}>
-                    <span
+                    <motion.span
+                      animate={{
+                        opacity: [1, 0.4, 1],
+                        scale: [1, 1.2, 1]
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
                       style={{
                         width: 8,
                         height: 8,
                         borderRadius: "50%",
                         background: isOpen ? "#4CAF50" : "#FF9800",
                         display: "inline-block",
+                        boxShadow: isOpen ? "0 0 8px #4CAF50" : "0 0 8px #FF9800",
                       }}
                     />
                     <span style={{ fontSize: "0.58rem", fontWeight: 800, color: isOpen ? "var(--primary)" : "var(--secondary)" }}>

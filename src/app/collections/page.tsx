@@ -61,7 +61,9 @@ const categories = [
 export default function CollectionsPage() {
   const [active, setActive] = useState(0);
   const [perspective, setPerspective] = useState(1000);
+  const [viewMode, setViewMode] = useState<"3d" | "grid">("3d");
   const containerRef = useRef<HTMLDivElement>(null);
+
 
   // Auto-adjust perspective based on width
   useEffect(() => {
@@ -105,259 +107,417 @@ export default function CollectionsPage() {
           <h2 style={{ fontFamily: "Syne", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--text)", textTransform: "uppercase", letterSpacing: "-0.5px", margin: 0 }}>
             Our Collections
           </h2>
+
+          {/* View Toggle Mode */}
+          <div style={{ display: "flex", justifyContent: "center", gap: 16, marginTop: "24px" }}>
+            <button
+              onClick={() => setViewMode("3d")}
+              className="btn-primary"
+              style={{
+                padding: "10px 24px",
+                fontSize: "0.68rem",
+                borderRadius: "30px",
+                background: viewMode === "3d" ? "var(--primary)" : "transparent",
+                color: viewMode === "3d" ? "#fff" : "var(--primary)",
+                border: "1.5px solid var(--primary)",
+                cursor: "pointer",
+                fontWeight: 800,
+                letterSpacing: "2px",
+                transition: "all 0.3s ease",
+              }}
+            >
+              3D SHOWCASE
+            </button>
+            <button
+              onClick={() => setViewMode("grid")}
+              className="btn-primary"
+              style={{
+                padding: "10px 24px",
+                fontSize: "0.68rem",
+                borderRadius: "30px",
+                background: viewMode === "grid" ? "var(--primary)" : "transparent",
+                color: viewMode === "grid" ? "#fff" : "var(--primary)",
+                border: "1.5px solid var(--primary)",
+                cursor: "pointer",
+                fontWeight: 800,
+                letterSpacing: "2px",
+                transition: "all 0.3s ease",
+              }}
+            >
+              CATALOGUE GRID
+            </button>
+          </div>
         </div>
-        <div
-          ref={containerRef}
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "550px",
-            perspective: `${perspective}px`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              width: "280px",
-              height: "440px",
-              transformStyle: "preserve-3d",
-            }}
-          >
-            {categories.map((cat, i) => {
-              // Calculate offset index in 3D ring
-              let offset = i - active;
-              
-              // Handle wrap around
-              const half = Math.floor(categories.length / 2);
-              if (offset > half) offset -= categories.length;
-              if (offset < -half) offset += categories.length;
 
-              const isCenter = offset === 0;
-              const isVisible = Math.abs(offset) <= 2; // only show center + neighbors
-
-              // 3D positioning values
-              const rotateY = offset * 36; // Angle offset
-              const translateZ = isCenter ? 50 : -120;
-              const translateX = offset * 240; // Lateral slide
-              const scale = isCenter ? 1 : 0.82;
-              const opacity = isCenter ? 1 : isVisible ? 0.65 : 0;
-              const pointerEvents = isCenter ? "auto" : isVisible ? "auto" : "none";
-
-              return (
+        {viewMode === "grid" ? (
+          <div className="section-container">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+                gap: "32px",
+                marginTop: "40px",
+              }}
+            >
+              {categories.map((cat) => (
                 <motion.div
                   key={cat.id}
-                  onClick={() => i !== active && setActive(i)}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  whileHover={{ y: -8, boxShadow: "var(--shadow-md)" }}
                   style={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100%",
-                    top: 0,
-                    left: 0,
-                    cursor: isCenter ? "default" : "pointer",
-                    pointerEvents,
-                  }}
-                  animate={{
-                    x: translateX,
-                    z: translateZ,
-                    rotateY: rotateY,
-                    scale: scale,
-                    opacity: opacity,
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 140,
-                    damping: 18,
+                    background: "#ffffff",
+                    borderRadius: "var(--radius-lg)",
+                    border: "1.5px solid rgba(0, 77, 64, 0.08)",
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                    position: "relative",
                   }}
                 >
-                  {/* Card Container styled as a premium cut-out panel */}
-                  {/* Transparent Cutout Container */}
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      background: "transparent",
-                      border: "none",
-                      overflow: "visible",
-                      position: "relative",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "flex-end",
-                      alignItems: "center",
-                    }}
-                  >
-                    {/* Shadow pedestal on the floor under the model */}
-                    <div
+                  {/* Category Image */}
+                  <div style={{ height: "300px", width: "100%", position: "relative", background: "linear-gradient(135deg, #fdf8f0 0%, #f9f4eb 100%)" }}>
+                    <Image
+                      src={cat.img}
+                      alt={cat.title}
+                      fill
                       style={{
-                        position: "absolute",
-                        bottom: "35px",
-                        left: "15%",
-                        right: "15%",
-                        height: "12px",
-                        background: "rgba(197, 160, 40, 0.25)",
-                        filter: "blur(5px)",
-                        borderRadius: "50%",
-                        zIndex: 1,
-                        opacity: isCenter ? 1 : 0.4,
-                        transition: "opacity 0.3s",
+                        objectFit: "contain",
+                        padding: "16px",
+                        transition: "transform 0.5s ease",
                       }}
                     />
-
-                    {/* Image Cutout Wrapper */}
-                    <div
+                    <span
                       style={{
                         position: "absolute",
-                        top: "0px",
-                        left: "0px",
-                        right: "0px",
-                        bottom: "55px",
-                        zIndex: 2,
+                        top: "16px",
+                        left: "16px",
+                        background: "var(--secondary)",
+                        color: "#002d25",
+                        fontSize: "0.6rem",
+                        fontWeight: 900,
+                        padding: "4px 10px",
+                        borderRadius: "20px",
+                        letterSpacing: "1px",
                       }}
                     >
-                      <motion.div
-                        style={{ width: "100%", height: "100%", position: "relative" }}
-                        animate={{
-                          y: isCenter ? [0, -12, 0] : 0,
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        <Image
-                          src={cat.img}
-                          alt={cat.title}
-                          fill
-                          style={{
-                            objectFit: "contain",
-                            filter: isCenter 
-                              ? "drop-shadow(0 20px 25px rgba(0,0,0,0.18))" 
-                              : "drop-shadow(0 8px 10px rgba(0,0,0,0.12))",
-                            transition: "filter 0.3s",
-                          }}
-                        />
-                      </motion.div>
-                    </div>
+                      {cat.tag}
+                    </span>
+                  </div>
 
-                    {/* Floating clean labels below the pedestal */}
-                    <div style={{ position: "relative", zIndex: 3, textAlign: "center", marginTop: "12px", opacity: isCenter ? 1 : 0.35, transition: "opacity 0.3s" }}>
-                      <span
-                        style={{
-                          fontSize: "0.55rem",
-                          fontWeight: 800,
-                          letterSpacing: "3px",
-                          color: "var(--gold)",
-                          textTransform: "uppercase",
-                          display: "block",
-                          marginBottom: "4px",
-                        }}
-                      >
-                        {cat.tag}
-                      </span>
-                      <h3
-                        style={{
-                          fontFamily: "Syne",
-                          fontSize: "1.25rem",
-                          fontWeight: 800,
-                          color: "var(--text)",
-                          margin: 0,
-                          textTransform: "uppercase",
-                          letterSpacing: "-0.5px",
-                        }}
-                      >
-                        {cat.title}
-                      </h3>
-                    </div>
+                  {/* Content */}
+                  <div style={{ padding: "28px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
+                    <h3
+                      style={{
+                        fontFamily: "Unbounded",
+                        fontSize: "1.3rem",
+                        fontWeight: 800,
+                        color: "var(--primary)",
+                        marginBottom: "12px",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {cat.title}
+                    </h3>
+                    <p style={{ opacity: 0.65, fontSize: "0.88rem", lineHeight: 1.6, marginBottom: "20px", flexGrow: 1 }}>
+                      {cat.desc}
+                    </p>
+
+                    {/* Bullet Specs */}
+                    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px 0", display: "flex", flexDirection: "column", gap: "8px" }}>
+                      {cat.details.map((detail, dIdx) => (
+                        <li key={dIdx} style={{ fontSize: "0.8rem", display: "flex", alignItems: "center", gap: "8px", opacity: 0.85 }}>
+                          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--secondary)", display: "inline-block" }} />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* WhatsApp Action Button */}
+                    <a
+                      href={`https://wa.me/919347982187?text=Hi%20MK%20Garments%2C%20I'm%20interested%20in%20wholesale%20details%20for%20${encodeURIComponent(cat.title)}.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary btn-gold"
+                      style={{
+                        width: "100%",
+                        padding: "14px 20px",
+                        fontSize: "0.7rem",
+                        borderRadius: "100px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "8px",
+                        textDecoration: "none",
+                        fontWeight: 800,
+                        letterSpacing: "1px",
+                      }}
+                    >
+                      INQUIRE VIA WHATSAPP
+                    </a>
                   </div>
                 </motion.div>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* ── CONTROLS ── */}
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 32, marginTop: "20px" }}>
-          <button
-            onClick={prevSlide}
-            style={{
-              width: 52,
-              height: 52,
-              borderRadius: "50%",
-              border: "1px solid var(--border)",
-              background: "var(--surface)",
-              color: "var(--text)",
-              fontSize: "1.2rem",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "var(--shadow-sm)",
-              transition: "transform 0.2s, background-color 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.08)";
-              e.currentTarget.style.backgroundColor = "var(--blush)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.backgroundColor = "var(--surface)";
-            }}
-          >
-            ←
-          </button>
-
-          {/* Dots Indicator */}
-          <div style={{ display: "flex", gap: 10 }}>
-            {categories.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
+        ) : (
+          <>
+            <div
+              ref={containerRef}
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "550px",
+                perspective: `${perspective}px`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div
                 style={{
-                  width: i === active ? 28 : 8,
-                  height: 8,
-                  borderRadius: "4px",
-                  background: i === active ? "var(--gold)" : "rgba(197, 160, 40, 0.25)",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  padding: 0,
+                  position: "relative",
+                  width: "280px",
+                  height: "440px",
+                  transformStyle: "preserve-3d",
                 }}
-              />
-            ))}
-          </div>
+              >
+                {categories.map((cat, i) => {
+                  // Calculate offset index in 3D ring
+                  let offset = i - active;
+                  
+                  // Handle wrap around
+                  const half = Math.floor(categories.length / 2);
+                  if (offset > half) offset -= categories.length;
+                  if (offset < -half) offset += categories.length;
 
-          <button
-            onClick={nextSlide}
-            style={{
-              width: 52,
-              height: 52,
-              borderRadius: "50%",
-              border: "1px solid var(--border)",
-              background: "var(--surface)",
-              color: "var(--text)",
-              fontSize: "1.2rem",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "var(--shadow-sm)",
-              transition: "transform 0.2s, background-color 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.08)";
-              e.currentTarget.style.backgroundColor = "var(--blush)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.backgroundColor = "var(--surface)";
-            }}
-          >
-            →
-          </button>
-        </div>
+                  const isCenter = offset === 0;
+                  const isVisible = Math.abs(offset) <= 2; // only show center + neighbors
+
+                  // 3D positioning values
+                  const rotateY = offset * 36; // Angle offset
+                  const translateZ = isCenter ? 50 : -120;
+                  const translateX = offset * 240; // Lateral slide
+                  const scale = isCenter ? 1 : 0.82;
+                  const opacity = isCenter ? 1 : isVisible ? 0.65 : 0;
+                  const pointerEvents = isCenter ? "auto" : isVisible ? "auto" : "none";
+
+                  return (
+                    <motion.div
+                      key={cat.id}
+                      onClick={() => i !== active && setActive(i)}
+                      style={{
+                        position: "absolute",
+                        width: "100%",
+                        height: "100%",
+                        top: 0,
+                        left: 0,
+                        cursor: isCenter ? "default" : "pointer",
+                        pointerEvents,
+                      }}
+                      animate={{
+                        x: translateX,
+                        z: translateZ,
+                        rotateY: rotateY,
+                        scale: scale,
+                        opacity: opacity,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 140,
+                        damping: 18,
+                      }}
+                    >
+                      {/* Card Container styled as a premium cut-out panel */}
+                      {/* Transparent Cutout Container */}
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          background: "transparent",
+                          border: "none",
+                          overflow: "visible",
+                          position: "relative",
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                        }}
+                      >
+                        {/* Shadow pedestal on the floor under the model */}
+                        <div
+                          style={{
+                            position: "absolute",
+                            bottom: "35px",
+                            left: "15%",
+                            right: "15%",
+                            height: "12px",
+                            background: "rgba(197, 160, 40, 0.25)",
+                            filter: "blur(5px)",
+                            borderRadius: "50%",
+                            zIndex: 1,
+                            opacity: isCenter ? 1 : 0.4,
+                            transition: "opacity 0.3s",
+                          }}
+                        />
+
+                        {/* Image Cutout Wrapper */}
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "0px",
+                            left: "0px",
+                            right: "0px",
+                            bottom: "55px",
+                            zIndex: 2,
+                          }}
+                        >
+                          <motion.div
+                            style={{ width: "100%", height: "100%", position: "relative" }}
+                            animate={{
+                              y: isCenter ? [0, -12, 0] : 0,
+                            }}
+                            transition={{
+                              duration: 4,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          >
+                            <Image
+                              src={cat.img}
+                              alt={cat.title}
+                              fill
+                              style={{
+                                objectFit: "contain",
+                                filter: isCenter 
+                                  ? "drop-shadow(0 20px 25px rgba(0,0,0,0.18))" 
+                                  : "drop-shadow(0 8px 10px rgba(0,0,0,0.12))",
+                                transition: "filter 0.3s",
+                              }}
+                            />
+                          </motion.div>
+                        </div>
+
+                        {/* Floating clean labels below the pedestal */}
+                        <div style={{ position: "relative", zIndex: 3, textAlign: "center", marginTop: "12px", opacity: isCenter ? 1 : 0.35, transition: "opacity 0.3s" }}>
+                          <span
+                            style={{
+                              fontSize: "0.55rem",
+                              fontWeight: 800,
+                              letterSpacing: "3px",
+                              color: "var(--gold)",
+                              textTransform: "uppercase",
+                              display: "block",
+                              marginBottom: "4px",
+                            }}
+                          >
+                            {cat.tag}
+                          </span>
+                          <h3
+                            style={{
+                              fontFamily: "Syne",
+                              fontSize: "1.25rem",
+                              fontWeight: 800,
+                              color: "var(--text)",
+                              margin: 0,
+                              textTransform: "uppercase",
+                              letterSpacing: "-0.5px",
+                            }}
+                          >
+                            {cat.title}
+                          </h3>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* ── CONTROLS ── */}
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 32, marginTop: "20px" }}>
+              <button
+                onClick={prevSlide}
+                style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: "50%",
+                  border: "1px solid var(--border)",
+                  background: "var(--surface)",
+                  color: "var(--text)",
+                  fontSize: "1.2rem",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "var(--shadow-sm)",
+                  transition: "transform 0.2s, background-color 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.08)";
+                  e.currentTarget.style.backgroundColor = "var(--blush)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.backgroundColor = "var(--surface)";
+                }}
+              >
+                ←
+              </button>
+
+              {/* Dots Indicator */}
+              <div style={{ display: "flex", gap: 10 }}>
+                {categories.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    style={{
+                      width: i === active ? 28 : 8,
+                      height: 8,
+                      borderRadius: "4px",
+                      background: i === active ? "var(--gold)" : "rgba(197, 160, 40, 0.25)",
+                      border: "none",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      padding: 0,
+                    }}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={nextSlide}
+                style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: "50%",
+                  border: "1px solid var(--border)",
+                  background: "var(--surface)",
+                  color: "var(--text)",
+                  fontSize: "1.2rem",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "var(--shadow-sm)",
+                  transition: "transform 0.2s, background-color 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.08)";
+                  e.currentTarget.style.backgroundColor = "var(--blush)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.backgroundColor = "var(--surface)";
+                }}
+              >
+                →
+              </button>
+            </div>
+          </>
+        )}
       </section>
 
       {/* ── FOOTNOTE DISCLAIMER ── */}

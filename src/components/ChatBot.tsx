@@ -423,39 +423,37 @@ export default function ChatBot() {
             </div>
 
             {/* Quick Replies */}
-            {messages.length <= 1 && (
-              <div style={{ padding: "8px 16px", display: "flex", gap: 8, flexWrap: "wrap", background: "#f9f9f7", borderTop: "1px solid rgba(0,0,0,0.04)" }}>
-                {QUICK_REPLIES[currentLang].map((qr) => (
-                  <button
-                    key={qr}
-                    onClick={() => sendMessage(qr)}
-                    style={{
-                      padding: "6px 12px",
-                      borderRadius: 20,
-                      border: "1.5px solid rgba(59,26,10,0.25)",
-                      background: "transparent",
-                      color: "#3b1a0a",
-                      fontSize: "0.73rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.3px",
-                      cursor: "pointer",
-                      transition: "all 0.2s",
-                      fontFamily: "inherit",
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.background = "#3b1a0a";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.background = "transparent";
-                      e.currentTarget.style.color = "#3b1a0a";
-                    }}
-                  >
-                    {qr}
-                  </button>
-                ))}
-              </div>
-            )}
+            <div style={{ padding: "8px 16px", display: "flex", gap: 8, flexWrap: "wrap", background: "#f9f9f7", borderTop: "1px solid rgba(0,0,0,0.04)" }}>
+              {QUICK_REPLIES[currentLang].map((qr) => (
+                <button
+                  key={qr}
+                  onClick={() => sendMessage(qr)}
+                  style={{
+                    padding: "6px 12px",
+                    borderRadius: 20,
+                    border: "1.5px solid rgba(59,26,10,0.25)",
+                    background: "transparent",
+                    color: "#3b1a0a",
+                    fontSize: "0.73rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.3px",
+                    cursor: "pointer",
+                    transition: "all 0.2s",
+                    fontFamily: "inherit",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = "#3b1a0a";
+                    e.currentTarget.style.color = "#fff";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = "#3b1a0a";
+                  }}
+                >
+                  {qr}
+                </button>
+              ))}
+            </div>
 
             {/* Input */}
             <form
