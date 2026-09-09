@@ -887,17 +887,93 @@ body {
 
 /* design: light theme reset comment */
 
-/* ─── VISITING CARD 3D FLIP ─────────────────────────── */
-.visiting-card-section {
-  padding: clamp(60px, 10vw, 120px) 0;
-  background: linear-gradient(180deg, var(--background) 0%, #f3eff8 50%, var(--background) 100%);
-  text-align: center;
+/* ─── VISITING CARD MODAL ───────────────────────────── */
+.vc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 20, 16, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
+.vc-modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 48px 36px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(197, 160, 40, 0.2);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.25), 0 0 60px rgba(197, 160, 40, 0.08);
+  max-width: 440px;
+  width: 90vw;
+}
+
+.vc-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 77, 64, 0.08);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--primary);
+  transition: background 0.3s, transform 0.3s;
+}
+.vc-modal-close:hover {
+  background: rgba(0, 77, 64, 0.15);
+  transform: rotate(90deg);
+}
+
+.vc-modal-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.4;
+  margin-bottom: 6px;
+}
+
+.vc-modal-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 32px;
+}
+
+/* Navbar visiting card button */
+.nav-card-btn {
+  background: none;
+  border: 1.5px solid rgba(197, 160, 40, 0.5);
+  border-radius: 100px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: background 0.3s var(--ease-expo), border-color 0.3s, transform 0.3s;
+}
+.nav-card-btn:hover {
+  background: rgba(197, 160, 40, 0.15);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+/* ─── VISITING CARD 3D FLIP ─────────────────────────── */
 .visiting-card-wrapper {
   perspective: 1200px;
-  width: clamp(280px, 60vw, 420px);
-  aspect-ratio: 9 / 16;
+  width: 300px;
+  height: 480px;
   margin: 0 auto;
   cursor: pointer;
   position: relative;
@@ -917,19 +993,19 @@ body {
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.18),
-    0 8px 20px rgba(138, 100, 180, 0.15);
+    0 20px 50px rgba(0, 0, 0, 0.16),
+    0 6px 16px rgba(138, 100, 180, 0.12);
   transition: box-shadow 0.5s var(--ease-expo);
 }
 
 .visiting-card-wrapper:hover .visiting-card-face {
   box-shadow:
-    0 35px 80px rgba(0, 0, 0, 0.22),
-    0 12px 30px rgba(138, 100, 180, 0.25),
-    0 0 40px rgba(197, 160, 40, 0.1);
+    0 28px 60px rgba(0, 0, 0, 0.2),
+    0 10px 24px rgba(138, 100, 180, 0.2),
+    0 0 30px rgba(197, 160, 40, 0.08);
 }
 
 .visiting-card-front {
@@ -941,11 +1017,11 @@ body {
 }
 
 .visiting-card-hint {
-  margin-top: 24px;
+  margin-top: 20px;
   font-family: 'Unbounded', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 800;
-  letter-spacing: 6px;
+  letter-spacing: 5px;
   color: var(--primary);
   opacity: 0.35;
   text-align: center;
@@ -958,7 +1034,16 @@ body {
 }
 
 @media (max-width: 768px) {
+  .vc-modal-content {
+    padding: 32px 24px 28px;
+    border-radius: 24px;
+  }
   .visiting-card-wrapper {
-    width: clamp(240px, 75vw, 340px);
+    width: 240px;
+    height: 384px;
+  }
+  .vc-modal-title {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
   }
 }

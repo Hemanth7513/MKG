@@ -5,10 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import VisitingCardFlip from "./VisitingCardFlip";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [cardOpen, setCardOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,36 +29,50 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`nav-container ${scrolled ? 'scrolled' : ''}`}>
-      <Link href="/" className="nav-logo-link" style={{ textDecoration: 'none' }}>
-        <Logo size={scrolled ? 32 : 40} />
-      </Link>
+    <>
+      <nav className={`nav-container ${scrolled ? 'scrolled' : ''}`}>
+        <Link href="/" className="nav-logo-link" style={{ textDecoration: 'none' }}>
+          <Logo size={scrolled ? 32 : 40} />
+        </Link>
 
-      <div className="nav-links">
-        {navLinks.map((link) => (
-          <Link
-            key={link.path}
-            href={link.path}
-            className={`nav-link-item ${pathname === link.path ? 'active' : ''}`}
+        <div className="nav-links">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              className={`nav-link-item ${pathname === link.path ? 'active' : ''}`}
+            >
+              {link.name}
+              {pathname === link.path && (
+                <motion.div
+                  layoutId="nav-underline"
+                  className="nav-underline-indicator"
+                  style={{
+                    position: 'absolute',
+                    bottom: '-8px',
+                    left: 0,
+                    right: 0,
+                    height: '2px',
+                    background: 'var(--secondary)',
+                  }}
+                />
+              )}
+            </Link>
+          ))}
+
+          {/* Visiting Card trigger */}
+          <button
+            className="nav-link-item nav-card-btn"
+            onClick={() => setCardOpen(true)}
+            aria-label="View Visiting Card"
           >
-            {link.name}
-            {pathname === link.path && (
-              <motion.div
-                layoutId="nav-underline"
-                className="nav-underline-indicator"
-                style={{
-                  position: 'absolute',
-                  bottom: '-8px',
-                  left: 0,
-                  right: 0,
-                  height: '2px',
-                  background: 'var(--secondary)',
-                }}
-              />
-            )}
-          </Link>
-        ))}
-      </div>
-    </nav>
+            VISITING CARD
+          </button>
+        </div>
+      </nav>
+
+      {/* Modal rendered outside nav */}
+      <VisitingCardFlip isOpen={cardOpen} onClose={() => setCardOpen(false)} />
+    </>
   );
 }
