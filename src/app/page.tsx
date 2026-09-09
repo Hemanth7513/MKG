@@ -8,6 +8,7 @@ import LanguageTicker from "@/components/LanguageTicker";
 import MarqueeStrip from "@/components/MarqueeStrip";
 import CounterStat from "@/components/CounterStat";
 import StitchDivider from "@/components/StitchDivider";
+import VisitingCardFlip from "@/components/VisitingCardFlip";
 
 // Original forest green and gold restore
 const ArrowRight = () => (
@@ -119,6 +120,31 @@ export default function HomePage() {
             </motion.div>
           </div>
         </motion.div>
+      </section>
+
+      {/* ═══ VISITING CARD ═══ */}
+      <section className="visiting-card-section">
+        <div className="section-container">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "7px", textTransform: "uppercase", opacity: 0.4, marginBottom: 16, color: "var(--primary)" }}
+          >
+            Our Identity
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            style={{ fontFamily: "'Unbounded', sans-serif", fontWeight: 800, fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "var(--primary)", marginBottom: 48 }}
+          >
+            Visiting Card
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <VisitingCardFlip />
+          </motion.div>
+        </div>
       </section>
 
       {/* ═══ MARQUEE ═══ */}

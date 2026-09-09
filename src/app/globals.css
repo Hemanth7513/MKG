@@ -886,3 +886,79 @@ body {
 }
 
 /* design: light theme reset comment */
+
+/* ─── VISITING CARD 3D FLIP ─────────────────────────── */
+.visiting-card-section {
+  padding: clamp(60px, 10vw, 120px) 0;
+  background: linear-gradient(180deg, var(--background) 0%, #f3eff8 50%, var(--background) 100%);
+  text-align: center;
+}
+
+.visiting-card-wrapper {
+  perspective: 1200px;
+  width: clamp(280px, 60vw, 420px);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  cursor: pointer;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.visiting-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.visiting-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.18),
+    0 8px 20px rgba(138, 100, 180, 0.15);
+  transition: box-shadow 0.5s var(--ease-expo);
+}
+
+.visiting-card-wrapper:hover .visiting-card-face {
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.22),
+    0 12px 30px rgba(138, 100, 180, 0.25),
+    0 0 40px rgba(197, 160, 40, 0.1);
+}
+
+.visiting-card-front {
+  z-index: 2;
+}
+
+.visiting-card-back {
+  transform: rotateY(180deg);
+}
+
+.visiting-card-hint {
+  margin-top: 24px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 6px;
+  color: var(--primary);
+  opacity: 0.35;
+  text-align: center;
+  animation: hint-pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+  .visiting-card-wrapper {
+    width: clamp(240px, 75vw, 340px);
+  }
+}
