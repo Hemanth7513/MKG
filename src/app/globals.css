@@ -907,19 +907,16 @@ body {
   align-items: center;
   padding: 40px 48px 36px;
   border-radius: 32px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(197, 160, 40, 0.2);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.25), 0 0 60px rgba(197, 160, 40, 0.08);
-  max-width: 440px;
-  width: 90vw;
+  background: transparent;
+  max-width: 560px;
+  width: 92vw;
 }
 
 .vc-modal-close {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(0, 77, 64, 0.08);
+  background: rgba(255, 255, 255, 0.15);
   border: none;
   border-radius: 50%;
   width: 36px;
@@ -928,11 +925,11 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--primary);
+  color: #fff;
   transition: background 0.3s, transform 0.3s;
 }
 .vc-modal-close:hover {
-  background: rgba(0, 77, 64, 0.15);
+  background: rgba(255, 255, 255, 0.3);
   transform: rotate(90deg);
 }
 
@@ -941,8 +938,7 @@ body {
   font-weight: 800;
   letter-spacing: 6px;
   text-transform: uppercase;
-  color: var(--primary);
-  opacity: 0.4;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 6px;
 }
 
@@ -950,7 +946,7 @@ body {
   font-family: 'Unbounded', sans-serif;
   font-weight: 800;
   font-size: 1.6rem;
-  color: var(--primary);
+  color: #fff;
   margin-bottom: 32px;
 }
 
@@ -972,8 +968,8 @@ body {
 /* ─── VISITING CARD 3D FLIP ─────────────────────────── */
 .visiting-card-wrapper {
   perspective: 1200px;
-  width: 300px;
-  height: 480px;
+  width: 480px;
+  height: 300px;
   margin: 0 auto;
   cursor: pointer;
   position: relative;
@@ -1022,8 +1018,7 @@ body {
   font-size: 0.55rem;
   font-weight: 800;
   letter-spacing: 5px;
-  color: var(--primary);
-  opacity: 0.35;
+  color: rgba(255, 255, 255, 0.4);
   text-align: center;
   animation: hint-pulse 2.5s infinite ease-in-out;
 }
@@ -1035,12 +1030,11 @@ body {
 
 @media (max-width: 768px) {
   .vc-modal-content {
-    padding: 32px 24px 28px;
-    border-radius: 24px;
+    padding: 32px 16px 28px;
   }
   .visiting-card-wrapper {
-    width: 240px;
-    height: 384px;
+    width: clamp(280px, 85vw, 420px);
+    height: clamp(175px, 53vw, 263px);
   }
   .vc-modal-title {
     font-size: 1.3rem;
