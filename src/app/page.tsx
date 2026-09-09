@@ -29,7 +29,7 @@ const marqueeItems = [
   "Mohan Krishna Garments", "మోహన్ కృష్ణ గార్మెంట్స్", "मोहन कृष्णा गारमेंट्स",
   "Wholesale Only", "హోల్ సేల్ మాత్రమే", "केवल थोक",
   "Vijayawada's Premier Landmark", "విజయవాడ హోల్ సేల్ సెంటర్", "विजयवाड़ा थोक केंद्र",
-  "Premium Ladies Wear", "Ahmedabad • Surat • Hyderabad"
+  "Premium Ladies Wear", "Ahmedabad • Surat"
 ];
 
 const process = [
