@@ -55,8 +55,41 @@ export default function HomePage() {
       {/* ═══ HERO ═══ */}
       <section ref={heroRef} style={{ minHeight: "100vh", position: "relative", display: "flex", alignItems: "center", overflow: "hidden", paddingTop: 120 }}>
         
-        {/* Deep immersive background parallax layers */}
-
+        {/* Floating gold dust particles */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ 
+              x: (i * 120) - 400, 
+              y: 100, 
+              opacity: 0, 
+              scale: 0.5 
+            }}
+            animate={{ 
+              y: -300, 
+              opacity: [0, 0.4, 0.4, 0],
+              x: [(i * 120) - 400, (i * 120) - 360 + (i % 2 === 0 ? 30 : -30)]
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              delay: i * 1.2,
+              ease: "linear",
+            }}
+            style={{
+              position: "absolute",
+              bottom: "10%",
+              left: "50%",
+              width: i % 2 === 0 ? "5px" : "3px",
+              height: i % 2 === 0 ? "5px" : "3px",
+              borderRadius: "50%",
+              background: "var(--secondary)",
+              boxShadow: "0 0 12px var(--secondary)",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
+        ))}
 
         <motion.div 
           style={{ 
@@ -98,7 +131,7 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 1.1 }}
               style={{ marginTop: 52, display: "flex", gap: 24, alignItems: "center", flexWrap: "wrap" }}
             >
-              <Magnetic>
+              <Magnetic strength={0.35}>
                 <Link href="/collections" className="btn-primary btn-gold">
                   EXPLORE CATALOGUE <ArrowRight />
                 </Link>

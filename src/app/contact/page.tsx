@@ -1,9 +1,9 @@
-// Trigger micro interaction update Vercel build
 "use client";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Magnetic from "@/components/Magnetic";
 
 const contactActions = [
   {
@@ -122,47 +122,49 @@ export default function ContactPage() {
             >
               {/* Action buttons */}
               {contactActions.map((a, i) => (
-                <motion.a
-                  key={i}
-                  href={a.href}
-                  target={a.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.1 }}
-                  whileHover={{ y: -4, boxShadow: "var(--shadow-md)" }}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "20px",
-                    padding: "24px 32px",
-                    background: a.isPrimary ? "var(--primary)" : "white",
-                    borderRadius: "var(--radius-lg)",
-                    border: a.isPrimary ? "none" : "1px solid rgba(0,77,64,0.08)",
-                    boxShadow: "var(--shadow-sm)",
-                    textDecoration: "none",
-                    color: a.isPrimary ? "white" : "var(--foreground)",
-                    transition: "box-shadow 0.3s, transform 0.3s",
-                  }}
-                >
-                  <div style={{
-                    width: 48, height: 48, borderRadius: "12px",
-                    background: a.isPrimary ? "rgba(255,255,255,0.12)" : "rgba(0,77,64,0.06)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    color: a.isPrimary ? "white" : "var(--primary)",
-                    flexShrink: 0,
-                  }}>
-                    {a.icon}
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <p style={{ fontSize: "0.62rem", fontWeight: 800, letterSpacing: "5px", opacity: a.isPrimary ? 0.6 : 0.35, textTransform: "uppercase", marginBottom: "4px" }}>{a.label}</p>
-                    <p style={{ fontWeight: 800, fontSize: "1rem", color: a.isPrimary ? "white" : "var(--primary)" }}>{a.value}</p>
-                    {a.sub && <p style={{ fontSize: "0.75rem", opacity: 0.5, marginTop: "2px" }}>{a.sub}</p>}
-                  </div>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 18, height: 18, opacity: 0.4 }}>
-                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </motion.a>
+                <Magnetic key={i} strength={0.25}>
+                  <motion.a
+                    href={a.href}
+                    target={a.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + i * 0.1 }}
+                    whileHover={{ y: -4, boxShadow: "0 12px 30px rgba(0,77,64,0.12)" }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "20px",
+                      padding: "24px 32px",
+                      background: a.isPrimary ? "var(--primary)" : "white",
+                      borderRadius: "var(--radius-lg)",
+                      border: a.isPrimary ? "none" : "1px solid rgba(0,77,64,0.08)",
+                      boxShadow: "var(--shadow-sm)",
+                      textDecoration: "none",
+                      color: a.isPrimary ? "white" : "var(--foreground)",
+                      transition: "box-shadow 0.3s, transform 0.3s",
+                      width: "100%",
+                    }}
+                  >
+                    <div style={{
+                      width: 48, height: 48, borderRadius: "12px",
+                      background: a.isPrimary ? "rgba(255,255,255,0.12)" : "rgba(0,77,64,0.06)",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      color: a.isPrimary ? "white" : "var(--primary)",
+                      flexShrink: 0,
+                    }}>
+                      {a.icon}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontSize: "0.62rem", fontWeight: 800, letterSpacing: "5px", opacity: a.isPrimary ? 0.6 : 0.35, textTransform: "uppercase", marginBottom: "4px" }}>{a.label}</p>
+                      <p style={{ fontWeight: 800, fontSize: "1rem", color: a.isPrimary ? "white" : "var(--primary)" }}>{a.value}</p>
+                      {a.sub && <p style={{ fontSize: "0.75rem", opacity: 0.5, marginTop: "2px" }}>{a.sub}</p>}
+                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 18, height: 18, opacity: 0.4 }}>
+                      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </motion.a>
+                </Magnetic>
               ))}
 
               {/* Divider */}

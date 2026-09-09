@@ -82,7 +82,26 @@ export default function AboutPage() {
       </section>
  
       {/* ── INTRO ── */}
-      <section style={{ padding: '0 0 80px' }}>
+      <section style={{ padding: '0 0 80px', position: 'relative' }}>
+        {/* Animated golden thread line down the left border */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            position: 'absolute',
+            left: 'calc(50% - 1px)',
+            top: '0',
+            bottom: '0',
+            width: '2px',
+            background: 'linear-gradient(to bottom, transparent, var(--secondary), transparent)',
+            transformOrigin: 'top',
+            pointerEvents: 'none',
+            opacity: 0.2,
+          }}
+        />
+
         <div className="section-container">
           <div className="grid-editorial" style={{ alignItems: 'center' }}>
             <motion.div
@@ -157,7 +176,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
-                whileHover={{ y: -6, scale: 1.01, boxShadow: v.shadow }}
+                whileHover={{ y: -10, scale: 1.02, boxShadow: v.shadow }}
                 className="process-card"
                 style={{
                   background: v.bg,

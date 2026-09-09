@@ -69,7 +69,7 @@ export default function VisitingCardFlip({ isOpen, onClose }: { isOpen: boolean;
                     alt="MK Garments Visiting Card — Front"
                     fill
                     sizes="360px"
-                    style={{ objectFit: "cover", borderRadius: "inherit" }}
+                    style={{ objectFit: "contain" }}
                     priority
                   />
                 </div>
@@ -81,7 +81,7 @@ export default function VisitingCardFlip({ isOpen, onClose }: { isOpen: boolean;
                     alt="MK Garments Visiting Card — Back (Contact Details)"
                     fill
                     sizes="360px"
-                    style={{ objectFit: "cover", borderRadius: "inherit" }}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
               </motion.div>

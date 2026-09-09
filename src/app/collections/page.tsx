@@ -166,7 +166,7 @@ export default function CollectionsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  whileHover={{ y: -8, boxShadow: "var(--shadow-md)" }}
+                  whileHover={{ y: -10, scale: 1.02, boxShadow: "0 20px 40px rgba(0,77,64,0.14)" }}
                   style={{
                     background: "#ffffff",
                     borderRadius: "var(--radius-lg)",
@@ -175,10 +175,11 @@ export default function CollectionsPage() {
                     display: "flex",
                     flexDirection: "column",
                     position: "relative",
+                    transition: "border-color 0.3s ease",
                   }}
                 >
                   {/* Category Image */}
-                  <div style={{ height: "300px", width: "100%", position: "relative", background: "linear-gradient(135deg, #fdf8f0 0%, #f9f4eb 100%)" }}>
+                  <div style={{ height: "300px", width: "100%", position: "relative", background: "linear-gradient(135deg, #fdf8f0 0%, #f9f4eb 100%)", overflow: "hidden" }}>
                     <Image
                       src={cat.img}
                       alt={cat.title}
@@ -186,7 +187,7 @@ export default function CollectionsPage() {
                       style={{
                         objectFit: "contain",
                         padding: "16px",
-                        transition: "transform 0.5s ease",
+                        transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
                       }}
                     />
                     <span
@@ -201,6 +202,7 @@ export default function CollectionsPage() {
                         padding: "4px 10px",
                         borderRadius: "20px",
                         letterSpacing: "1px",
+                        boxShadow: "0 4px 12px rgba(197,160,40,0.25)",
                       }}
                     >
                       {cat.tag}
@@ -235,28 +237,30 @@ export default function CollectionsPage() {
                       ))}
                     </ul>
 
-                    {/* WhatsApp Action Button */}
-                    <a
-                      href={`https://wa.me/919347982187?text=Hi%20MK%20Garments%2C%20I'm%20interested%20in%20wholesale%20details%20for%20${encodeURIComponent(cat.title)}.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary btn-gold"
-                      style={{
-                        width: "100%",
-                        padding: "14px 20px",
-                        fontSize: "0.7rem",
-                        borderRadius: "100px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "8px",
-                        textDecoration: "none",
-                        fontWeight: 800,
-                        letterSpacing: "1px",
-                      }}
-                    >
-                      INQUIRE VIA WHATSAPP
-                    </a>
+                    {/* WhatsApp Action Button with Magnetic */}
+                    <Magnetic strength={0.25}>
+                      <a
+                        href={`https://wa.me/919347982187?text=Hi%20MK%20Garments%2C%20I'm%20interested%20in%20wholesale%20details%20for%20${encodeURIComponent(cat.title)}.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary btn-gold"
+                        style={{
+                          width: "100%",
+                          padding: "14px 20px",
+                          fontSize: "0.7rem",
+                          borderRadius: "100px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                          textDecoration: "none",
+                          fontWeight: 800,
+                          letterSpacing: "1px",
+                        }}
+                      >
+                        INQUIRE VIA WHATSAPP
+                      </a>
+                    </Magnetic>
                   </div>
                 </motion.div>
               ))}
