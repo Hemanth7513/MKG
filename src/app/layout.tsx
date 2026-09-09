@@ -6,7 +6,7 @@ import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
 import ChatBot from "@/components/ChatBot";
-
+import ScrollToTop from "@/components/ScrollToTop";
 
 import type { Viewport } from "next";
 
@@ -46,7 +46,7 @@ export default function RootLayout({
           </PageTransition>
           <Analytics />
           <ChatBot />
-
+          <ScrollToTop />
         </LanguageProvider>
       </body>
     </html>

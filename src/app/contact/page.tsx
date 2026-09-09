@@ -328,6 +328,53 @@ export default function ContactPage() {
                   We cater exclusively to retail businesses.
                 </p>
               </motion.div>
+
+              {/* Out-of-Station Retailer Landmark & Travel Guide */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                whileHover={{ y: -4, scale: 1.01, background: "rgba(240, 248, 245, 0.95)", borderColor: "rgba(0, 77, 64, 0.3)" }}
+                style={{
+                  padding: "28px 32px",
+                  background: "rgba(240, 248, 245, 0.75)",
+                  border: "1.5px solid rgba(0, 77, 64, 0.15)",
+                  borderRadius: "var(--radius-md)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  transition: "all 0.4s var(--ease-expo)",
+                  textAlign: "left",
+                  boxShadow: "0 10px 30px rgba(0, 77, 64, 0.03)",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: "16px" }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" style={{ width: 18, height: 18 }}>
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                  <span style={{ fontSize: "0.68rem", fontWeight: 800, letterSpacing: "4px", color: "var(--primary)", textTransform: "uppercase" }}>VISITING RETAILER GUIDE</span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.88rem", opacity: 0.85, lineHeight: 1.6 }}>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                    <span style={{ fontSize: "1rem" }}>🚆</span>
+                    <div>
+                      <strong style={{ color: "var(--primary)" }}>Vijayawada Railway Station (BZA):</strong> ~2.5 km away (10 mins by Auto/Cab).
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                    <span style={{ fontSize: "1rem" }}>🚌</span>
+                    <div>
+                      <strong style={{ color: "var(--primary)" }}>Pandit Nehru Bus Stand (PNBS):</strong> ~2.0 km away (8 mins by Auto).
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                    <span style={{ fontSize: "1rem" }}>📍</span>
+                    <div>
+                      <strong style={{ color: "var(--primary)" }}>Key Landmark:</strong> Near One Town Center, Naaganna Trade One Mall, 3rd Floor, A Block. Direct shared/private autos available from BZA &amp; Bus Stand.
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* ─ RIGHT: Map ─ */}
