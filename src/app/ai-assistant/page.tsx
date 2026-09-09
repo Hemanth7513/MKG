@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Magnetic from "@/components/Magnetic";
 
 const steps = [
   {
@@ -164,14 +163,12 @@ export default function HelpPage() {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  whileHover={{ y: -8, scale: 1.02, boxShadow: "0 14px 35px rgba(197, 160, 40, 0.18)" }}
                   style={{
                     background: "white",
                     borderRadius: "var(--radius-lg)",
                     padding: "32px 28px",
                     border: "1px solid rgba(0,77,64,0.07)",
                     boxShadow: "var(--shadow-sm)",
-                    transition: "all 0.3s ease",
                   }}
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
