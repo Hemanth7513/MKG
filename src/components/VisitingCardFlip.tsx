@@ -6,38 +6,10 @@ import Image from "next/image";
 
 export default function VisitingCardFlip({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [saved, setSaved] = useState(false);
 
   const handleClose = () => {
     setIsFlipped(false);
     onClose();
-  };
-
-  const downloadVCard = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    const vcardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Mohan Krishna Garments & Cloth
-ORG:Mohan Krishna Garments & Cloth
-TITLE:Wholesale Ladies Wear
-TEL;TYPE=CELL,VOICE:+919347982187
-EMAIL;TYPE=INTERNET:bza.gupta@gmail.com
-ADR;TYPE=WORK:;;3rd Floor A Block Naaganna Trade One Mall One Town;Vijayawada;Andhra Pradesh;520001;India
-NOTE:Exclusive Wholesale Dealers for Ladies Wear in Vijayawada. Surat & Ahmedabad Stock.
-URL:https://mk-garments-web.vercel.app
-END:VCARD`;
-
-    const blob = new Blob([vcardData], { type: "text/vcard;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", "Mohan_Krishna_Garments.vcf");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
   };
 
   const downloadImage = (e: React.MouseEvent) => {
@@ -139,55 +111,30 @@ END:VCARD`;
               {isFlipped ? "TAP CARD TO SEE FRONT" : "TAP CARD TO FLIP"}
             </motion.p>
 
-            {/* Action buttons bar */}
-            <div style={{ display: "flex", gap: "12px", justifyContent: "center", width: "100%", flexWrap: "wrap" }}>
-              <motion.button
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
-                onClick={downloadVCard}
-                className="btn-primary btn-gold"
-                style={{
-                  padding: "10px 20px",
-                  fontSize: "0.65rem",
-                  borderRadius: "100px",
-                  fontWeight: 800,
-                  letterSpacing: "1px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 14, height: 14 }}>
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="8.5" cy="7" r="4" /><line x1="20" y1="8" x2="20" y2="14" /><line x1="23" y1="11" x2="17" y2="11" />
-                </svg>
-                {saved ? "ADDED TO CONTACTS ✓" : "SAVE TO CONTACTS (.VCF)"}
-              </motion.button>
-
+            {/* Action button */}
+            <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={downloadImage}
+                className="btn-primary btn-gold"
                 style={{
-                  padding: "10px 18px",
-                  fontSize: "0.65rem",
+                  padding: "12px 28px",
+                  fontSize: "0.68rem",
                   borderRadius: "100px",
                   fontWeight: 800,
                   letterSpacing: "1px",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "6px",
-                  background: "rgba(255, 255, 255, 0.12)",
-                  border: "1px solid rgba(255, 255, 255, 0.25)",
-                  color: "#FFFFFF",
+                  gap: "8px",
+                  border: "none",
                   cursor: "pointer",
                 }}
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 14, height: 14 }}>
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
-                DOWNLOAD CARD
+                DOWNLOAD CARD IMAGE
               </motion.button>
             </div>
 
