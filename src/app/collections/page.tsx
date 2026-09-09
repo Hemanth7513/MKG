@@ -213,12 +213,14 @@ export default function CollectionsPage() {
                   <div style={{ padding: "28px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
                     <h3
                       style={{
-                        fontFamily: "Unbounded",
-                        fontSize: "1.3rem",
-                        fontWeight: 800,
+                        fontFamily: "var(--brush-font)",
+                        fontSize: "2.1rem",
+                        fontWeight: 600,
                         color: "var(--primary)",
-                        marginBottom: "12px",
-                        textTransform: "uppercase",
+                        marginBottom: "8px",
+                        letterSpacing: "0.5px",
+                        textTransform: "none",
+                        lineHeight: 1.2,
                       }}
                     >
                       {cat.title}
@@ -421,13 +423,14 @@ export default function CollectionsPage() {
                           </span>
                           <h3
                             style={{
-                              fontFamily: "Syne",
-                              fontSize: "1.25rem",
-                              fontWeight: 800,
+                              fontFamily: "var(--brush-font)",
+                              fontSize: "1.9rem",
+                              fontWeight: 600,
                               color: "var(--text)",
                               margin: 0,
-                              textTransform: "uppercase",
-                              letterSpacing: "-0.5px",
+                              textTransform: "none",
+                              letterSpacing: "0.5px",
+                              lineHeight: 1.2,
                             }}
                           >
                             {cat.title}
